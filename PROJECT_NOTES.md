@@ -7,11 +7,12 @@
 - `react-router-dom`
     - 라우팅 관리용.
     - 라우트 정의 파일: `jonsoft/src/routes/AppRoutes.jsx`
-    - 진입점: `jonsoft/src/App.js`
-- `sass`
-    - SCSS 사용을 위한 패키지.
+    - 진입점: `jonsoft/src/App.jsx`
+- `sass` (alias → `sass-embedded`)
+    - SCSS 사용을 위한 패키지(Vite에서 embedded 구현 사용, legacy JS API 경고 제거 목적).
     - 엔트리: `jonsoft/src/assets/styles/main.scss`
     - 적용 위치: `jonsoft/src/main.jsx`에서 `main.scss` import
+    - Vite 설정: `vite.config.js`에서 Sass modern API 사용
 
 ## Vite 마이그레이션
 
