@@ -1,0 +1,13 @@
+@use "./base/reset";
+@use "./base/variables";
+@use "./base/typography";
+
+@use "./components/button";
+@use "./components/input";
+@use "./components/badge";
+
+@use "./layout/gnb";
+@use "./layout/footer";
+@use "./layout/container";
+
+@use "./pages/main";
