@@ -1,0 +1,100 @@
+@use "sass:map";
+
+// base/_fonts.scss
+$font-base: 'Pretendard', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', Arial, sans-serif;
+
+
+// typography/_scale.scss
+$font-scale: (
+    48: (size: 48px, line: 34px),
+    40: (size: 40px, line: 28px),
+    32: (size: 32px, line: 24px),
+    28: (size: 28px, line: 20px),
+    24: (size: 24px, line: 18px),
+    22: (size: 22px, line: 14px),
+    20: (size: 20px, line: 14px),
+    18: (size: 18px, line: 10px),
+    16: (size: 16px, line: 10px),
+    14: (size: 14px, line: 8px),
+    13: (size: 13px, line: 10px),
+    12: (size: 12px, line: 8px),
+);
+
+// typography/_mixin.scss
+@mixin text($scale, $weight: 400) {
+    $token: map.get($font-scale, $scale);
+
+    font: #{$weight} #{map.get($token, size)}/#{map.get($token, line)} #{$font-base};
+}
+
+// typography/_semantic.scss
+$title-1: (
+    scale: 24,
+    weight: 700
+);
+$title-2: (
+    scale: 22,
+    weight: 600
+);
+$title-3: (
+    scale: 20,
+    weight: 600
+);
+
+$body-lg: (
+    scale: 18,
+    weight: 400
+);
+$body: (
+    scale: 16,
+    weight: 400
+);
+$body-sm: (
+    scale: 14,
+    weight: 400
+);
+
+$button: (
+    scale: 14,
+    weight: 600
+);
+$button-sm: (
+    scale: 12,
+    weight: 600
+);
+
+@mixin font($token) {
+    @include text(
+        map.get($token, scale),
+        map.get($token, weight)
+    );
+}
+
+.title {
+    @include font($title-1);
+}
+
+// colors/_tokens.scss
+$primary-800: #04414A;
+$primary-700: #0A545E;
+$primary-500: #00626F;
+$primary-300: #4BB2BF;
+$primary-100: #B2E0E6;
+
+$secondary-700: #006CC7;
+$secondary-600: #2687D8;
+$secondary-300: #7CC3FF;
+
+$success: #32C771;
+$warning: #FFAA00;
+$error: #EB5757;
+
+$black-0: #000000;
+$black-1: #505050;
+$black-2: #767676;
+$black-3: #D9D9D9;
+$black-4: #F0F0F0;
+$black-5: #F5F6F7;
+$white: #FFFFFF;
