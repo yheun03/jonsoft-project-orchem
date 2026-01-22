@@ -8,18 +8,17 @@ $font-base: 'Pretendard', -apple-system, BlinkMacSystemFont,
 
 // typography/_scale.scss
 $font-scale: (
-    48: (size: 48px, line: 34px),
-    40: (size: 40px, line: 28px),
-    32: (size: 32px, line: 24px),
-    28: (size: 28px, line: 20px),
-    24: (size: 24px, line: 18px),
-    22: (size: 22px, line: 14px),
-    20: (size: 20px, line: 14px),
-    18: (size: 18px, line: 10px),
-    16: (size: 16px, line: 10px),
-    14: (size: 14px, line: 8px),
-    13: (size: 13px, line: 10px),
-    12: (size: 12px, line: 8px),
+    48: (size: 48px, line: 56px),
+    40: (size: 40px, line: 48px),
+    32: (size: 32px, line: 40px),
+    28: (size: 28px, line: 36px),
+    24: (size: 24px, line: 32px),
+    22: (size: 22px, line: 30px),
+    20: (size: 20px, line: 28px),
+    18: (size: 18px, line: 26px),
+    16: (size: 16px, line: 24px),
+    14: (size: 14px, line: 22px),
+    12: (size: 12px, line: 20px),
 );
 
 // typography/_mixin.scss
@@ -30,40 +29,23 @@ $font-scale: (
 }
 
 // typography/_semantic.scss
-$title-1: (
-    scale: 24,
-    weight: 700
-);
-$title-2: (
-    scale: 22,
-    weight: 600
-);
-$title-3: (
-    scale: 20,
-    weight: 600
-);
+$heading-1: ( scale: 48, weight: 700 );
+$heading-2: ( scale: 40, weight: 700 );
+$heading-3: ( scale: 32, weight: 700 );
+$heading-4: ( scale: 28, weight: 600 );
 
-$body-lg: (
-    scale: 18,
-    weight: 400
-);
-$body: (
-    scale: 16,
-    weight: 400
-);
-$body-sm: (
-    scale: 14,
-    weight: 400
-);
+$title-1:   ( scale: 24, weight: 600 );
+$title-2:   ( scale: 22, weight: 600 );
+$title-3:   ( scale: 20, weight: 600 );
 
-$button: (
-    scale: 14,
-    weight: 600
-);
-$button-sm: (
-    scale: 12,
-    weight: 600
-);
+$body-1:    ( scale: 18, weight: 500 );
+$body-2:    ( scale: 18, weight: 500 );
+$body-3:    ( scale: 16, weight: 500 );
+$body-4:    ( scale: 14, weight: 500 );
+$body-5:    ( scale: 12, weight: 500 );
+
+$button-1:  ( scale: 16, weight: 600 );
+$button-2:  ( scale: 14, weight: 600 );
 
 @mixin font($token) {
     @include text(
