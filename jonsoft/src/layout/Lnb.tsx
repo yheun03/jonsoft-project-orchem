@@ -1,22 +1,14 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import SettingIcon from "../assets/icons/28/ic-setting.svg?react";
 
-export default function Lnb() {
-    const [isClosed, setIsCollapsed] = useState(false);
+type LnbProps = {
+    isClosed: boolean;
+    onToggle: () => void;
+};
 
+export default function Lnb({ isClosed, onToggle }: LnbProps) {
     return (
         <aside className={`lnb${isClosed ? " lnb--closed" : ""}`}>
-            <div className="lnb-header">
-                <button
-                    type="button"
-                    className="lnb__toggle"
-                    aria-expanded={!isClosed}
-                    onClick={() => setIsCollapsed((prev) => !prev)}
-                >
-                    <SettingIcon aria-hidden="true" focusable="false" />
-                </button>
-            </div>
+            <button type="button" onClick={onToggle} aria-label="LNB 토글" />
             <div className="lnb-body">
                 <nav className="lnb__nav">
                     <ul className="lnb__nav-list">
