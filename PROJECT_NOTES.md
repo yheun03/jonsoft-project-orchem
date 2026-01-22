@@ -13,6 +13,10 @@
     - 엔트리: `jonsoft/src/assets/styles/main.scss`
     - 적용 위치: `jonsoft/src/main.jsx`에서 `main.scss` import
     - Vite 설정: `vite.config.js`에서 Sass modern API 사용
+- `vite-plugin-svgr`
+    - SVG를 React 컴포넌트로 임포트하기 위한 플러그인.
+    - 예시: `import SettingIcon from "../assets/icons/28/ic-setting.svg?react";`
+    - Vite 설정: `vite.config.js`의 `plugins`에 추가
 
 ## Vite 마이그레이션
 
