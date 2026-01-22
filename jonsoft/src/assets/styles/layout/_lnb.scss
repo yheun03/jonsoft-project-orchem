@@ -21,15 +21,7 @@
     cursor: pointer;
 }
 
-.lnb__title {
-    font-weight: 600;
-}
-
-.lnb--collapsed {
+.lnb--closed {
     width: 64px;
     padding: 16px 8px;
-}
-
-.lnb--collapsed .lnb__title-text {
-    display: none;
 }
