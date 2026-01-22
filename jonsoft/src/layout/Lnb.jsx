@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SettingIcon from "../assets/icons/28/ic-setting.svg?react";
 
 export default function Lnb() {
@@ -6,19 +7,27 @@ export default function Lnb() {
 
     return (
         <aside className={`lnb${isClosed ? " lnb--closed" : ""}`}>
-            <nav className="lnb__nav">
-                <button type="button" className="lnb__icon-button" aria-label="설정">
-                    <SettingIcon className="lnb__icon" aria-hidden="true" focusable="false" />
-                </button>
+            <div className="lnb-header">
                 <button
                     type="button"
                     className="lnb__toggle"
                     aria-expanded={!isClosed}
                     onClick={() => setIsCollapsed((prev) => !prev)}
                 >
-                    {isClosed ? ">" : "<"}
+                    <SettingIcon aria-hidden="true" focusable="false" />
                 </button>
-            </nav>
+            </div>
+            <div className="lnb-body">
+                <nav className="lnb__nav">
+                    <ul className="lnb__nav-list">
+                        <li className="lnb__nav-item">
+                            <Link to="/" className="lnb__nav-link">
+                                <span className="lnb__nav-text">Home</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </aside>
     );
 }

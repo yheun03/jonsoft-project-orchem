@@ -6,21 +6,6 @@
     transition: width 0.2s ease;
 }
 
-.lnb__nav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.lnb__toggle {
-    border: 1px solid #D9D9D9;
-    background: #FFFFFF;
-    border-radius: 6px;
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-}
-
 .lnb--closed {
     width: 64px;
     padding: 16px 8px;
