@@ -8,8 +8,8 @@ export default function AppRoutes() {
         <Routes>
             <Route element={<AppLayout />}>
                 <Route path="/" element={<Home />} />
-                <Route path="*" element={<NotFound />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 }
