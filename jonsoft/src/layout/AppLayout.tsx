@@ -2,7 +2,13 @@ import { Outlet } from "react-router-dom";
 import Gnb from "./Gnb";
 import Lnb from "./Lnb";
 
-export default function AppLayout({ layoutType = "lnb-gnb" }) {
+type LayoutType = "lnb-gnb" | "gnb-gnb";
+
+type AppLayoutProps = {
+    layoutType?: LayoutType;
+};
+
+export default function AppLayout({ layoutType = "lnb-gnb" }: AppLayoutProps) {
     return (
         <div className={`app-layout app-layout--${layoutType}`}>
             <div className="app-layout__grid">

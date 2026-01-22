@@ -6,22 +6,25 @@
 
 - `react-router-dom`
     - 라우팅 관리용.
-    - 라우트 정의 파일: `jonsoft/src/routes/AppRoutes.jsx`
-    - 진입점: `jonsoft/src/App.jsx`
+    - 라우트 정의 파일: `jonsoft/src/routes/AppRoutes.tsx`
+    - 진입점: `jonsoft/src/App.tsx`
 - `sass` (alias → `sass-embedded`)
     - SCSS 사용을 위한 패키지(Vite에서 embedded 구현 사용, legacy JS API 경고 제거 목적).
     - 엔트리: `jonsoft/src/assets/styles/main.scss`
-    - 적용 위치: `jonsoft/src/main.jsx`에서 `main.scss` import
+    - 적용 위치: `jonsoft/src/main.tsx`에서 `main.scss` import
     - Vite 설정: `vite.config.js`에서 Sass modern API 사용
 - `vite-plugin-svgr`
     - SVG를 React 컴포넌트로 임포트하기 위한 플러그인.
     - 예시: `import SettingIcon from "../assets/icons/28/ic-setting.svg?react";`
     - Vite 설정: `vite.config.js`의 `plugins`에 추가
+- `typescript`, `@types/react`, `@types/react-dom`, `@types/react-router-dom`
+    - 타입스크립트 마이그레이션을 위한 타입 패키지.
+    - 타입 설정: `jonsoft/tsconfig.json`
 
 ## Vite 마이그레이션
 
 - 런타임/빌드 도구: CRA(`react-scripts`) → Vite
-- 엔트리 변경: `jonsoft/src/index.js` → `jonsoft/src/main.jsx`
+- 엔트리 변경: `jonsoft/src/index.js` → `jonsoft/src/main.tsx`
 - 루트 HTML: `jonsoft/public/index.html` → `jonsoft/index.html`
 
 ### Vite로 전환한 이유
@@ -32,9 +35,17 @@
 
 ## 라우팅 구조
 
-- `jonsoft/src/routes/AppRoutes.jsx`
-    - `/` → `jonsoft/src/pages/Home.jsx`
-    - `*` → `jonsoft/src/pages/NotFound.jsx`
+- `jonsoft/src/routes/AppRoutes.tsx`
+    - `/` → `jonsoft/src/pages/Home.tsx`
+    - `*` → `jonsoft/src/pages/NotFound.tsx`
+
+## 타입스크립트 마이그레이션
+
+- 엔트리: `jonsoft/src/main.tsx`
+- 앱 루트: `jonsoft/src/App.tsx`
+- 레이아웃: `jonsoft/src/layout/AppLayout.tsx`, `jonsoft/src/layout/Gnb.tsx`, `jonsoft/src/layout/Lnb.tsx`
+- 페이지: `jonsoft/src/pages/Home.tsx`, `jonsoft/src/pages/NotFound.tsx`
+- Vite 타입 선언: `jonsoft/src/vite-env.d.ts`
 
 ## 스타일 구조
 
