@@ -7,7 +7,7 @@ export default function Gnb({ onToggleLnb }: GnbProps) {
         <header className="gnb">
             <button type="button" onClick={onToggleLnb} aria-label="LNB 토글" />
             <div className="gnb__inner">
-                <span className="gnb__title">JO&amp;SOFT</span>
+                <span className="gnb__title heading-3">JO&amp;SOFT</span>
             </div>
         </header>
     );

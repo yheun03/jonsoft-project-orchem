@@ -1,6 +1,4 @@
-@use "./base/reset";
-@use "./base/variables";
-@use "./base/typography";
+@use "./base" as base;
 
 @use "./components/button";
 @use "./components/input";
@@ -15,5 +13,7 @@
 
 
 *{
-    font-family: 'Pretendard', sans-serif;
+    font-family: base.$font-base, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', Arial, sans-serif;
 }

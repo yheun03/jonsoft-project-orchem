@@ -17,6 +17,11 @@ export default function Lnb({ isClosed, onToggle }: LnbProps) {
                                 <span className="lnb__nav-text">Home</span>
                             </Link>
                         </li>
+                        <li className="lnb__nav-item">
+                            <Link to="/components" className="lnb__nav-link">
+                                <span className="lnb__nav-text">Components</span>
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

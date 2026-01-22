@@ -1,9 +1,7 @@
 @use "sass:map";
 
 // base/_fonts.scss
-$font-base: 'Pretendard', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR',
-    'Malgun Gothic', Arial, sans-serif;
+$font-base: "Pretendard";
 
 
 // typography/_scale.scss
@@ -33,17 +31,14 @@ $heading-1: ( scale: 48, weight: 700 );
 $heading-2: ( scale: 40, weight: 700 );
 $heading-3: ( scale: 32, weight: 700 );
 $heading-4: ( scale: 28, weight: 600 );
-
 $title-1:   ( scale: 24, weight: 600 );
 $title-2:   ( scale: 22, weight: 600 );
 $title-3:   ( scale: 20, weight: 600 );
-
 $body-1:    ( scale: 18, weight: 500 );
 $body-2:    ( scale: 18, weight: 500 );
 $body-3:    ( scale: 16, weight: 500 );
 $body-4:    ( scale: 14, weight: 500 );
 $body-5:    ( scale: 12, weight: 500 );
-
 $button-1:  ( scale: 16, weight: 600 );
 $button-2:  ( scale: 14, weight: 600 );
 
@@ -54,9 +49,20 @@ $button-2:  ( scale: 14, weight: 600 );
     );
 }
 
-.title {
-    @include font($title-1);
-}
+.heading-1  {@include font($heading-1);}
+.heading-2  {@include font($heading-2);}
+.heading-3  {@include font($heading-3);}
+.heading-4  {@include font($heading-4);}
+.title-1    {@include font($title-1);}
+.title-2    {@include font($title-2);}
+.title-3    {@include font($title-3);}
+.body-1     {@include font($body-1);}
+.body-2     {@include font($body-2);}
+.body-3     {@include font($body-3);}
+.body-4     {@include font($body-4);}
+.body-5     {@include font($body-5);}
+.button-1   {@include font($button-1);}
+.button-2   {@include font($button-2);}
 
 // colors/_tokens.scss
 $primary-800: #04414A;

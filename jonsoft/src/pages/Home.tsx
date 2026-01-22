@@ -1,8 +1,8 @@
 export default function Home() {
     return (
         <main>
-            <h1>홈</h1>
-            <p>라우팅이 연결되었습니다.</p>
+            <h1 className="title-1">Home</h1>
+            <p className="body-1">메인 화면입니다.</p>
         </main>
     );
 }
