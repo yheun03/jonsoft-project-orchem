@@ -1,15 +1,35 @@
 .app-layout {
-    display: flex;
     min-height: 100vh;
-    flex-direction: column;
 }
 
-.app-layout__body {
-    display: flex;
-    flex: 1;
+.app-layout__grid {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+.app-layout--lnb-gnb .app-layout__grid {
+    grid-template-areas:
+        "lnb gnb"
+        "lnb content";
+}
+
+.app-layout--gnb-gnb .app-layout__grid {
+    grid-template-areas:
+        "gnb gnb"
+        "lnb content";
+}
+
+.app-layout__gnb {
+    grid-area: gnb;
+}
+
+.app-layout__lnb {
+    grid-area: lnb;
 }
 
 .app-layout__content {
-    flex: 1;
+    grid-area: content;
     padding: 24px;
 }

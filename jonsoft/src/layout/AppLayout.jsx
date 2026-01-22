@@ -2,12 +2,16 @@ import { Outlet } from "react-router-dom";
 import Gnb from "./Gnb";
 import Lnb from "./Lnb";
 
-export default function AppLayout() {
+export default function AppLayout({ layoutType = "lnb-gnb" }) {
     return (
-        <div className="app-layout">
-            <Gnb />
-            <div className="app-layout__body">
-                <Lnb />
+        <div className={`app-layout app-layout--${layoutType}`}>
+            <div className="app-layout__grid">
+                <div className="app-layout__gnb">
+                    <Gnb />
+                </div>
+                <div className="app-layout__lnb">
+                    <Lnb />
+                </div>
                 <main className="app-layout__content">
                     <Outlet />
                 </main>
