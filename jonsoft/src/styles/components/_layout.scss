@@ -1,0 +1,111 @@
+@use '../base/variables' as *;
+
+.layout {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "lnb gnb"
+        "lnb content";
+    background: $white;
+}
+
+.layout--gnb-full {
+    grid-template-areas:
+        "gnb gnb"
+        "lnb content";
+}
+
+.layout--no-lnb {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "gnb"
+        "content";
+}
+
+.layout__gnb {
+    grid-area: gnb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid $black-3;
+    background: $white;
+}
+
+.layout__lnb {
+    grid-area: lnb;
+    border-right: 1px solid $black-3;
+    background: $black-5;
+    padding: 24px 16px;
+}
+
+.layout__content {
+    grid-area: content;
+    padding: 32px;
+}
+
+.app-header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-header__brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: $primary-700;
+}
+
+.app-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.95rem;
+    color: $black-1;
+}
+
+.app-header__nav a:hover {
+    color: $primary-700;
+}
+
+.app-lnb__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.app-lnb__toggle {
+    width: 28px;
+    height: 28px;
+    border: 1px solid $black-3;
+    border-radius: 6px;
+    background: $white;
+}
+
+.app-lnb__title {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: $black-1;
+}
+
+.app-lnb__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: $black-2;
+}
+
+.app-lnb__link {
+    display: inline-flex;
+    padding: 6px 0;
+    color: $black-2;
+}
+
+.app-lnb__link:hover {
+    color: $primary-700;
+}
