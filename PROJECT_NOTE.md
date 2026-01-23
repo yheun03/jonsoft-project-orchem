@@ -11,6 +11,7 @@
 - 경로 별칭: `@` → `src` (`vite.config.js`, `jsconfig.json`)
 - SVG 컴포넌트 사용: `import Icon from '@/assets/icon.svg?component'`
 - 폰트 경로: `@/assets/fonts` (Pretendard, NanumSquare)
+- 타이포 믹스인: `@include setTitle(token, weight?, family?)`
 
 ## 폴더 구조
 - `src/router`: 라우터 설정
@@ -27,3 +28,9 @@
 - 404 등 예외 페이지: 라우터 `meta.layout = 'empty'`로 레이아웃 없이 표시
 - `lnbToggleMode`: `'compact' | 'hidden'` (기본 compact)
 - `.control__lnb` 클릭 시 `expanded ↔ lnbToggleMode`로 토글됨
+
+## 타이포 사용법
+- `@include setTitle(h1)` → heading1 / 600 / Pretendard
+- `@include setTitle(t1)` → title1 / 600 / Pretendard
+- `@include setTitle(t1, 400)` → title1 / 400 / Pretendard
+- `@include setTitle(t1, 400, $font-sub)` → title1 / 400 / NanumSquare

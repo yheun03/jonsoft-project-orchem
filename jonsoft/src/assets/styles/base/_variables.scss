@@ -2,147 +2,46 @@
 
 // base/_fonts.scss
 $font-base: "Pretendard";
-
-
-// typography/_scale.scss
-$font-scale: (
-    48: (size: 48px, line: 56px),
-    40: (size: 40px, line: 48px),
-    32: (size: 32px, line: 40px),
-    28: (size: 28px, line: 36px),
-    24: (size: 24px, line: 32px),
-    22: (size: 22px, line: 30px),
-    20: (size: 20px, line: 28px),
-    18: (size: 18px, line: 26px),
-    16: (size: 16px, line: 24px),
-    14: (size: 14px, line: 22px),
-    12: (size: 12px, line: 20px),
+$font-sub: "NanumSquare";
+$font-family: (
+    main: $font-base,
+    sub: $font-sub,
 );
 
-// typography/_mixin.scss
-@mixin text($scale, $weight: 400) {
-    $token: map.get($font-scale, $scale);
-
-    font: #{$weight} #{map.get($token, size)}/#{map.get($token, line)} #{$font-base};
-}
-
-// typography/_semantic.scss
-$heading-1: (
-    scale: 48,
-    weight: 700
-);
-$heading-2: (
-    scale: 40,
-    weight: 700
-);
-$heading-3: (
-    scale: 32,
-    weight: 700
-);
-$heading-4: (
-    scale: 28,
-    weight: 600
-);
-$title-1: (
-    scale: 24,
-    weight: 600
-);
-$title-2: (
-    scale: 22,
-    weight: 600
-);
-$title-3: (
-    scale: 20,
-    weight: 600
-);
-$body-1: (
-    scale: 18,
-    weight: 500
-);
-$body-2: (
-    scale: 18,
-    weight: 500
-);
-$body-3: (
-    scale: 16,
-    weight: 500
-);
-$body-4: (
-    scale: 14,
-    weight: 500
-);
-$body-5: (
-    scale: 12,
-    weight: 500
-);
-$button-1: (
-    scale: 16,
-    weight: 600
-);
-$button-2: (
-    scale: 14,
-    weight: 600
+$font-weight: (
+    regular: 400,
+    semibold: 600,
+    bold: 700,
 );
 
-@mixin font($token) {
-    @include text(map.get($token, scale),
-        map.get($token, weight));
-}
+$typo-scale: (
+    main: (h1: (size: 40, line: 48, weight: semibold),
+        h2: (size: 36, line: 44, weight: semibold),
+        h3: (size: 30, line: 36, weight: semibold),
+        t1: (size: 24, line: 30, weight: semibold),
+        t2: (size: 20, line: 24, weight: semibold),
+        b1: (size: 16, line: 20, weight: regular),
+        b2: (size: 14, line: 18, weight: regular),
+        c1: (size: 12, line: 14, weight: regular),
+    ),
+    sub: (h1: (size: 30, line: 34, weight: bold),
+        t1: (size: 20, line: 24, weight: bold),
+        b1: (size: 16, line: 18, weight: regular),
+    )
+);
 
-.heading-1 {
-    @include font($heading-1);
-}
+@mixin font($token, $weight: null, $family: main) {
+    $t: map.get(map.get($typo-scale, $family), $token);
+    $resolved-weight: map.get($font-weight, map.get($t, weight));
 
-.heading-2 {
-    @include font($heading-2);
-}
+    @if $weight != null {
+        $resolved-weight: map.get($font-weight, $weight);
+    }
 
-.heading-3 {
-    @include font($heading-3);
-}
-
-.heading-4 {
-    @include font($heading-4);
-}
-
-.title-1 {
-    @include font($title-1);
-}
-
-.title-2 {
-    @include font($title-2);
-}
-
-.title-3 {
-    @include font($title-3);
-}
-
-.body-1 {
-    @include font($body-1);
-}
-
-.body-2 {
-    @include font($body-2);
-}
-
-.body-3 {
-    @include font($body-3);
-}
-
-.body-4 {
-    @include font($body-4);
-}
-
-.body-5 {
-    @include font($body-5);
-}
-
-.button-1 {
-    @include font($button-1);
-}
-
-.button-2 {
-    @include font($button-2);
+    font-family: map.get($font-family, $family);
+    font-size: map.get($t, size) * 1px;
+    line-height: map.get($t, line) * 1px;
+    font-weight: $resolved-weight;
 }
 
 // colors/_tokens.scss

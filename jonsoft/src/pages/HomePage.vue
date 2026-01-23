@@ -1,8 +1,21 @@
 <template>
-    <section>
-        <h1>HomePage</h1>
+    <section class="home">
+        <h1 class="home__title">HomePage</h1>
+        <h2 class="home__subtitle">NanumSquare Example</h2>
     </section>
 </template>
+
+<style lang="scss" scoped>
+@use '@/assets/styles/base/variables' as *;
+
+.home__title {
+    @include font(t1, 600, main);
+}
+
+.home__subtitle {
+    @include font(t1, 400, sub);
+}
+</style>
 
 <script setup>
 </script>
