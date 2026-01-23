@@ -2,7 +2,7 @@
 
 .layout {
     display: grid;
-    min-height: 100vh;
+    height: 100dvh;
     --lnb-width: 200px;
     grid-template-columns: var(--lnb-width) 1fr;
     grid-template-rows: auto 1fr;
@@ -48,6 +48,7 @@
 .layout__content {
     grid-area: content;
     padding: 32px;
+    overflow: auto;
 }
 
 .layout--lnb-compact {
