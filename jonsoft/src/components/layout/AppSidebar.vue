@@ -2,7 +2,7 @@
     <nav class="app-lnb">
         <div class="app-lnb__header">
             <h2 class="app-lnb__title">메뉴</h2>
-            <button class="app-lnb__toggle" type="button" aria-label="메뉴 접기"></button>
+            <button class="app-lnb__toggle control__lnb" type="button" aria-label="메뉴 토글"></button>
         </div>
         <div class="app-lnb__content">
             <ul class="app-lnb__list">

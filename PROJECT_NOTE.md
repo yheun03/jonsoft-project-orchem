@@ -24,3 +24,5 @@
 - `gnbFull`: `gnb/gnb` + `lnb/content`
 - `hasLnb=false`: LNB 없는 레이아웃
 - 404 등 예외 페이지: 라우터 `meta.layout = 'empty'`로 레이아웃 없이 표시
+- `lnbToggleMode`: `'compact' | 'hidden'` (기본 compact)
+- `.control__lnb` 클릭 시 `expanded ↔ lnbToggleMode`로 토글됨

@@ -3,12 +3,14 @@
 .layout {
     display: grid;
     min-height: 100vh;
-    grid-template-columns: 260px 1fr;
+    --lnb-width: 200px;
+    grid-template-columns: var(--lnb-width) 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
         "lnb gnb"
         "lnb content";
     background: $white;
+    transition: grid-template-columns 0.25s ease;
 }
 
 .layout--gnb-full {
@@ -18,6 +20,7 @@
 }
 
 .layout--no-lnb {
+    --lnb-width: 0px;
     grid-template-columns: 1fr;
     grid-template-areas:
         "gnb"
@@ -38,11 +41,30 @@
     border-right: 1px solid $black-3;
     background: $black-5;
     padding: 24px 16px;
+    overflow: visible;
+    transition: padding 0.25s ease, border-color 0.25s ease;
 }
 
 .layout__content {
     grid-area: content;
     padding: 32px;
+}
+
+.layout--lnb-compact {
+    --lnb-width: 50px;
+}
+
+.layout--lnb-hidden {
+    --lnb-width: 0px;
+}
+
+.layout--lnb-compact .layout__lnb,
+.layout--lnb-hidden .layout__lnb {
+    padding: 24px 8px;
+}
+
+.layout--lnb-hidden .layout__lnb {
+    border-right-color: transparent;
 }
 
 .app-header__inner {
@@ -58,6 +80,14 @@
     font-weight: 700;
     font-size: 1.1rem;
     color: $primary-700;
+}
+
+.app-header__lnb-toggle {
+    border: 1px solid $black-3;
+    border-radius: 6px;
+    background: $white;
+    padding: 6px 10px;
+    font-size: 0.85rem;
 }
 
 .app-header__nav {
@@ -77,6 +107,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
+    position: relative;
 }
 
 .app-lnb__toggle {
@@ -85,6 +116,10 @@
     border: 1px solid $black-3;
     border-radius: 6px;
     background: $white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(50%);
 }
 
 .app-lnb__title {
@@ -98,6 +133,7 @@
     flex-direction: column;
     gap: 12px;
     color: $black-2;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .app-lnb__link {
@@ -108,4 +144,13 @@
 
 .app-lnb__link:hover {
     color: $primary-700;
+}
+
+.layout--lnb-compact .app-lnb__title,
+.layout--lnb-compact .app-lnb__content,
+.layout--lnb-hidden .app-lnb__title,
+.layout--lnb-hidden .app-lnb__content {
+    opacity: 0;
+    transform: translateX(-6px);
+    pointer-events: none;
 }
