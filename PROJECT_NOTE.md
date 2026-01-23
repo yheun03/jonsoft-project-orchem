@@ -10,6 +10,7 @@
 ## 주요 설정
 - 경로 별칭: `@` → `src` (`vite.config.js`, `jsconfig.json`)
 - SVG 컴포넌트 사용: `import Icon from '@/assets/icon.svg?component'`
+- 폰트 경로: `@/assets/fonts` (Pretendard, NanumSquare)
 
 ## 폴더 구조
 - `src/router`: 라우터 설정
