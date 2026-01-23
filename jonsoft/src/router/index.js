@@ -7,11 +7,17 @@ const routes = [
         path: '/',
         name: 'home',
         component: HomePage,
+        meta: {
+            layout: 'default',
+        },
     },
     {
         path: '/:pathMatch(.*)*',
         name: 'not-found',
         component: NotFoundPage,
+        meta: {
+            layout: 'empty',
+        },
     },
 ]
 
