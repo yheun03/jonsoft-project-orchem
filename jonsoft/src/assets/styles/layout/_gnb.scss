@@ -1,4 +1,4 @@
-@use "../base/variables" as *;
+@use "../base" as base;
 
 .gnb {
     display: flex;
@@ -6,6 +6,6 @@
     min-height: 56px;
     padding: 0 24px;
 
-    background-color: $primary-800;
-    color: $white;
+    background-color: base.$primary-800;
+    color: base.$white;
 }
