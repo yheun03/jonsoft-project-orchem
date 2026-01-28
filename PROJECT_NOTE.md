@@ -29,6 +29,7 @@
 - `lnbToggleMode`: `'compact' | 'hidden'` (기본 compact)
 - `.control__lnb` 클릭 시 `expanded ↔ lnbToggleMode`로 토글됨
 - `layout--lnb-closed`: compact/hidden 상태 공통 클래스
+- `layout--lnb-closed` 상태에서는 LNB 내 링크/토글 동작이 비활성화됨
 
 ## LNB 데이터
 - `src/data/lnb.json` flat 구조를 트리로 변환 후 최대 3뎁스 렌더링

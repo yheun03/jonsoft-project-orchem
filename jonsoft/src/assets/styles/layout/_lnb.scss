@@ -3,6 +3,14 @@
 .app-lnb__nav {
     padding: 20px;
 }
+
+.layout--lnb-closed .app-lnb__nav {
+    pointer-events: none;
+}
+
+.layout--lnb-closed .app-lnb__toggle {
+    pointer-events: auto;
+}
 .app-lnb__list {
     display: flex;
     flex-direction: column;
@@ -32,6 +40,7 @@
         gap: 6px;
         border-radius: 10px;
         cursor: pointer;
+        transition: 0.2s ease;
         &:hover,
         &:active{
             background: $primary-900;
@@ -72,4 +81,18 @@
 
 .app-lnb__link--parent[aria-expanded='true'] .app-lnb__chevron {
     transform: rotate(180deg);
+}
+
+
+.layout--lnb-closed{
+    .app-lnb__nav{
+        padding: 0;
+    }
+    .app-lnb__link{
+        padding: 0;
+        justify-content: center;
+        & > *:not(.app-lnb__icon){
+            display: none;
+        }
+    }
 }

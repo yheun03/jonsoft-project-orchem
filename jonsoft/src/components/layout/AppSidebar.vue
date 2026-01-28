@@ -18,7 +18,7 @@
                             <span v-if="item.icon" class="app-lnb__icon">
                                 <component :is="iconMap[item.icon]" />
                             </span>
-                            {{ item.title }}
+                            <p class="app-lnb__menuTitle">{{ item.title }}</p>
                             <span class="app-lnb__chevron">
                                 <ChevronIcon />
                             </span>
@@ -35,7 +35,7 @@
                             <span v-if="item.icon" class="app-lnb__icon">
                                 <component :is="iconMap[item.icon]" />
                             </span>
-                            {{ item.title }}
+                            <p class="app-lnb__menuTitle">{{ item.title }}</p>
                         </component>
                         <ul
                             v-if="item.children?.length"
@@ -54,7 +54,7 @@
                                     <span v-if="child.icon" class="app-lnb__icon">
                                         <component :is="iconMap[child.icon]" />
                                     </span>
-                                    {{ child.title }}
+                                    <p class="app-lnb__menuTitle">{{ child.title }}</p>
                                     <span class="app-lnb__chevron">
                                         <ChevronIcon />
                                     </span>
@@ -71,7 +71,7 @@
                                     <span v-if="child.icon" class="app-lnb__icon">
                                         <component :is="iconMap[child.icon]" />
                                     </span>
-                                    {{ child.title }}
+                                    <p class="app-lnb__menuTitle">{{ child.title }}</p>
                                 </component>
                                 <ul
                                     v-if="child.children?.length"
@@ -91,7 +91,7 @@
                                             <span v-if="leaf.icon" class="app-lnb__icon">
                                                 <component :is="iconMap[leaf.icon]" />
                                             </span>
-                                            {{ leaf.title }}
+                                            <p class="app-lnb__menuTitle">{{ leaf.title }}</p>
                                         </component>
                                     </li>
                                 </ul>
