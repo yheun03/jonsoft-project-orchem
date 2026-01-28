@@ -11,22 +11,42 @@
     .app-lnb__list{
         margin-top: 10px;
         gap: 6px;
+        &:not(:has(.app-lnb__icon)){
+            .app-lnb__link{
+                padding-left: 50px;
+            }
+        }
     }
 
     .app-lnb__link {
+        @include font(b1, semibold);
         border: unset;
         background: unset;
+        color: $black-2;
+        width: 100%;
         padding: 10px 15px 10px 20px;
         display: flex;
         align-items: center;
         gap: 6px;
-        @include font(b1, semibold);
-        color: $black-2;
-        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover,
+        &:active{
+            background: $primary-900;
+            color: $white;
+
+            .app-lnb__icon,
+            .app-lnb__chevron{
+                path{
+                    fill: $white;
+                }
+            }
+        }
         .app-lnb__icon{
             display: flex;
         }
         .app-lnb__chevron{
+            display: flex;
             margin-left: auto;
         }
     }

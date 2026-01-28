@@ -15,7 +15,7 @@
                             :aria-expanded="isOpen(item.id)"
                             @click="toggleOpen(item.id)"
                         >
-                            <span v-if="item.icon" class="icon">
+                            <span v-if="item.icon" class="app-lnb__icon">
                                 <component :is="iconMap[item.icon]" />
                             </span>
                             {{ item.title }}
