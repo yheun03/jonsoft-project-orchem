@@ -39,9 +39,9 @@
                         </component>
                         <ul
                             v-if="item.children?.length"
-                            v-show="isOpen(item.id)"
                             class="app-lnb__list app-lnb__list--depth-2 app-lnb__children"
                             :class="{ 'app-lnb__children--open': isOpen(item.id) }"
+                            :aria-hidden="!isOpen(item.id)"
                         >
                             <li v-for="child in item.children" :key="child.id" class="app-lnb__item">
                                 <button
@@ -75,9 +75,9 @@
                                 </component>
                                 <ul
                                     v-if="child.children?.length"
-                                    v-show="isOpen(child.id)"
                                     class="app-lnb__list app-lnb__list--depth-3 app-lnb__children"
                                     :class="{ 'app-lnb__children--open': isOpen(child.id) }"
+                                :aria-hidden="!isOpen(child.id)"
                                 >
                                     <li v-for="leaf in child.children" :key="leaf.id" class="app-lnb__item">
                                         <component

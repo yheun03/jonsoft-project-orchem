@@ -9,8 +9,10 @@
     gap: 10px;
 
     .app-lnb__list{
-        margin-top: 10px;
         gap: 6px;
+        &.app-lnb__children--open{
+            margin-top: 10px;
+        }
         &:not(:has(.app-lnb__icon)){
             .app-lnb__link{
                 padding-left: 50px;
@@ -48,6 +50,26 @@
         .app-lnb__chevron{
             display: flex;
             margin-left: auto;
+            transition: transform 0.2s ease;
         }
     }
+}
+
+.app-lnb__children {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
+    will-change: max-height;
+}
+
+.app-lnb__children--open {
+    max-height: 600px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.app-lnb__link--parent[aria-expanded='true'] .app-lnb__chevron {
+    transform: rotate(180deg);
 }
