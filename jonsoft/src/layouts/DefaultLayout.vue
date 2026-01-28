@@ -61,5 +61,6 @@ const layoutClass = computed(() => ({
     'layout--no-lnb': !props.hasLnb,
     'layout--lnb-compact': props.hasLnb && lnbMode.value === 'compact',
     'layout--lnb-hidden': props.hasLnb && lnbMode.value === 'hidden',
+    'layout--lnb-closed': props.hasLnb && lnbMode.value !== 'expanded',
 }))
 </script>
