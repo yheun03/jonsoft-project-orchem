@@ -146,7 +146,7 @@
 .app-lnb__list--depth-3 {
     margin-top: 6px;
     padding-left: 12px;
-    border-left: 2px dashed $primary-300;
+    border-left: 2px dashed $primary-400;
 }
 
 .app-lnb__link {
@@ -165,7 +165,7 @@
 .app-lnb__link--parent::after {
     content: '›';
     display: inline-block;
-    color: $primary-500;
+    color: $primary-400;
     transform: translateY(-1px);
 }
 
@@ -174,7 +174,7 @@
 }
 
 .app-lnb__list--depth-3 .app-lnb__link {
-    color: $primary-500;
+    color: $primary-400;
 }
 
 .app-lnb__link:hover {
