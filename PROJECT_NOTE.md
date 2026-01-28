@@ -29,6 +29,10 @@
 - `lnbToggleMode`: `'compact' | 'hidden'` (기본 compact)
 - `.control__lnb` 클릭 시 `expanded ↔ lnbToggleMode`로 토글됨
 
+## LNB 데이터
+- `src/data/lnb.json` flat 구조를 트리로 변환 후 최대 3뎁스 렌더링
+- 항목 키: `id`, `title`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부)
+
 ## 타이포 사용법
 - `@include setTitle(h1)` → heading1 / 600 / Pretendard
 - `@include setTitle(t1)` → title1 / 600 / Pretendard

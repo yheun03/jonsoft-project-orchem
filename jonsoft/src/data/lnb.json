@@ -1,0 +1,56 @@
+[
+    {
+        "id": "home",
+        "title": "홈",
+        "depth": 1,
+        "parentId": null,
+        "order": 1,
+        "to": "/"
+    },
+    {
+        "id": "guide",
+        "title": "가이드",
+        "depth": 1,
+        "parentId": null,
+        "order": 2
+    },
+    {
+        "id": "guide-components",
+        "title": "Components",
+        "depth": 2,
+        "parentId": "guide",
+        "order": 1,
+        "to": "/components"
+    },
+    {
+        "id": "guide-forms",
+        "title": "Forms",
+        "depth": 2,
+        "parentId": "guide",
+        "order": 2
+    },
+    {
+        "id": "guide-forms-input",
+        "title": "Input",
+        "depth": 3,
+        "parentId": "guide-forms",
+        "order": 1,
+        "to": "/forms/input"
+    },
+    {
+        "id": "guide-forms-select",
+        "title": "Select",
+        "depth": 3,
+        "parentId": "guide-forms",
+        "order": 2,
+        "to": "/forms/select"
+    },
+    {
+        "id": "external",
+        "title": "외부 문서",
+        "depth": 1,
+        "parentId": null,
+        "order": 3,
+        "href": "https://vuejs.org"
+    }
+]
