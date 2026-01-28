@@ -5,6 +5,7 @@
         "depth": 1,
         "parentId": null,
         "order": 1,
+        "icon": "home",
         "to": "/"
     },
     {
@@ -12,7 +13,8 @@
         "title": "가이드",
         "depth": 1,
         "parentId": null,
-        "order": 2
+        "order": 2,
+        "icon": "work"
     },
     {
         "id": "guide-components",
@@ -20,6 +22,7 @@
         "depth": 2,
         "parentId": "guide",
         "order": 1,
+        "icon": "system",
         "to": "/components"
     },
     {
@@ -27,7 +30,8 @@
         "title": "Forms",
         "depth": 2,
         "parentId": "guide",
-        "order": 2
+        "order": 2,
+        "icon": "work"
     },
     {
         "id": "guide-forms-input",
@@ -35,6 +39,7 @@
         "depth": 3,
         "parentId": "guide-forms",
         "order": 1,
+        "icon": "stats",
         "to": "/forms/input"
     },
     {
@@ -43,6 +48,7 @@
         "depth": 3,
         "parentId": "guide-forms",
         "order": 2,
+        "icon": "stats",
         "to": "/forms/select"
     },
     {
@@ -51,6 +57,7 @@
         "depth": 1,
         "parentId": null,
         "order": 3,
+        "icon": "system",
         "href": "https://vuejs.org"
     }
 ]

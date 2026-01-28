@@ -1,0 +1,33 @@
+@use '../base/variables' as *;
+
+.app-lnb__nav {
+    padding: 20px;
+}
+.app-lnb__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .app-lnb__list{
+        margin-top: 10px;
+        gap: 6px;
+    }
+
+    .app-lnb__link {
+        border: unset;
+        background: unset;
+        padding: 10px 15px 10px 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        @include font(b1, semibold);
+        color: $black-2;
+        width: 100%;
+        .app-lnb__icon{
+            display: flex;
+        }
+        .app-lnb__chevron{
+            margin-left: auto;
+        }
+    }
+}

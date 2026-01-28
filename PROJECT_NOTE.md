@@ -31,7 +31,8 @@
 
 ## LNB 데이터
 - `src/data/lnb.json` flat 구조를 트리로 변환 후 최대 3뎁스 렌더링
-- 항목 키: `id`, `title`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부)
+- 항목 키: `id`, `title`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부), `icon`
+- 링크 없는 항목은 토글 버튼으로 동작하며 자식이 펼쳐짐
 
 ## 타이포 사용법
 - `@include setTitle(h1)` → heading1 / 600 / Pretendard
