@@ -1,8 +1,11 @@
 <template>
     <nav class="app-lnb">
         <div class="app-lnb__header">
-            <h2 class="app-lnb__title">메뉴</h2>
-            <button class="app-lnb__toggle control__lnb" type="button" aria-label="메뉴 토글"></button>
+            <div class="app-lnb__header-inner">
+                <div class="today-date">
+                    <span class="today-date__day">{{ today }}</span>
+                </div>
+            </div>
         </div>
         <div class="app-lnb__content">
             <nav class="app-lnb__nav">
@@ -108,19 +111,37 @@
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import navItems from '@/data/lnb.json'
-import HomeIcon from '@/assets/icons/24/ic-home.svg?component'
-import WorkIcon from '@/assets/icons/24/ic-display.svg?component'
-import SystemIcon from '@/assets/icons/24/ic-system.svg?component'
-import StatsIcon from '@/assets/icons/24/ic-chart.svg?component'
 import ChevronIcon from '@/assets/icons/24/ic-arrow-bottom.svg?component'
 
-const iconMap = {
-    home: HomeIcon,
-    work: WorkIcon,
-    system: SystemIcon,
-    stats: StatsIcon,
-}
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자: 은영환
+// 메   모 : today는 현재 날짜를 'YYYY년 MM월 DD일' 형식(한국어)으로 반환하는 계산된 속성입니다.
+// =======================================================
+const today = computed(() => {
+    const date = new Date()
+    const yyyy = date.getFullYear()
+    const mm = String(date.getMonth() + 1).padStart(2, '0')
+    const dd = String(date.getDate()).padStart(2, '0')
+    return `${yyyy}.${mm}.${dd}`
+})
 
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자 : 은영환
+// 메   모 : LNB 트리 구조 생성 및 확장 상태 관리 함수입니다.
+// =======================================================
+
+/**
+ * LNB 데이터를 계층적 트리로 변환합니다.
+ * @param {Array} items - LNB 항목 목록
+ * @returns {Array} 계층 트리 구조의 LNB 항목 배열
+ */
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자 : 은영환
+// 메   모 : items에서 depth 3 이하의 값만 트리 구조로 빌드합니다.
+// =======================================================
 const buildTree = (items) => {
     const map = new Map()
     const roots = []
@@ -147,6 +168,11 @@ const buildTree = (items) => {
         roots.push(node)
     })
 
+    // =======================================================
+    // 수 정 일 : 2026-01-29
+    // 수 정 자 : 은영환
+    // 메   모 : 트리 노드들을 order 순으로 정렬합니다.
+    // =======================================================
     const sortNodes = (nodes) => {
         nodes.sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
         nodes.forEach((node) => {
@@ -160,14 +186,39 @@ const buildTree = (items) => {
     return roots
 }
 
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자 : 은영환
+// 메   모 : 트리형 LNB 데이터 계산 속성입니다.
+// =======================================================
 const navTree = computed(() => buildTree(navItems))
 
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자 : 은영환
+// 메   모 : 열려 있는 LNB 노드 id 집합입니다.
+// =======================================================
 const openIds = ref(new Set())
 
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자 : 은영환
+// 메   모 : 하위 메뉴 toggle 대상인지 판별합니다.
+// =======================================================
 const isToggleItem = (item) => !item.to && !item.href && item.children?.length
 
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자 : 은영환
+// 메   모 : 해당 id 노드의 열림 여부 반환
+// =======================================================
 const isOpen = (id) => openIds.value.has(id)
 
+// =======================================================
+// 수 정 일 : 2026-01-29
+// 수 정 자 : 은영환
+// 메   모 : id의 열림/닫힘 상태를 토글합니다.
+// =======================================================
 const toggleOpen = (id) => {
     const next = new Set(openIds.value)
     if (next.has(id)) {
