@@ -5,39 +5,39 @@
 }
 
 .layout__lnb-closed {
-    .layout__lnb-menu{
+    .app__menu{
         padding: 0;
     }
-    .layout__lnb-link{
+    .app__menu-link{
         padding: 0;
         justify-content: center;
-        & > *:not(.layout__lnb-icon){
+        & > *:not(.app__menu-icon){
             display: none;
         }
     }
-    .layout__lnb-menu {
+    .app__menu {
         pointer-events: none;
     }
 }
 
-.layout__lnb-list {
+.app__menu-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    .layout__lnb-list{
+    .app__menu-list{
         gap: 6px;
-        &.layout__lnb-children--open{
+        &.app__menu-children--open{
             margin-top: 10px;
         }
-        &:not(:has(.layout__lnb-icon)){
-            .layout__lnb-link{
+        &:not(:has(.app__menu-icon)){
+            .app__menu-link{
                 padding-left: 50px;
             }
         }
     }
 
-    .layout__lnb-link {
+    .app__menu-link {
         @include font(b1, semibold);
         border: unset;
         background: unset;
@@ -55,17 +55,17 @@
             background: $primary-800;
             color: $white;
 
-            .layout__lnb-icon,
-            .layout__lnb-chevron{
+            .app__menu-icon,
+            .app__menu-chevron{
                 path{
                     fill: $white;
                 }
             }
         }
-        .layout__lnb-icon{
+        .app__menu-icon{
             display: flex;
         }
-        .layout__lnb-chevron{
+        .app__menu-chevron{
             display: flex;
             margin-left: auto;
             transition: transform 0.2s ease;
@@ -73,7 +73,7 @@
     }
 }
 
-.layout__lnb-children {
+.app__menu-children {
     max-height: 0;
     opacity: 0;
     transform: translateY(-4px);
@@ -82,13 +82,13 @@
     will-change: max-height;
 }
 
-.layout__lnb-children--open {
+.app__menu-children--open {
     max-height: 600px;
     opacity: 1;
     transform: translateY(0);
 }
 
-.layout__lnb-link--parent[aria-expanded='true'] .layout__lnb-chevron {
+.app__menu-link--parent[aria-expanded='true'] .app__menu-chevron {
     transform: rotate(180deg);
 }
 
