@@ -9,11 +9,11 @@
 @use '@/assets/styles/base/variables' as *;
 
 .home__title {
-    @include font(t1, 600, main);
+    @include font(t1, semibold, main);
 }
 
 .home__subtitle {
-    @include font(t1, 400, sub);
+    @include font(t1, medium, sub);
 }
 </style>
 
