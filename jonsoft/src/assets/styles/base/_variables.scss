@@ -53,6 +53,9 @@ $typo-scale: (
 // colors/_tokens.scss
 // 컬러 팔레트 맵으로 일괄 관리 및 재사용성 향상
 $palette: (
+    "gradient": (
+        "primary": linear-gradient(90deg, #378B96 -285.42%, #00626F 100%),
+    ),
     "primary": (800: #04414A,
         700: #0A545E,
         500: #00626F,

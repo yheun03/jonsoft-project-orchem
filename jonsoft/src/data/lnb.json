@@ -1,59 +1,93 @@
 [
     {
-        "id": "home",
-        "title": "홈",
+        "id": "component",
+        "title": "컴포넌트",
         "depth": 1,
         "parentId": null,
-        "order": 1,
-        "icon": "home",
-        "to": "/"
+        "order": 0
     },
     {
-        "id": "guide",
-        "title": "가이드",
-        "depth": 1,
-        "parentId": null,
-        "order": 2,
-        "icon": "work"
-    },
-    {
-        "id": "guide-components",
-        "title": "Components",
+        "id": "input",
+        "title": "인풋",
         "depth": 2,
-        "parentId": "guide",
-        "order": 1,
-        "to": "/components"
+        "parentId": "component",
+        "order": 1
     },
     {
-        "id": "guide-forms",
-        "title": "Forms",
+        "id": "button",
+        "title": "버튼",
         "depth": 2,
-        "parentId": "guide",
+        "parentId": "component",
         "order": 2
     },
     {
-        "id": "guide-forms-input",
-        "title": "Input",
-        "depth": 3,
-        "parentId": "guide-forms",
-        "order": 1,
-        "to": "/forms/input"
+        "id": "table",
+        "title": "테이블",
+        "depth": 2,
+        "parentId": "component",
+        "order": 3
     },
     {
-        "id": "guide-forms-select",
-        "title": "Select",
-        "depth": 3,
-        "parentId": "guide-forms",
-        "order": 2,
-        "to": "/forms/select"
+        "id": "modal",
+        "title": "모달",
+        "depth": 2,
+        "parentId": "component",
+        "order": 4
     },
     {
-        "id": "external",
-        "title": "외부 문서",
+        "id": "orc-4164-b",
+        "title": "ORC-4164(B)",
         "depth": 1,
         "parentId": null,
-        "order": 3,
-        "icon": "system",
-        "href": "https://vuejs.org"
+        "order": 1
+    },
+    {
+        "id": "orc-11111-kr-1",
+        "title": "ORC-11111(KR)",
+        "depth": 1,
+        "parentId": null,
+        "order": 2
+    },
+    {
+        "id": "orc-11111-kr-2",
+        "title": "ORC-11111(KR)",
+        "depth": 1,
+        "parentId": null,
+        "order": 3
+    },
+    {
+        "id": "orc-11111-kr-3",
+        "title": "ORC-11111(KR)",
+        "depth": 1,
+        "parentId": null,
+        "order": 4
+    },
+    {
+        "id": "orc-11111-kr-4",
+        "title": "ORC-11111(KR)",
+        "depth": 1,
+        "parentId": null,
+        "order": 5
+    },
+    {
+        "id": "orc-11111-kr-5",
+        "title": "ORC-11111(KR)",
+        "depth": 1,
+        "parentId": null,
+        "order": 6
+    },
+    {
+        "id": "orc-11111-kr-6",
+        "title": "ORC-11111(KR)",
+        "depth": 1,
+        "parentId": null,
+        "order": 7
+    },
+    {
+        "id": "orc-11111-kr-7",
+        "title": "ORC-11111(KR)",
+        "depth": 1,
+        "parentId": null,
+        "order": 8
     }
 ]

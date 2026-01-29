@@ -1,15 +1,17 @@
 @use '../base/variables' as *;
 
 .layout {
+    position: relative;
     display: grid;
     height: 100dvh;
-    --lnb-width: 260px;
+    --lnb-width: 150px;
     grid-template-columns: var(--lnb-width) 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
         "lnb gnb"
         "lnb content";
-    background: $white;
+    background: $primary-500;
+    color: $white;
     transition: grid-template-columns 0.25s ease;
 }
 
@@ -32,14 +34,11 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    border-bottom: 1px solid $black-3;
-    background: $white;
 }
 
 .layout__lnb {
     grid-area: lnb;
-    border-right: 1px solid $black-3;
-    background: $black-5;
+    background: palette("gradient", "primary");
 }
 
 .layout__content {
