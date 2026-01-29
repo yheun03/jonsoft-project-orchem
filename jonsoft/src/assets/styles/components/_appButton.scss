@@ -1,0 +1,97 @@
+@use '../base/variables' as *;
+
+$app-button-colors: (
+    'primary-800': palette('primary', 800),
+    'primary-700': palette('primary', 700),
+    'primary-500': palette('primary', 500),
+    'primary-300': palette('primary', 300),
+    'primary-100': palette('primary', 100),
+    'secondary-700': palette('secondary', 700),
+    'secondary-600': palette('secondary', 600),
+    'secondary-300': palette('secondary', 300),
+    'success': $success,
+    'warning': $warning,
+    'error': $error,
+    'black-0': $black-0,
+    'black-1': $black-1,
+    'black-2': $black-2,
+    'black-3': $black-3,
+    'black-4': $black-4,
+    'black-5': $black-5,
+    'white': $white
+);
+
+.app__button {
+    @include font(btn2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: var(--app-button-bg, $primary-500);
+    color: var(--app-button-text, $white);
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:focus-visible {
+        outline: 2px solid $primary-300;
+        outline-offset: 2px;
+    }
+
+    &:disabled,
+    &[aria-disabled='true'] {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.app__button--text {
+    background: transparent;
+    border-color: transparent;
+    padding-inline: 4px;
+    color: var(--app-button-text, $primary-500);
+}
+
+.app__button--filled {
+    background: var(--app-button-bg, $primary-500);
+    color: var(--app-button-text, $white);
+}
+
+.app__button--icon {
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+}
+
+.app__button-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+
+    svg,
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+}
+
+.app__button-label {
+    display: inline-flex;
+    align-items: center;
+}
+
+@each $name, $value in $app-button-colors {
+    .app__button--color-#{$name} {
+        --app-button-bg: #{$value};
+        border-color: #{$value};
+    }
+
+    .app__button--text-#{$name} {
+        --app-button-text: #{$value};
+    }
+}

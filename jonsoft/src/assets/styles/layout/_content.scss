@@ -1,0 +1,6 @@
+@use '../base/variables' as *;
+
+.layout__content{
+    border-radius: 0 0 0 30px;
+    background-color: $white;
+}

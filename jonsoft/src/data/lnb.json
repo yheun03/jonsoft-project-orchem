@@ -26,7 +26,8 @@
         "title": "버튼",
         "depth": 2,
         "parentId": "component",
-        "order": 2
+        "order": 2,
+        "to": "/component/button"
     },
     {
         "id": "table",

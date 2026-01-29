@@ -4,4 +4,6 @@
 @use './base/layout';
 @use './layout/header';
 @use './layout/lnb';
+@use './layout/content';
 @use './components/appTab';
+@use './components/appButton';
