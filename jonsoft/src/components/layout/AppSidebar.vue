@@ -7,6 +7,7 @@
                 </i>
                 <span class="app__date-day">{{ today }}</span>
             </div>
+            <AppTab :tabs="tabs" />
         </div>
     </div>
     <div class="layout__lnb-content">
@@ -111,16 +112,34 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+// 공통 탭(탭 UI) 컴포넌트
+import AppTab from '@/components/AppTab.vue'
+
+// LNB(좌측 네비게이션 바) 메뉴 데이터(JSON)
 import navItems from '@/data/lnb.json'
+
+// 아이콘 SVG 컴포넌트 모듈
 import iconCalendar from '@/assets/icons/24/ic-calendar.svg?component'
 import iconArrowBottom from '@/assets/icons/24/ic-arrow-bottom.svg?component'
 
+// 각 탭의 실제 페이지 컴포넌트
+import TabOverview from '@/components/tabs/TabOverview.vue'
+import TabSpec from '@/components/tabs/TabSpec.vue'
+
+// 라우터 인스턴스 가져오기
+const route = useRoute()
+
+// 아이콘 매핑
 const iconMap = {
     'ic-calendar': iconCalendar,
     'ic-arrow-bottom': iconArrowBottom
 }
 
-const route = useRoute()
+// 탭 데이터
+const tabs = computed(() => [
+    { key: 'WP', label: 'WP', component: TabOverview },
+    { key: 'FP', label: 'FP', component: TabSpec },
+])
 
 // LNB 상단 날짜 표시용 (YYYY.MM.DD)
 const today = computed(() => {

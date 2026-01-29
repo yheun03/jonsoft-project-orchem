@@ -44,6 +44,14 @@
 - 항목 키: `id`, `title`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부), `icon`
 - 링크 없는 항목은 토글 버튼으로 동작하며 자식이 펼쳐짐
 
+## 공통 탭 컴포넌트
+- `src/components/AppTab.vue`는 탭 목록과 렌더러를 props로 주입받는 범용 컴포넌트
+- 필수 데이터: `tabs: [{ key, label, component, disabled? }]` (페이지에서 컴포넌트 전달)
+- 초기 탭 지정: `initialKey` (없으면 첫 번째 탭)
+- 빈 탭일 때는 안내 문구가 표시됨
+- 사용 예시:
+  - `<AppTab :tabs="tabs" initialKey="overview" />`
+
 ## 타이포 사용법
 - `@include font(h1)` → Heading1 / 800 / Pretendard
 - `@include font(t1)` → Title1 / 600 / Pretendard
