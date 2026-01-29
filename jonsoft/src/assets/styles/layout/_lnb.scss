@@ -1,7 +1,14 @@
 @use '../base/variables' as *;
 
 .layout__lnb {
+    display: flex;
+    flex-direction: column;
     padding: 24px 10px;
+    &-content {
+        flex: 1;
+        overflow: auto;
+        margin-top: 14px;
+    }
 }
 
 .layout__lnb-closed {
@@ -23,7 +30,6 @@
 .app__menu {
     position: relative;
     padding-inline: 5px;
-    margin-top: 14px;
     padding-top: 14px;
     &::before {
         content: '';
@@ -117,6 +123,8 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
+
+    margin-bottom: 38px;
 
     &-day {
         @include font(b3);

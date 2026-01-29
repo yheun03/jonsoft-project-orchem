@@ -22,11 +22,11 @@
         color: $white;
         padding-block: 6px;
         border-radius: 12px;
+        cursor: pointer;
 
         &-active{
             background-color: $white;
             color: $primary-800;
         }
     }
-
 }
