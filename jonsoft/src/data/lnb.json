@@ -19,7 +19,8 @@
         "title": "인풋",
         "depth": 2,
         "parentId": "component",
-        "order": 1
+        "order": 1,
+        "to": "/component/input"
     },
     {
         "id": "button",

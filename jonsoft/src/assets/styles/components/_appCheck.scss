@@ -1,0 +1,103 @@
+@use '../base/variables' as *;
+
+.app__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.app__check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    padding: 6px 10px;
+    border-radius: 8px;
+
+    &--disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    &--filled {
+        background: $black-5;
+    }
+
+    &--filled-icon-text {
+        background: $black-5;
+        gap: 10px;
+    }
+
+    &--checked.app__check--filled,
+    &--checked.app__check--filled-icon-text {
+        background: $primary-100;
+    }
+}
+
+.app__check-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.app__check-control {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid $black-3;
+    background: $white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.app__check-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg,
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+}
+
+.app__check-label {
+    @include font(b4, semibold);
+    color: $black-1;
+}
+
+.app__check--checked .app__check-control {
+    background: $primary-500;
+    border-color: $primary-500;
+}
+
+.app__check--checked .app__check-control::after {
+    content: '';
+    width: 8px;
+    height: 4px;
+    border-left: 2px solid $white;
+    border-bottom: 2px solid $white;
+    transform: rotate(-45deg);
+}
+
+.app__check--filled .app__check-control,
+.app__check--filled-icon-text .app__check-control {
+    display: none;
+}
+
+.app__check--icon .app__check-label {
+    display: none;
+}
