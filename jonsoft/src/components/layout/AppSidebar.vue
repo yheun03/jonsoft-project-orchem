@@ -31,7 +31,7 @@
                     <component
                         v-else
                         :is="item.to ? RouterLink : (item.href ? 'a' : 'span')"
-                        class="app__menu-link"
+                        :class="['app__menu-link', { 'app__menu-active': isActiveItem(item) }]"
                         :to="item.to"
                         :href="item.href"
                         :target="item.href ? '_blank' : undefined"
@@ -67,7 +67,7 @@
                             <component
                                 v-else
                                 :is="child.to ? RouterLink : (child.href ? 'a' : 'span')"
-                                class="app__menu-link"
+                                :class="['app__menu-link', { 'app__menu-active': isActiveItem(child) }]"
                                 :to="child.to"
                                 :href="child.href"
                                 :target="child.href ? '_blank' : undefined"
@@ -87,7 +87,7 @@
                                 <li v-for="leaf in child.children" :key="leaf.id" class="app__menu-item">
                                     <component
                                         :is="leaf.to ? RouterLink : (leaf.href ? 'a' : 'span')"
-                                        class="app__menu-link"
+                                        :class="['app__menu-link', { 'app__menu-active': isActiveItem(leaf) }]"
                                         :to="leaf.to"
                                         :href="leaf.href"
                                         :target="leaf.href ? '_blank' : undefined"
@@ -110,13 +110,17 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import navItems from '@/data/lnb.json'
 import iconCalendar from '@/assets/icons/24/ic-calendar.svg?component'
 import iconArrowBottom from '@/assets/icons/24/ic-arrow-bottom.svg?component'
 
 const iconMap = {
+    'ic-calendar': iconCalendar,
+    'ic-arrow-bottom': iconArrowBottom
 }
+
+const route = useRoute()
 
 // LNB 상단 날짜 표시용 (YYYY.MM.DD)
 const today = computed(() => {
@@ -173,6 +177,12 @@ const openIds = ref(new Set())
 // 링크가 없는 항목만 아코디언 토글 대상
 const isToggleItem = (item) => !item.to && !item.href && item.children?.length
 const isOpen = (id) => openIds.value.has(id)
+const isActiveItem = (item) => {
+    if (!item?.to) {
+        return false
+    }
+    return route.path === item.to
+}
 
 // 아코디언 열림/닫힘 토글
 const toggleOpen = (id) => {

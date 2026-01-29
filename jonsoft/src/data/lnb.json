@@ -1,5 +1,13 @@
 [
     {
+        "id": "home",
+        "title": "홈",
+        "depth": 1,
+        "parentId": null,
+        "order": -1,
+        "to": "/"
+    },
+    {
         "id": "component",
         "title": "컴포넌트",
         "depth": 1,

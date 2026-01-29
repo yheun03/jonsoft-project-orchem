@@ -65,6 +65,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s ease;
     svg{
         width: inherit;
         height: inherit;

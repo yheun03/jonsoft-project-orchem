@@ -21,6 +21,21 @@
 }
 
 .app__menu {
+    position: relative;
+    padding-inline: 5px;
+    margin-top: 14px;
+    padding-top: 14px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 1.5px;
+        background: $primary-100;
+        border-radius: 2px;
+    }
     &-list {
         display: flex;
         flex-direction: column;
@@ -33,40 +48,49 @@
                 margin-top: 10px;
             }
 
-            &:not(:has(.app__menu-icon)) {
+        &:not(:has(.app__icon)) {
+            // 임의로 추가
                 .app__menu-link {
-                    padding-left: 50px;
+                    padding-left: 20px;
+                    @include font(b4);
+                    padding-block: 4px
                 }
             }
         }
     }
 
     &-link {
-        @include font(b1, semibold);
+        @include font(b3);
         border: unset;
         background: unset;
-        color: $black-2;
+        color: $white;
         width: 100%;
-        padding: 10px 15px 10px 20px;
+        padding-block: 13px;
         display: flex;
         align-items: center;
+        text-align: center;
         gap: 6px;
-        border-radius: 10px;
+        border-radius: 12px;
         cursor: pointer;
         transition: 0.2s ease;
 
         &:hover,
-        &:active {
-            background: $primary-800;
-            color: $white;
+        &:active,
+        &.app__menu-active {
+            background: $white;
+            color: $primary-800;
 
-            .app__menu-icon,
-            .app__menu-chevron {
+            .app__icon {
                 path {
                     fill: $white;
                 }
             }
         }
+    }
+
+    &-label {
+        text-align: center;
+        flex: 1;
     }
 
     &-children {
@@ -83,15 +107,8 @@
         }
     }
 
-    &-link--parent[aria-expanded='true'] &-chevron {
+    &-link--parent[aria-expanded='true'] .app__icon-ic-arrow-bottom {
         transform: rotate(180deg);
-    }
-}
-
-.app__icon {
-    &-ic-arrow-bottom {
-        margin-left: auto;
-        transition: transform 0.2s ease;
     }
 }
 
