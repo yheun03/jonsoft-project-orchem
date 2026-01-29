@@ -3,12 +3,21 @@ import HomePage from '@/pages/HomePage.vue'
 import ComponentButton from '@/pages/component/ComponentButton.vue'
 import ComponentInput from '@/pages/component/ComponentInput.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
+import TestPage from '@/pages/TestPage.vue'
 
 const routes = [
     {
         path: '/',
         name: 'home',
         component: HomePage,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: TestPage,
         meta: {
             layout: 'default',
         },
