@@ -14,8 +14,6 @@ $font-weight: (
     bold: 700,
 );
 
-$gradient-sub: linear-gradient(90deg, #0C4A6E 0%, #191F2F 100%);
-
 $typo-scale: (
     main: (h1: (size: 40, line: 48, weight: semibold),
         h2: (size: 36, line: 44, weight: semibold),
@@ -49,39 +47,50 @@ $typo-scale: (
 // colors/_tokens.scss
 // 컬러 팔레트 맵으로 일괄 관리 및 재사용성 향상
 $palette: (
-    "primary": (900: #182437,
-        700: #113B58,
-        400: #216A9C,
-        100: #E5EBF4),
-    "semantic": (
-        "success": (100: #F5F7FE,
-            300: #D7DFF8,
-            600: #396AFF),
-        "warning": (100: #FFF5D9,
-            300: #FFEEA3,
-            600: #FFAA00),
-        "error": (100: #FFF0F5,
-            300: #FDDCE7,
-            600: #FF5757)
+    "primary": (800: #04414A,
+        700: #0A545E,
+        500: #00626F,
+        300: #4BB2BF,
+        100: #B2E0E6),
+    "secondary": (700: #006CC7,
+        600: #2687D8,
+        300: #7CC3FF),
+    "state": (
+        "success": #32C771,
+        "warning": #FFAA00,
+        "error": #FF4242
     ),
     "black": (0: #000000,
-        1: #333333,
-        2: #424242,
-        3: #838383,
-        4: #D9D9D9,
-        5: #FAFAFA,
-        6: #F9FAFC),
-    "white": #FFFFFF
+        1: #505050,
+        2: #767676,
+        3: #D9D9D9,
+        4: #F0F0F0,
+        5: #F5F6F7),
+    "white": #FFFFFF,
+    "factory": (
+        "working": #25A175,
+        "loading": #FF8000,
+        "unready": #828282,
+        "stop": #C3C3C3
+    ),
+    "factory-bg": (
+        "done": #EDFFE3,
+        "done-border": #C9FFBC,
+        "stop": #FFE5E5,
+        "stop-border": #FFB4B4,
+        "working": #FFF9E6,
+        "working-border": #FF952B,
+        "mixing": #FFEEAA,
+        "filtering": #EFF6FF,
+        "mixing-text": #FF4E4E,
+        "filtering-text": #0064B7
+    )
 );
 
 // 컬러 추출 함수 (네임스페이스 가능하게 작성)
-@function palette($group, $shade: null, $tone: null) {
+@function palette($group, $shade: null) {
     @if ($group =="white") {
         @return map.get($palette, "white");
-    }
-
-    @else if ($shade !=null and $tone != null) {
-        @return map.get(map.get(map.get($palette, $group), $shade), $tone);
     }
 
     @else if ($shade !=null) {
@@ -95,23 +104,19 @@ $palette: (
 }
 
 // 별칭: 직접 변수 할당도 지원 (기존 코드 호환성 및 가독성)
-$primary-900: palette("primary", 900);
+$primary-800: palette("primary", 800);
 $primary-700: palette("primary", 700);
-$primary-400: palette("primary", 400);
+$primary-500: palette("primary", 500);
+$primary-300: palette("primary", 300);
 $primary-100: palette("primary", 100);
 
-$success-100: palette("semantic", "success", 100);
-$success-300: palette("semantic", "success", 300);
-$success-600: palette("semantic", "success", 600);
-$warning-100: palette("semantic", "warning", 100);
-$warning-300: palette("semantic", "warning", 300);
-$warning-600: palette("semantic", "warning", 600);
-$error-100: palette("semantic", "error", 100);
-$error-300: palette("semantic", "error", 300);
-$error-600: palette("semantic", "error", 600);
-$success: $success-600;
-$warning: $warning-600;
-$error: $error-600;
+$secondary-700: palette("secondary", 700);
+$secondary-600: palette("secondary", 600);
+$secondary-300: palette("secondary", 300);
+
+$success: palette("state", "success");
+$warning: palette("state", "warning");
+$error: palette("state", "error");
 
 $black-0: palette("black", 0);
 $black-1: palette("black", 1);
@@ -119,5 +124,4 @@ $black-2: palette("black", 2);
 $black-3: palette("black", 3);
 $black-4: palette("black", 4);
 $black-5: palette("black", 5);
-$black-6: palette("black", 6);
 $white: palette("white");

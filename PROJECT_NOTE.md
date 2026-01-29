@@ -12,6 +12,7 @@
 - SVG 컴포넌트 사용: `import Icon from '@/assets/icon.svg?component'`
 - 폰트 경로: `@/assets/fonts` (Pretendard, NanumSquare)
 - 타이포 믹스인: `@include setTitle(token, weight?, family?)`
+- 디자인 토큰: `primary/secondary/state/black/factory/factory-bg` 팔레트 최신화
 
 ## 폴더 구조
 - `src/router`: 라우터 설정
