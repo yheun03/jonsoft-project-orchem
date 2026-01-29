@@ -1,116 +1,118 @@
 <template>
-    <nav class="app-lnb">
-        <div class="app-lnb__header">
-            <div class="app-lnb__header-inner">
-                <div class="today-date">
-                    <span class="today-date__day">{{ today }}</span>
-                </div>
+    <div class="layout__lnb-header">
+        <div class="layout__lnb-header-inner">
+            <div class="app__date">
+                <i class="app__icon app__icon--calendar">
+                    <CalendarIcon />
+                </i>
+                <span class="app__date-day">{{ today }}</span>
             </div>
         </div>
-        <div class="app-lnb__content">
-            <nav class="app-lnb__nav">
-                <ul class="app-lnb__list">
-                    <li v-for="item in navTree" :key="item.id" class="app-lnb__item">
-                        <button
-                            v-if="isToggleItem(item)"
-                            type="button"
-                            class="app-lnb__link app-lnb__link--parent"
-                            :aria-expanded="isOpen(item.id)"
-                            @click="toggleOpen(item.id)"
-                        >
-                            <span v-if="item.icon" class="app-lnb__icon">
-                                <component :is="iconMap[item.icon]" />
-                            </span>
-                            <p class="app-lnb__menuTitle">{{ item.title }}</p>
-                            <span class="app-lnb__chevron">
-                                <ChevronIcon />
-                            </span>
-                        </button>
-                        <component
-                            v-else
-                            :is="item.to ? RouterLink : (item.href ? 'a' : 'span')"
-                            class="app-lnb__link"
-                            :to="item.to"
-                            :href="item.href"
-                            :target="item.href ? '_blank' : undefined"
-                            :rel="item.href ? 'noreferrer' : undefined"
-                        >
-                            <span v-if="item.icon" class="app-lnb__icon">
-                                <component :is="iconMap[item.icon]" />
-                            </span>
-                            <p class="app-lnb__menuTitle">{{ item.title }}</p>
-                        </component>
-                        <ul
-                            v-if="item.children?.length"
-                            class="app-lnb__list app-lnb__list--depth-2 app-lnb__children"
-                            :class="{ 'app-lnb__children--open': isOpen(item.id) }"
-                            :aria-hidden="!isOpen(item.id)"
-                        >
-                            <li v-for="child in item.children" :key="child.id" class="app-lnb__item">
-                                <button
-                                    v-if="isToggleItem(child)"
-                                    type="button"
-                                    class="app-lnb__link app-lnb__link--parent"
-                                    :aria-expanded="isOpen(child.id)"
-                                    @click="toggleOpen(child.id)"
-                                >
-                                    <span v-if="child.icon" class="app-lnb__icon">
-                                        <component :is="iconMap[child.icon]" />
-                                    </span>
-                                    <p class="app-lnb__menuTitle">{{ child.title }}</p>
-                                    <span class="app-lnb__chevron">
-                                        <ChevronIcon />
-                                    </span>
-                                </button>
-                                <component
-                                    v-else
-                                    :is="child.to ? RouterLink : (child.href ? 'a' : 'span')"
-                                    class="app-lnb__link"
-                                    :to="child.to"
-                                    :href="child.href"
-                                    :target="child.href ? '_blank' : undefined"
-                                    :rel="child.href ? 'noreferrer' : undefined"
-                                >
-                                    <span v-if="child.icon" class="app-lnb__icon">
-                                        <component :is="iconMap[child.icon]" />
-                                    </span>
-                                    <p class="app-lnb__menuTitle">{{ child.title }}</p>
-                                </component>
-                                <ul
-                                    v-if="child.children?.length"
-                                    class="app-lnb__list app-lnb__list--depth-3 app-lnb__children"
-                                    :class="{ 'app-lnb__children--open': isOpen(child.id) }"
-                                :aria-hidden="!isOpen(child.id)"
-                                >
-                                    <li v-for="leaf in child.children" :key="leaf.id" class="app-lnb__item">
-                                        <component
-                                            :is="leaf.to ? RouterLink : (leaf.href ? 'a' : 'span')"
-                                            class="app-lnb__link"
-                                            :to="leaf.to"
-                                            :href="leaf.href"
-                                            :target="leaf.href ? '_blank' : undefined"
-                                            :rel="leaf.href ? 'noreferrer' : undefined"
-                                        >
-                                            <span v-if="leaf.icon" class="app-lnb__icon">
-                                                <component :is="iconMap[leaf.icon]" />
-                                            </span>
-                                            <p class="app-lnb__menuTitle">{{ leaf.title }}</p>
-                                        </component>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </nav>
+    </div>
+    <div class="layout__lnb-content">
+        <nav class="layout__lnb-menu">
+            <ul class="layout__lnb-list">
+                <li v-for="item in navTree" :key="item.id" class="layout__lnb-item">
+                    <button
+                        v-if="isToggleItem(item)"
+                        type="button"
+                        class="layout__lnb-link layout__lnb-link--parent"
+                        :aria-expanded="isOpen(item.id)"
+                        @click="toggleOpen(item.id)"
+                    >
+                            <span v-if="item.icon" class="layout__lnb-icon">
+                            <component :is="iconMap[item.icon]" />
+                        </span>
+                            <p class="layout__lnb-label">{{ item.title }}</p>
+                            <span class="layout__lnb-chevron">
+                            <ChevronIcon />
+                        </span>
+                    </button>
+                    <component
+                        v-else
+                        :is="item.to ? RouterLink : (item.href ? 'a' : 'span')"
+                        class="layout__lnb-link"
+                        :to="item.to"
+                        :href="item.href"
+                        :target="item.href ? '_blank' : undefined"
+                        :rel="item.href ? 'noreferrer' : undefined"
+                    >
+                            <span v-if="item.icon" class="layout__lnb-icon">
+                            <component :is="iconMap[item.icon]" />
+                        </span>
+                            <p class="layout__lnb-label">{{ item.title }}</p>
+                    </component>
+                    <ul
+                        v-if="item.children?.length"
+                            class="layout__lnb-list layout__lnb-list--depth-2 layout__lnb-children"
+                            :class="{ 'layout__lnb-children--open': isOpen(item.id) }"
+                        :aria-hidden="!isOpen(item.id)"
+                    >
+                            <li v-for="child in item.children" :key="child.id" class="layout__lnb-item">
+                            <button
+                                v-if="isToggleItem(child)"
+                                type="button"
+                                    class="layout__lnb-link layout__lnb-link--parent"
+                                :aria-expanded="isOpen(child.id)"
+                                @click="toggleOpen(child.id)"
+                            >
+                                    <span v-if="child.icon" class="layout__lnb-icon">
+                                    <component :is="iconMap[child.icon]" />
+                                </span>
+                                    <p class="layout__lnb-label">{{ child.title }}</p>
+                                    <span class="layout__lnb-chevron">
+                                    <ChevronIcon />
+                                </span>
+                            </button>
+                            <component
+                                v-else
+                                :is="child.to ? RouterLink : (child.href ? 'a' : 'span')"
+                                class="layout__lnb-link"
+                                :to="child.to"
+                                :href="child.href"
+                                :target="child.href ? '_blank' : undefined"
+                                :rel="child.href ? 'noreferrer' : undefined"
+                            >
+                                    <span v-if="child.icon" class="layout__lnb-icon">
+                                    <component :is="iconMap[child.icon]" />
+                                </span>
+                                    <p class="layout__lnb-label">{{ child.title }}</p>
+                            </component>
+                            <ul
+                                v-if="child.children?.length"
+                                    class="layout__lnb-list layout__lnb-list--depth-3 layout__lnb-children"
+                                    :class="{ 'layout__lnb-children--open': isOpen(child.id) }"
+                            :aria-hidden="!isOpen(child.id)"
+                            >
+                                    <li v-for="leaf in child.children" :key="leaf.id" class="layout__lnb-item">
+                                    <component
+                                        :is="leaf.to ? RouterLink : (leaf.href ? 'a' : 'span')"
+                                            class="layout__lnb-link"
+                                        :to="leaf.to"
+                                        :href="leaf.href"
+                                        :target="leaf.href ? '_blank' : undefined"
+                                        :rel="leaf.href ? 'noreferrer' : undefined"
+                                    >
+                                            <span v-if="leaf.icon" class="layout__lnb-icon">
+                                            <component :is="iconMap[leaf.icon]" />
+                                        </span>
+                                            <p class="layout__lnb-label">{{ leaf.title }}</p>
+                                    </component>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import navItems from '@/data/lnb.json'
+import CalendarIcon from '@/assets/icons/24/ic-calendar.svg?component'
 import ChevronIcon from '@/assets/icons/24/ic-arrow-bottom.svg?component'
 
 // =======================================================

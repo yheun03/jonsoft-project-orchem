@@ -1,11 +1,11 @@
 <template>
-    <div class="app-header">
-        <div class="app-header__inner">
-            <RouterLink class="app-header__brand" to="/">Jonsoft</RouterLink>
-            <button class="app-header__lnb-toggle control__lnb" type="button" aria-label="LNB 토글">
+    <div class="app__header">
+        <div class="app__header-inner">
+            <RouterLink class="app__header-brand" to="/">Jonsoft</RouterLink>
+            <button class="app__lnb-toggle control__lnb" type="button" aria-label="LNB 토글">
                 LNB 토글
             </button>
-            <nav class="app-header__nav">
+            <nav class="app__header-nav">
                 <RouterLink to="/">홈</RouterLink>
                 <a href="https://vuejs.org" target="_blank" rel="noreferrer">Vue 문서</a>
             </nav>

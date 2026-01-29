@@ -37,10 +37,7 @@ const props = defineProps({
     },
 })
 
-const lnbMode = ref('expanded')
-
-const getNextLnbMode = (currentMode) =>
-    currentMode === 'expanded' ? props.lnbToggleMode : 'expanded'
+const lnbActive = ref(true)
 
 const handleLnbControl = (event) => {
     if (!props.hasLnb) {
@@ -51,16 +48,17 @@ const handleLnbControl = (event) => {
         return
     }
     if (target.closest('.control__lnb')) {
-        lnbMode.value = getNextLnbMode(lnbMode.value)
+        lnbActive.value = !lnbActive.value
     }
 }
 
 const layoutClass = computed(() => ({
     layout: true,
-    'layout--gnb-full': props.gnbFull,
-    'layout--no-lnb': !props.hasLnb,
-    'layout--lnb-compact': props.hasLnb && lnbMode.value === 'compact',
-    'layout--lnb-hidden': props.hasLnb && lnbMode.value === 'hidden',
-    'layout--lnb-closed': props.hasLnb && lnbMode.value !== 'expanded',
+    'layout__gnb-full': props.gnbFull,
+    'layout__lnb-none': !props.hasLnb,
+    'layout__lnb-compact': props.hasLnb && props.lnbToggleMode === 'compact',
+    'layout__lnb-hidden': props.hasLnb && props.lnbToggleMode === 'hidden',
+    'layout__lnb-active': props.hasLnb && lnbActive.value,
+    'layout__lnb-closed': props.hasLnb && !lnbActive.value,
 }))
 </script>
