@@ -2,8 +2,8 @@
     <div class="layout__lnb-header">
         <div class="layout__lnb-header-inner">
             <div class="app__date">
-                <i class="app__icon app__icon--calendar">
-                    <CalendarIcon />
+                <i class="app__icon app__icon-ic-calendar">
+                    <iconCalendar />
                 </i>
                 <span class="app__date-day">{{ today }}</span>
             </div>
@@ -20,13 +20,13 @@
                         :aria-expanded="isOpen(item.id)"
                         @click="toggleOpen(item.id)"
                     >
-                        <span v-if="item.icon" class="app__menu-icon">
+                        <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
                             <component :is="iconMap[item.icon]" />
-                        </span>
+                        </i>
                         <p class="app__menu-label">{{ item.title }}</p>
-                        <span class="app__menu-chevron">
-                            <ChevronIcon />
-                        </span>
+                        <i class="app__icon app__icon-ic-arrow-bottom">
+                            <iconArrowBottom />
+                        </i>
                     </button>
                     <component
                         v-else
@@ -37,9 +37,9 @@
                         :target="item.href ? '_blank' : undefined"
                         :rel="item.href ? 'noreferrer' : undefined"
                     >
-                        <span v-if="item.icon" class="app__menu-icon">
+                        <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
                             <component :is="iconMap[item.icon]" />
-                        </span>
+                        </i>
                         <p class="app__menu-label">{{ item.title }}</p>
                     </component>
                     <ul
@@ -56,13 +56,13 @@
                                 :aria-expanded="isOpen(child.id)"
                                 @click="toggleOpen(child.id)"
                             >
-                                <span v-if="child.icon" class="app__menu-icon">
+                                <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
                                     <component :is="iconMap[child.icon]" />
-                                </span>
+                                </i>
                                 <p class="app__menu-label">{{ child.title }}</p>
-                                <span class="app__menu-chevron">
-                                    <ChevronIcon />
-                                </span>
+                                <i class="app__icon app__icon-ic-arrow-bottom">
+                                    <iconArrowBottom />
+                                </i>
                             </button>
                             <component
                                 v-else
@@ -73,9 +73,9 @@
                                 :target="child.href ? '_blank' : undefined"
                                 :rel="child.href ? 'noreferrer' : undefined"
                             >
-                                <span v-if="child.icon" class="app__menu-icon">
+                                <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
                                     <component :is="iconMap[child.icon]" />
-                                </span>
+                                </i>
                                 <p class="app__menu-label">{{ child.title }}</p>
                             </component>
                             <ul
@@ -93,9 +93,9 @@
                                         :target="leaf.href ? '_blank' : undefined"
                                         :rel="leaf.href ? 'noreferrer' : undefined"
                                     >
-                                        <span v-if="leaf.icon" class="app__menu-icon">
-                                            <component :is="iconMap[leaf.icon]" />
-                                        </span>
+                                    <i v-if="leaf.icon" :class="['app__icon', `app__icon-${leaf.icon}`]">
+                                        <component :is="iconMap[leaf.icon]" />
+                                    </i>
                                         <p class="app__menu-label">{{ leaf.title }}</p>
                                     </component>
                                 </li>
@@ -112,8 +112,11 @@
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import navItems from '@/data/lnb.json'
-import CalendarIcon from '@/assets/icons/24/ic-calendar.svg?component'
-import ChevronIcon from '@/assets/icons/24/ic-arrow-bottom.svg?component'
+import iconCalendar from '@/assets/icons/24/ic-calendar.svg?component'
+import iconArrowBottom from '@/assets/icons/24/ic-arrow-bottom.svg?component'
+
+const iconMap = {
+}
 
 // LNB 상단 날짜 표시용 (YYYY.MM.DD)
 const today = computed(() => {
