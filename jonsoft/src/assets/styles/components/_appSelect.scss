@@ -51,6 +51,7 @@
 }
 
 .app__select-option {
+    width: 100%;
     @include font(b4, semibold);
     height: 32px;
     border-radius: 8px;
