@@ -15,6 +15,14 @@
         "order": 0
     },
     {
+        "id": "font",
+        "title": "폰트",
+        "depth": 2,
+        "parentId": "component",
+        "order": 0,
+        "to": "/component/font"
+    },
+    {
         "id": "input",
         "title": "인풋",
         "depth": 2,
