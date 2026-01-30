@@ -7,7 +7,10 @@
         </header>
         <aside v-if="hasLnb" class="layout__lnb">
             <slot name="lnb">
-                <AppSidebar />
+                <AppSidebar
+                    :lnb-initial-open-all="lnbInitialOpenAll"
+                    :lnb-single-open="lnbSingleOpen"
+                />
             </slot>
         </aside>
         <main class="layout__content">
@@ -34,6 +37,14 @@ const props = defineProps({
         type: String,
         default: 'compact',
         validator: (value) => ['compact', 'hidden'].includes(value),
+    },
+    lnbInitialOpenAll: {
+        type: Boolean,
+        default: true,
+    },
+    lnbSingleOpen: {
+        type: Boolean,
+        default: false,
     },
 })
 

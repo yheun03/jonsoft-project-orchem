@@ -110,7 +110,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 // 공통 탭(탭 UI) 컴포넌트
 import AppTab from '@/components/AppTab.vue'
@@ -128,6 +128,19 @@ import TabSpec from '@/components/tabs/TabSpec.vue'
 
 // 라우터 인스턴스 가져오기
 const route = useRoute()
+
+const props = defineProps({
+    // 최초 로딩 시 LNB 하위 메뉴를 모두 열지 여부
+    lnbInitialOpenAll: {
+        type: Boolean,
+        default: true,
+    },
+    // 동일 레벨에서 하나의 부모만 열지 여부 (true면 아코디언)
+    lnbSingleOpen: {
+        type: Boolean,
+        default: false,
+    },
+})
 
 // 아이콘 매핑
 const iconMap = {
@@ -192,6 +205,46 @@ const buildTree = (items) => {
 
 const navTree = computed(() => buildTree(navItems))
 const openIds = ref(new Set())
+const hasInitializedOpenState = ref(false)
+
+const toggleIds = computed(() => {
+    const ids = new Set()
+    const traverse = (nodes) => {
+        nodes.forEach((node) => {
+            if (isToggleItem(node)) {
+                ids.add(node.id)
+            }
+            if (node.children?.length) {
+                traverse(node.children)
+            }
+        })
+    }
+    traverse(navTree.value)
+    return ids
+})
+
+const parentById = computed(() => {
+    const map = new Map()
+    navItems.forEach((item) => {
+        if (item.depth > 3) {
+            return
+        }
+        map.set(item.id, item.parentId ?? null)
+    })
+    return map
+})
+
+const toggleIdsByParent = computed(() => {
+    const map = new Map()
+    toggleIds.value.forEach((id) => {
+        const parentId = parentById.value.get(id) ?? null
+        if (!map.has(parentId)) {
+            map.set(parentId, new Set())
+        }
+        map.get(parentId).add(id)
+    })
+    return map
+})
 
 // 링크가 없는 항목만 아코디언 토글 대상
 const isToggleItem = (item) => !item.to && !item.href && item.children?.length
@@ -203,12 +256,29 @@ const isActiveItem = (item) => {
     return route.path === item.to
 }
 
+watchEffect(() => {
+    if (hasInitializedOpenState.value) {
+        return
+    }
+    openIds.value = props.lnbInitialOpenAll ? new Set(toggleIds.value) : new Set()
+    hasInitializedOpenState.value = true
+})
+
 // 아코디언 열림/닫힘 토글
 const toggleOpen = (id) => {
     const next = new Set(openIds.value)
     if (next.has(id)) {
         next.delete(id)
     } else {
+        if (props.lnbSingleOpen) {
+            const parentId = parentById.value.get(id) ?? null
+            const siblingIds = toggleIdsByParent.value.get(parentId)
+            if (siblingIds) {
+                siblingIds.forEach((siblingId) => {
+                    next.delete(siblingId)
+                })
+            }
+        }
         next.add(id)
     }
     openIds.value = next
