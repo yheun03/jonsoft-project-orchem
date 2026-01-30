@@ -95,7 +95,6 @@ const subRows = [
     display: flex;
     flex-direction: column;
     gap: 28px;
-    padding: 8px 0;
 }
 
 .font-system__header {

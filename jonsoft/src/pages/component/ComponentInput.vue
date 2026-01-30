@@ -1,6 +1,9 @@
 <template>
     <section class="component__section">
-        <h1 class="component__section-title">Component</h1>
+        <header class="component__section-header">
+            <h1 class="component__section-title">Input</h1>
+            <p class="component__section-desc">디자인 시스템 입력 컴포넌트를 한눈에 확인합니다.</p>
+        </header>
 
         <div class="component__section-group">
             <h2 class="component__section-subtitle">체크박스</h2>
@@ -80,6 +83,22 @@ const selectRole = ref('admin')
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.component__section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.component__section-title {
+    @include font(t1, semibold);
+    color: $black-0;
+}
+
+.component__section-desc {
+    @include font(b4, medium);
+    color: $black-2;
 }
 
 .component__section-group {
