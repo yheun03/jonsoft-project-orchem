@@ -4,6 +4,7 @@ import ComponentButton from '@/pages/component/ComponentButton.vue'
 import ComponentCheckboxRadio from '@/pages/component/ComponentCheckboxRadio.vue'
 import ComponentInput from '@/pages/component/ComponentInput.vue'
 import ComponentFont from '@/pages/component/ComponentFont.vue'
+import ComponentModal from '@/pages/component/ComponentModal.vue'
 import ComponentSelect from '@/pages/component/ComponentSelect.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import TestPage from '@/pages/TestPage.vue'
@@ -37,6 +38,14 @@ const routes = [
         path: '/component/checkbox-radio',
         name: 'component-checkbox-radio',
         component: ComponentCheckboxRadio,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/component/modal',
+        name: 'component-modal',
+        component: ComponentModal,
         meta: {
             layout: 'default',
         },

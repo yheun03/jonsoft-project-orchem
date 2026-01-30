@@ -16,6 +16,7 @@
         <main class="layout__content">
             <slot />
         </main>
+        <AppModalHost />
     </div>
 </template>
 
@@ -23,6 +24,7 @@
 import { computed, ref } from 'vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
+import AppModalHost from '@/components/AppModalHost.vue'
 
 const props = defineProps({
     gnbFull: {

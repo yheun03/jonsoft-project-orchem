@@ -47,11 +47,19 @@
         "to": "/component/button"
     },
     {
+        "id": "modal",
+        "title": "모달",
+        "depth": 2,
+        "parentId": "component",
+        "order": 4,
+        "to": "/component/modal"
+    },
+    {
         "id": "select",
         "title": "셀렉트",
         "depth": 2,
         "parentId": "component",
-        "order": 4,
+        "order": 5,
         "to": "/component/select"
     },
     {
@@ -60,13 +68,6 @@
         "depth": 2,
         "parentId": "component",
         "order": 5
-    },
-    {
-        "id": "modal",
-        "title": "모달",
-        "depth": 2,
-        "parentId": "component",
-        "order": 6
     },
     {
         "id": "orc-4164-b",

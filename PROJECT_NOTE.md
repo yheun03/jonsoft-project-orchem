@@ -44,6 +44,10 @@
 - 항목 키: `id`, `title`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부), `icon`
 - 링크 없는 항목은 토글 버튼으로 동작하며 자식이 펼쳐짐
 
+## LNB 동작 설정
+- `lnbInitialOpenAll`: `true`면 최초 로딩 시 모든 하위 메뉴를 열고, `false`면 모두 닫힌 상태로 시작
+- `lnbSingleOpen`: `true`면 같은 레벨에서 하나의 부모만 열리고, `false`면 여러 부모를 동시에 열 수 있음
+
 ## 공통 탭 컴포넌트
 - `src/components/AppTab.vue`는 탭 목록과 렌더러를 props로 주입받는 범용 컴포넌트
 - 필수 데이터: `tabs: [{ key, label, component, disabled? }]` (페이지에서 컴포넌트 전달)
@@ -57,3 +61,38 @@
 - `@include font(t1)` → Title1 / 600 / Pretendard
 - `@include font(t1, medium)` → Title1 / 400 / Pretendard
 - `@include font(t1, medium, sub)` → Title1 / 400 / NanumSquare
+
+## 모달(Confirm) 사용법
+- 전역 모달은 `DefaultLayout`에서 렌더링됨
+- `confirm()`은 `Promise<boolean>`을 반환 (확인=true / 취소=false)
+- 닫기: 딤 클릭, X 버튼, 취소/확인 버튼, `ESC` 키
+- 중첩 모달은 스택으로 관리되며 나중에 열린 모달이 더 높은 `z-index`
+
+```js
+import { confirm } from '@/composables/useModal'
+
+const result = await confirm({
+  title: '삭제',
+  message: '정말 삭제할까요?',
+  confirmText: '삭제',
+  cancelText: '취소',
+  closeOnDim: false,
+  closeOnEsc: true
+})
+```
+
+## 컴포넌트 데모 페이지
+- `Font System` (`/component/font`): 폰트 토큰 표
+- `Checkbox & Radio` (`/component/checkbox-radio`): 체크박스/라디오 variants
+- `Input` (`/component/input`): input/textarea 상태 및 헬퍼 텍스트
+- `Button` (`/component/button`): 버튼 variants와 접근성 속성 예시
+- `Select` (`/component/select`): 기본/커스텀 키 옵션 예시
+- `Modal` (`/component/modal`): confirm 옵션과 중첩 모달 동작
+
+## 공용 컴포넌트 접근성/속성
+- `AppButton`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`, `name`
+- `AppCheckbox`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`, `name`
+- `AppRadio`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`
+- `AppSelect`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`, `name`
+
+`AppSelect`는 `name`이 있을 때 폼 제출을 위해 hidden input을 생성함
