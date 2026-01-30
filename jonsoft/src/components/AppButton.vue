@@ -2,6 +2,8 @@
     <button
         :type="type"
         :class="buttonClasses"
+        :id="id || undefined"
+        :name="name || undefined"
         :disabled="disabled"
         :aria-disabled="disabled ? 'true' : undefined"
         :aria-label="computedAriaLabel"
@@ -50,6 +52,14 @@ const props = defineProps({
     type: {
         type: String,
         default: 'button'
+    },
+    id: {
+        type: String,
+        default: ''
+    },
+    name: {
+        type: String,
+        default: ''
     },
     disabled: {
         type: Boolean,

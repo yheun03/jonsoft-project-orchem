@@ -3,6 +3,8 @@
         <input
             class="app__check-input"
             type="checkbox"
+            :id="id || undefined"
+            :name="name || undefined"
             :checked="modelValue"
             :disabled="disabled"
             :aria-label="computedAriaLabel"
@@ -28,6 +30,14 @@ const props = defineProps({
         default: false
     },
     label: {
+        type: String,
+        default: ''
+    },
+    id: {
+        type: String,
+        default: ''
+    },
+    name: {
         type: String,
         default: ''
     },

@@ -5,6 +5,10 @@
     min-width: 180px;
 }
 
+.app__select-input {
+    display: none;
+}
+
 .app__select-opener {
     @include font(b4, semibold);
     width: 100%;

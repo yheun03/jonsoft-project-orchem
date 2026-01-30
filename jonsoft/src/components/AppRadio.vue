@@ -3,6 +3,7 @@
         <input
             class="app__radio-input"
             type="radio"
+            :id="id || undefined"
             :name="name"
             :value="value"
             :checked="modelValue === value"
@@ -34,6 +35,10 @@ const props = defineProps({
         default: ''
     },
     name: {
+        type: String,
+        default: ''
+    },
+    id: {
         type: String,
         default: ''
     },

@@ -4,7 +4,7 @@
             ref="triggerRef"
             type="button"
             class="app__select-opener"
-            :id="triggerId"
+            :id="computedTriggerId"
             :disabled="disabled"
             :aria-disabled="disabled ? 'true' : undefined"
             :aria-haspopup="'listbox'"
@@ -29,7 +29,7 @@
             :id="listId"
             class="app__select-list"
             role="listbox"
-            :aria-labelledby="triggerId"
+            :aria-labelledby="computedTriggerId"
             :aria-activedescendant="activeDescendantId"
             @keydown="onListKeydown"
         >
@@ -49,6 +49,13 @@
                 </button>
             </li>
         </ul>
+        <input
+            v-if="name"
+            class="app__select-input"
+            type="hidden"
+            :name="name"
+            :value="modelValue"
+        />
     </div>
 </template>
 
@@ -77,6 +84,14 @@ const props = defineProps({
         type: String,
         default: '선택'
     },
+    id: {
+        type: String,
+        default: ''
+    },
+    name: {
+        type: String,
+        default: ''
+    },
     disabled: {
         type: Boolean,
         default: false
@@ -104,6 +119,7 @@ const optionRefs = ref([])
 
 const listId = `select-list-${Math.random().toString(36).slice(2, 9)}`
 const triggerId = `select-trigger-${Math.random().toString(36).slice(2, 9)}`
+const computedTriggerId = computed(() => props.id || triggerId)
 
 const selectedOption = computed(() => (
     props.options.find((option) => getValue(option) === props.modelValue)
