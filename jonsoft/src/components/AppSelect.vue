@@ -4,9 +4,15 @@
             ref="triggerRef"
             type="button"
             class="app__select-opener"
+            :id="triggerId"
+            :disabled="disabled"
+            :aria-disabled="disabled ? 'true' : undefined"
             :aria-haspopup="'listbox'"
             :aria-expanded="isOpen ? 'true' : 'false'"
             :aria-controls="listId"
+            :aria-label="computedAriaLabel"
+            :aria-labelledby="ariaLabelledby || undefined"
+            :aria-describedby="ariaDescribedby || undefined"
             @click="toggle"
             @keydown="onTriggerKeydown"
         >
@@ -23,6 +29,7 @@
             :id="listId"
             class="app__select-list"
             role="listbox"
+            :aria-labelledby="triggerId"
             :aria-activedescendant="activeDescendantId"
             @keydown="onListKeydown"
         >
@@ -69,6 +76,22 @@ const props = defineProps({
     placeholder: {
         type: String,
         default: '선택'
+    },
+    disabled: {
+        type: Boolean,
+        default: false
+    },
+    ariaLabel: {
+        type: String,
+        default: ''
+    },
+    ariaLabelledby: {
+        type: String,
+        default: ''
+    },
+    ariaDescribedby: {
+        type: String,
+        default: ''
     }
 })
 
@@ -80,11 +103,19 @@ const triggerRef = ref(null)
 const optionRefs = ref([])
 
 const listId = `select-list-${Math.random().toString(36).slice(2, 9)}`
+const triggerId = `select-trigger-${Math.random().toString(36).slice(2, 9)}`
 
 const selectedOption = computed(() => (
     props.options.find((option) => getValue(option) === props.modelValue)
 ))
 const selectedLabel = computed(() => selectedOption.value ? getLabel(selectedOption.value) : '')
+
+const computedAriaLabel = computed(() => {
+    if (props.ariaLabelledby) {
+        return undefined
+    }
+    return props.ariaLabel || '셀렉트'
+})
 
 const activeDescendantId = computed(() => {
     if (!selectedOption.value) {
@@ -99,6 +130,9 @@ const getOptionId = (option) => `select-option-${getValue(option)}`
 const isSelected = (option) => getValue(option) === props.modelValue
 
 const open = async () => {
+    if (props.disabled) {
+        return
+    }
     isOpen.value = true
     await nextTick()
     focusSelectedOption()
@@ -112,6 +146,9 @@ const close = () => {
 }
 
 const toggle = () => {
+    if (props.disabled) {
+        return
+    }
     if (isOpen.value) {
         close()
     } else {
@@ -120,6 +157,9 @@ const toggle = () => {
 }
 
 const select = (option) => {
+    if (props.disabled) {
+        return
+    }
     emit('update:modelValue', getValue(option))
     close()
 }
@@ -131,6 +171,9 @@ const focusSelectedOption = () => {
 }
 
 const onTriggerKeydown = (event) => {
+    if (props.disabled) {
+        return
+    }
     if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
         event.preventDefault()
         open()
@@ -138,6 +181,9 @@ const onTriggerKeydown = (event) => {
 }
 
 const onListKeydown = (event) => {
+    if (props.disabled) {
+        return
+    }
     const currentIndex = optionRefs.value.findIndex((el) => el === document.activeElement)
     if (event.key === 'Escape') {
         event.preventDefault()

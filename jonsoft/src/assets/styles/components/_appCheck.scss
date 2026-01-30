@@ -39,6 +39,18 @@
     &--checked.app__check--filled-icon-text {
         background: $primary-100;
     }
+
+    &:hover:not(.app__check--disabled) {
+        background: $black-5;
+    }
+
+    &:focus-within {
+        box-shadow: 0 0 0 2px rgba($primary-300, 0.6);
+    }
+
+    &:active:not(.app__check--disabled) {
+        transform: translateY(1px);
+    }
 }
 
 .app__check-input {

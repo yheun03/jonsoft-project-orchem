@@ -27,6 +27,18 @@
     &--checked.app__radio--filled-icon-text {
         background: $primary-100;
     }
+
+    &:hover:not(.app__radio--disabled) {
+        background: $black-5;
+    }
+
+    &:focus-within {
+        box-shadow: 0 0 0 2px rgba($primary-300, 0.6);
+    }
+
+    &:active:not(.app__radio--disabled) {
+        transform: translateY(1px);
+    }
 }
 
 .app__radio-input {

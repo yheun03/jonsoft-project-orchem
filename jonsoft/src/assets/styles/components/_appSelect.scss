@@ -23,6 +23,22 @@
         outline: 2px solid $primary-300;
         outline-offset: 2px;
     }
+
+    &:hover:not(:disabled) {
+        border-color: $primary-300;
+    }
+
+    &:active:not(:disabled) {
+        border-color: $primary-500;
+        box-shadow: 0 0 0 2px rgba($primary-300, 0.4);
+    }
+
+    &:disabled {
+        background: $black-5;
+        color: $black-2;
+        cursor: not-allowed;
+        border-color: $black-3;
+    }
 }
 
 .app__select-icon {

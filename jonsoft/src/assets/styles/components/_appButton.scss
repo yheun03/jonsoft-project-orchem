@@ -40,6 +40,15 @@ $app-button-colors: (
         outline-offset: 2px;
     }
 
+    &:hover:not(:disabled):not([aria-disabled='true']) {
+        filter: brightness(0.96);
+    }
+
+    &:active:not(:disabled):not([aria-disabled='true']) {
+        filter: brightness(0.92);
+        transform: translateY(1px);
+    }
+
     &:disabled,
     &[aria-disabled='true'] {
         opacity: 0.6;

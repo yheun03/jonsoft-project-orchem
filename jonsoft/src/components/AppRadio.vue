@@ -8,6 +8,8 @@
             :checked="modelValue === value"
             :disabled="disabled"
             :aria-label="computedAriaLabel"
+            :aria-labelledby="ariaLabelledby || undefined"
+            :aria-describedby="ariaDescribedby || undefined"
             @change="onChange"
         />
         <span v-if="showControl" class="app__radio-control" aria-hidden="true"></span>
@@ -50,6 +52,14 @@ const props = defineProps({
     ariaLabel: {
         type: String,
         default: ''
+    },
+    ariaLabelledby: {
+        type: String,
+        default: ''
+    },
+    ariaDescribedby: {
+        type: String,
+        default: ''
     }
 })
 
@@ -57,7 +67,12 @@ const emit = defineEmits(['update:modelValue'])
 const slots = useSlots()
 
 const hasLabel = computed(() => !!props.label)
-const computedAriaLabel = computed(() => props.ariaLabel || props.label || '라디오 버튼')
+const computedAriaLabel = computed(() => {
+    if (props.ariaLabelledby) {
+        return undefined
+    }
+    return props.ariaLabel || props.label || '라디오 버튼'
+})
 const showControl = computed(() => !['filled', 'filled-icon-text'].includes(props.variant))
 const showSlotIcon = computed(() => props.variant === 'filled-icon-text' && !!slots.icon)
 

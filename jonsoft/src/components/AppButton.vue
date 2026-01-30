@@ -5,6 +5,8 @@
         :disabled="disabled"
         :aria-disabled="disabled ? 'true' : undefined"
         :aria-label="computedAriaLabel"
+        :aria-labelledby="ariaLabelledby || undefined"
+        :aria-describedby="ariaDescribedby || undefined"
     >
         <span v-if="showLeftIcon" class="app__button-icon app__button-icon--left">
             <slot v-if="hasIconLeft" name="icon-left" />
@@ -56,6 +58,14 @@ const props = defineProps({
     ariaLabel: {
         type: String,
         default: ''
+    },
+    ariaLabelledby: {
+        type: String,
+        default: ''
+    },
+    ariaDescribedby: {
+        type: String,
+        default: ''
     }
 })
 
@@ -78,6 +88,9 @@ const showOnlyIcon = computed(() => (
 const showLabel = computed(() => props.variant !== 'icon' && hasLabel.value)
 
 const computedAriaLabel = computed(() => {
+    if (props.ariaLabelledby) {
+        return undefined
+    }
     if (hasLabel.value) {
         return undefined
     }

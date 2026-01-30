@@ -71,6 +71,22 @@
                 </AppButton>
             </div>
         </div>
+
+        <div class="component__section-group">
+            <h2 class="component__section-subtitle">속성 예시</h2>
+            <div class="component__section-row">
+                <AppButton label="비활성" variant="filled" color="primary-500" disabled />
+                <AppButton label="전송" variant="filled" color="secondary-600" type="submit" />
+                <span id="button-help" class="component__section-hint">버튼 설명 텍스트</span>
+                <AppButton label="설명 연결" variant="text" textColor="primary-500" ariaDescribedby="button-help" />
+                <span id="icon-button-label" class="component__section-hint">설정 열기</span>
+                <AppButton variant="icon" color="primary-700" ariaLabelledby="icon-button-label">
+                    <template #icon>
+                        <ArrowIcon />
+                    </template>
+                </AppButton>
+            </div>
+        </div>
     </section>
 </template>
 

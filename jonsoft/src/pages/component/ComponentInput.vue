@@ -6,74 +6,120 @@
         </header>
 
         <div class="component__section-group">
-            <h2 class="component__section-subtitle">체크박스</h2>
+            <h2 class="component__section-subtitle">텍스트 인풋</h2>
             <div class="component__section-row">
-                <AppCheckbox v-model="checkboxIconOnly" variant="icon" aria-label="아이콘 체크" />
-                <AppCheckbox v-model="checkboxLabel" variant="icon-label" label="라벨 체크" />
-                <AppCheckbox v-model="checkboxFilled" variant="filled" label="면 선택" />
-                <AppCheckbox v-model="checkboxFilledIcon" variant="filled-icon-text" label="면 선택 + 아이콘">
-                    <template #icon>
-                        <CalendarIcon />
-                    </template>
-                </AppCheckbox>
+                <div class="component__field">
+                    <label class="component__label" for="input-basic">기본 입력</label>
+                    <input
+                        id="input-basic"
+                        class="component__input"
+                        type="text"
+                        placeholder="기본 입력"
+                        aria-describedby="input-basic-help"
+                    />
+                    <p id="input-basic-help" class="component__helper">예: ORC-4164</p>
+                </div>
+                <div class="component__field">
+                    <label class="component__label" for="input-disabled">비활성</label>
+                    <input
+                        id="input-disabled"
+                        class="component__input"
+                        type="text"
+                        placeholder="비활성"
+                        disabled
+                        aria-describedby="input-disabled-help"
+                    />
+                    <p id="input-disabled-help" class="component__helper">비활성 상태에서는 입력할 수 없습니다.</p>
+                </div>
+                <div class="component__field">
+                    <label class="component__label" for="input-error">오류 상태</label>
+                    <input
+                        id="input-error"
+                        class="component__input component__input--error"
+                        type="text"
+                        placeholder="오류 상태"
+                        aria-invalid="true"
+                        aria-describedby="input-error-help"
+                    />
+                    <p id="input-error-help" class="component__helper component__helper--error">필수 입력 항목입니다.</p>
+                </div>
             </div>
         </div>
 
         <div class="component__section-group">
-            <h2 class="component__section-subtitle">라디오</h2>
+            <h2 class="component__section-subtitle">텍스트에어리어</h2>
             <div class="component__section-row">
-                <AppRadio v-model="radioValue" name="radio-basic" value="icon" variant="icon" aria-label="아이콘 라디오" />
-                <AppRadio v-model="radioValue" name="radio-basic" value="label" variant="icon-label" label="라벨 라디오" />
-                <AppRadio v-model="radioValue" name="radio-basic" value="filled" variant="filled" label="면 선택" />
-                <AppRadio v-model="radioValue" name="radio-basic" value="filled-icon" variant="filled-icon-text" label="면 선택 + 아이콘">
-                    <template #icon>
-                        <ArrowIcon />
-                    </template>
-                </AppRadio>
+                <div class="component__field component__field--wide">
+                    <label class="component__label" for="textarea-basic">기본 입력</label>
+                    <textarea
+                        id="textarea-basic"
+                        class="component__textarea"
+                        rows="4"
+                        placeholder="내용을 입력하세요"
+                        aria-describedby="textarea-basic-help"
+                    ></textarea>
+                    <p id="textarea-basic-help" class="component__helper">최대 200자까지 입력할 수 있습니다.</p>
+                </div>
+                <div class="component__field component__field--wide">
+                    <label class="component__label" for="textarea-disabled">비활성</label>
+                    <textarea
+                        id="textarea-disabled"
+                        class="component__textarea"
+                        rows="4"
+                        placeholder="비활성"
+                        disabled
+                        aria-describedby="textarea-disabled-help"
+                    ></textarea>
+                    <p id="textarea-disabled-help" class="component__helper">비활성 상태에서는 입력할 수 없습니다.</p>
+                </div>
             </div>
-            <p class="component__section-hint">선택 값: {{ radioValue }}</p>
         </div>
 
         <div class="component__section-group">
-            <h2 class="component__section-subtitle">셀렉트</h2>
+            <h2 class="component__section-subtitle">속성 예시</h2>
             <div class="component__section-row">
-                <AppSelect v-model="selectValue" :options="selectOptions" placeholder="작업 상태 선택" />
-                <AppSelect v-model="selectRole" :options="roleOptions" placeholder="역할 선택" />
+                <div class="component__field">
+                    <label class="component__label" for="input-required">필수 입력</label>
+                    <input
+                        id="input-required"
+                        class="component__input"
+                        type="text"
+                        placeholder="필수 입력"
+                        required
+                        aria-describedby="input-required-help"
+                    />
+                    <p id="input-required-help" class="component__helper">필수 항목입니다.</p>
+                </div>
+                <div class="component__field">
+                    <label class="component__label" for="input-readonly">읽기 전용</label>
+                    <input
+                        id="input-readonly"
+                        class="component__input"
+                        type="text"
+                        value="readonly"
+                        readonly
+                        aria-describedby="input-readonly-help"
+                    />
+                    <p id="input-readonly-help" class="component__helper">수정할 수 없습니다.</p>
+                </div>
+                <div class="component__field component__field--wide">
+                    <label class="component__label" for="textarea-count">최대 글자 수</label>
+                    <textarea
+                        id="textarea-count"
+                        class="component__textarea"
+                        rows="3"
+                        placeholder="100자 이내"
+                        maxlength="100"
+                        aria-describedby="textarea-count-help"
+                    ></textarea>
+                    <p id="textarea-count-help" class="component__helper">최대 100자까지 입력됩니다.</p>
+                </div>
             </div>
-            <p class="component__section-hint">선택 값: {{ selectValue }}</p>
         </div>
     </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import AppCheckbox from '@/components/AppCheckbox.vue'
-import AppRadio from '@/components/AppRadio.vue'
-import AppSelect from '@/components/AppSelect.vue'
-import CalendarIcon from '@/assets/icons/24/ic-calendar.svg?component'
-import ArrowIcon from '@/assets/icons/24/ic-arrow-bottom.svg?component'
-
-const checkboxIconOnly = ref(false)
-const checkboxLabel = ref(false)
-const checkboxFilled = ref(true)
-const checkboxFilledIcon = ref(false)
-
-const radioValue = ref('label')
-
-const selectOptions = [
-    { label: '대기', value: 'waiting' },
-    { label: '진행 중', value: 'working' },
-    { label: '완료', value: 'done' }
-]
-
-const roleOptions = [
-    { label: '관리자', value: 'admin' },
-    { label: '매니저', value: 'manager' },
-    { label: '작업자', value: 'worker' }
-]
-
-const selectValue = ref('waiting')
-const selectRole = ref('admin')
 </script>
 
 <style lang="scss" scoped>
@@ -119,8 +165,61 @@ const selectRole = ref('admin')
     align-items: center;
 }
 
-.component__section-hint {
+.component__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 240px;
+}
+
+.component__field--wide {
+    min-width: 320px;
+}
+
+.component__label {
+    @include font(b5, semibold);
+    color: $black-1;
+}
+
+.component__helper {
     @include font(b5, medium);
     color: $black-2;
+}
+
+.component__helper--error {
+    color: $error;
+}
+
+.component__input,
+.component__textarea {
+    @include font(b4, medium);
+    padding: 10px 12px;
+    border: 1px solid $black-3;
+    border-radius: 8px;
+    background: $white;
+    color: $black-0;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.component__input:focus,
+.component__textarea:focus {
+    border-color: $primary-500;
+    box-shadow: 0 0 0 3px rgba($primary-300, 0.25);
+}
+
+.component__input:disabled,
+.component__textarea:disabled {
+    background: $black-5;
+    color: $black-2;
+    cursor: not-allowed;
+}
+
+.component__input--error {
+    border-color: $error;
+}
+
+.component__textarea {
+    resize: vertical;
 }
 </style>

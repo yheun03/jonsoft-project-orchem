@@ -23,11 +23,19 @@
         "to": "/component/font"
     },
     {
+        "id": "checkbox-radio",
+        "title": "체크박스/라디오",
+        "depth": 2,
+        "parentId": "component",
+        "order": 1,
+        "to": "/component/checkbox-radio"
+    },
+    {
         "id": "input",
         "title": "인풋",
         "depth": 2,
         "parentId": "component",
-        "order": 1,
+        "order": 2,
         "to": "/component/input"
     },
     {
@@ -35,22 +43,30 @@
         "title": "버튼",
         "depth": 2,
         "parentId": "component",
-        "order": 2,
+        "order": 3,
         "to": "/component/button"
+    },
+    {
+        "id": "select",
+        "title": "셀렉트",
+        "depth": 2,
+        "parentId": "component",
+        "order": 4,
+        "to": "/component/select"
     },
     {
         "id": "table",
         "title": "테이블",
         "depth": 2,
         "parentId": "component",
-        "order": 3
+        "order": 5
     },
     {
         "id": "modal",
         "title": "모달",
         "depth": 2,
         "parentId": "component",
-        "order": 4
+        "order": 6
     },
     {
         "id": "orc-4164-b",
