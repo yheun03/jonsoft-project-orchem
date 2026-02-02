@@ -35,6 +35,15 @@
         </div>
 
         <div class="component__section-group">
+            <h2 class="component__section-subtitle">토글</h2>
+            <div class="component__section-row">
+                <AppToggle v-model="toggleEnabled" label="알림" ariaLabel="알림 설정" />
+                <AppToggle label="자동 저장" ariaLabel="자동 저장" disabled />
+            </div>
+            <p class="component__section-hint">선택 값: {{ toggleEnabled ? 'ON' : 'OFF' }}</p>
+        </div>
+
+        <div class="component__section-group">
             <h2 class="component__section-subtitle">속성 예시</h2>
             <div class="component__section-row">
                 <span id="check-help" class="component__section-hint">작업 동의 체크</span>
@@ -69,6 +78,7 @@
 import { ref } from 'vue'
 import AppCheckbox from '@/components/AppCheckbox.vue'
 import AppRadio from '@/components/AppRadio.vue'
+import AppToggle from '@/components/AppToggle.vue'
 import CalendarIcon from '@/assets/icons/24/ic-calendar.svg?component'
 import ArrowIcon from '@/assets/icons/24/ic-arrow-bottom.svg?component'
 
@@ -78,6 +88,7 @@ const checkboxFilled = ref(true)
 const checkboxFilledIcon = ref(false)
 
 const radioValue = ref('label')
+const toggleEnabled = ref(false)
 </script>
 
 <style lang="scss" scoped>
@@ -127,4 +138,5 @@ const radioValue = ref('label')
     @include font(b5, medium);
     color: $black-2;
 }
+
 </style>
