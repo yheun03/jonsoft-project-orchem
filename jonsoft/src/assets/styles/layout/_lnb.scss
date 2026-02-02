@@ -4,11 +4,23 @@
     display: flex;
     flex-direction: column;
     padding: 24px 10px;
+    position: relative;
     &-content {
         flex: 1;
         overflow: auto;
         margin-top: 14px;
     }
+}
+
+.layout__lnb-resize-handle {
+    position: absolute;
+    top: 0;
+    right: -3px;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    background: transparent;
+    z-index: 2;
 }
 
 .layout__lnb-closed {

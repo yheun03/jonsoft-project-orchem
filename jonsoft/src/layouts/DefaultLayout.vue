@@ -1,5 +1,5 @@
 <template>
-    <div :class="layoutClass" @click="handleLnbControl">
+    <div ref="layoutRef" :class="layoutClass" :style="layoutStyle" @click="handleLnbControl">
         <header class="layout__gnb">
             <slot name="gnb">
                 <AppHeader />
@@ -12,6 +12,13 @@
                     :lnb-single-open="lnbSingleOpen"
                 />
             </slot>
+            <div
+                v-if="showResizeHandle"
+                class="layout__lnb-resize-handle"
+                role="separator"
+                aria-orientation="vertical"
+                @pointerdown="onResizeStart"
+            ></div>
         </aside>
         <main class="layout__content">
             <slot />
@@ -51,6 +58,10 @@ const props = defineProps({
 })
 
 const lnbActive = ref(true)
+const layoutRef = ref(null)
+const lnbWidth = ref(150)
+const minLnbWidth = 120
+const maxLnbWidth = 360
 
 const handleLnbControl = (event) => {
     if (!props.hasLnb) {
@@ -74,4 +85,40 @@ const layoutClass = computed(() => ({
     'layout__lnb-active': props.hasLnb && lnbActive.value,
     'layout__lnb-closed': props.hasLnb && !lnbActive.value,
 }))
+
+const layoutStyle = computed(() => ({
+    '--lnb-open-width': `${lnbWidth.value}px`,
+}))
+
+const showResizeHandle = computed(() => props.hasLnb && lnbActive.value)
+
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max)
+
+const onResizeStart = (event) => {
+    if (!props.hasLnb || !lnbActive.value) {
+        return
+    }
+    const startX = event.clientX
+    const startWidth = lnbWidth.value
+    const body = document.body
+    const prevUserSelect = body.style.userSelect
+    const prevCursor = body.style.cursor
+    body.style.userSelect = 'none'
+    body.style.cursor = 'col-resize'
+
+    const onMove = (moveEvent) => {
+        const nextWidth = startWidth + (moveEvent.clientX - startX)
+        lnbWidth.value = clamp(nextWidth, minLnbWidth, maxLnbWidth)
+    }
+
+    const onUp = () => {
+        body.style.userSelect = prevUserSelect
+        body.style.cursor = prevCursor
+        window.removeEventListener('pointermove', onMove)
+        window.removeEventListener('pointerup', onUp)
+    }
+
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerup', onUp)
+}
 </script>
