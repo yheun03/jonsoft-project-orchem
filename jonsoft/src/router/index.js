@@ -9,6 +9,7 @@ import ComponentTable from '@/pages/component/ComponentTable.vue'
 import ComponentTableDetail from '@/pages/component/ComponentTableDetail.vue'
 import ComponentSelect from '@/pages/component/ComponentSelect.vue'
 import ComponentProgress from '@/pages/component/ComponentProgress.vue'
+import SettingsPage from '@/pages/SettingsPage.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import TestPage from '@/pages/TestPage.vue'
 
@@ -97,6 +98,14 @@ const routes = [
         path: '/component/select',
         name: 'component-select',
         component: ComponentSelect,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/settings',
+        name: 'settings',
+        component: SettingsPage,
         meta: {
             layout: 'default',
         },

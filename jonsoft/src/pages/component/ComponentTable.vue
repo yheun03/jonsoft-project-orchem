@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Table</h1>
-            <p class="component__section-desc">JSON 데이터를 기반으로 자동 렌더링되는 그리드입니다.</p>
+            <h1 class="component__section-title">{{ t('components.table.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.table.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -39,12 +39,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import AppGrid from '@/components/AppGrid.vue'
 import AppGridMultiInputRenderer from '@/components/AppGridMultiInputRenderer.vue'
 import AppButton from '@/components/AppButton.vue'
 import tableRows from '@/data/table.json'
 
+const { t } = useI18n()
 const router = useRouter()
 const gridRef = ref(null)
 const keyword = ref('')

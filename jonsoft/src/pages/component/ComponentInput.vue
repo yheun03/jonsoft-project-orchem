@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Input</h1>
-            <p class="component__section-desc">디자인 시스템 입력 컴포넌트를 한눈에 확인합니다.</p>
+            <h1 class="component__section-title">{{ t('components.input.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.input.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -120,6 +120,9 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <style lang="scss" scoped>

@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Button</h1>
-            <p class="component__section-desc">디자인 시스템 버튼 컴포넌트를 한눈에 확인합니다.</p>
+            <h1 class="component__section-title">{{ t('components.button.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.button.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -91,9 +91,12 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import AppButton from '@/components/AppButton.vue'
 import CalendarIcon from '@/assets/icons/24/ic-calendar.svg?component'
 import ArrowIcon from '@/assets/icons/24/ic-arrow-bottom.svg?component'
+
+const { t } = useI18n()
 </script>
 
 <style lang="scss" scoped>

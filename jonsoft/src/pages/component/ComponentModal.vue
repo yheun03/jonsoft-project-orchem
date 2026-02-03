@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Modal</h1>
-            <p class="component__section-desc">Confirm 모달 호출 방식과 옵션을 확인합니다.</p>
+            <h1 class="component__section-title">{{ t('components.modal.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.modal.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -40,9 +40,11 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import AppButton from '@/components/AppButton.vue'
 import { confirm } from '@/composables/useModal'
 
+const { t } = useI18n()
 const lastResult = ref(null)
 
 const resultText = computed(() => {

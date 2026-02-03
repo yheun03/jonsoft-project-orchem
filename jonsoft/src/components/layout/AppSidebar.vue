@@ -24,7 +24,7 @@
                         <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
                             <component :is="iconMap[item.icon]" />
                         </i>
-                        <p class="app__menu-label">{{ item.title }}</p>
+                        <p class="app__menu-label">{{ resolveTitle(item) }}</p>
                         <i class="app__icon app__icon-ic-arrow-bottom">
                             <iconArrowBottom />
                         </i>
@@ -41,7 +41,7 @@
                         <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
                             <component :is="iconMap[item.icon]" />
                         </i>
-                        <p class="app__menu-label">{{ item.title }}</p>
+                        <p class="app__menu-label">{{ resolveTitle(item) }}</p>
                     </component>
                     <ul
                         v-if="item.children?.length"
@@ -60,7 +60,7 @@
                                 <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
                                     <component :is="iconMap[child.icon]" />
                                 </i>
-                                <p class="app__menu-label">{{ child.title }}</p>
+                                <p class="app__menu-label">{{ resolveTitle(child) }}</p>
                                 <i class="app__icon app__icon-ic-arrow-bottom">
                                     <iconArrowBottom />
                                 </i>
@@ -77,7 +77,7 @@
                                 <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
                                     <component :is="iconMap[child.icon]" />
                                 </i>
-                                <p class="app__menu-label">{{ child.title }}</p>
+                                <p class="app__menu-label">{{ resolveTitle(child) }}</p>
                             </component>
                             <ul
                                 v-if="child.children?.length"
@@ -97,7 +97,7 @@
                                     <i v-if="leaf.icon" :class="['app__icon', `app__icon-${leaf.icon}`]">
                                         <component :is="iconMap[leaf.icon]" />
                                     </i>
-                                        <p class="app__menu-label">{{ leaf.title }}</p>
+                                        <p class="app__menu-label">{{ resolveTitle(leaf) }}</p>
                                     </component>
                                 </li>
                             </ul>
@@ -112,6 +112,7 @@
 <script setup>
 import { computed, ref, watchEffect } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 // 공통 탭(탭 UI) 컴포넌트
 import AppTab from '@/components/AppTab.vue'
 
@@ -128,6 +129,7 @@ import TabSpec from '@/components/tabs/TabSpec.vue'
 
 // 라우터 인스턴스 가져오기
 const route = useRoute()
+const { t } = useI18n()
 
 const props = defineProps({
     // 최초 로딩 시 LNB 하위 메뉴를 모두 열지 여부
@@ -206,6 +208,8 @@ const buildTree = (items) => {
 const navTree = computed(() => buildTree(navItems))
 const openIds = ref(new Set())
 const hasInitializedOpenState = ref(false)
+
+const resolveTitle = (item) => (item?.titleKey ? t(item.titleKey) : item?.title)
 
 const toggleIds = computed(() => {
     const ids = new Set()

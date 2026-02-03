@@ -2,8 +2,9 @@
 
 ## 기술 스택
 - `Vue 3`
-- `Vite 6`
+- `Vite 7`
 - `Vue Router 4`
+- `Vue I18n 11`
 - `vite-svg-loader` (SVG → Vue 컴포넌트)
 - `Sass (SCSS)`
 - `AG Grid Community` (그리드/테이블)
@@ -70,7 +71,7 @@
 
 ## LNB 데이터
 - `src/data/lnb.json` flat 구조를 트리로 변환 후 최대 3뎁스 렌더링
-- 항목 키: `id`, `title`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부), `icon`
+- 항목 키: `id`, `title`, `titleKey`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부), `icon`
 - 링크 없는 항목은 토글 버튼으로 동작하며 자식이 펼쳐짐
 
 ## LNB 동작 설정
@@ -118,6 +119,20 @@ const result = await confirm({
 - `Select` (`/component/select`): 기본/커스텀 키 옵션 예시
 - `Modal` (`/component/modal`): confirm 옵션과 중첩 모달 동작
 - `Table` (`/component/table`): JSON 기반 그리드 기능 데모
+- `Settings` (`/settings`): 다국어 선택
+
+## i18n 사용법
+- 초기 세팅: `src/i18n/index.js`에서 메시지/언어 관리
+- 기본 로케일: `ko` (저장된 로케일이 있으면 우선 적용)
+- 지원 로케일: `ko`, `en`, `ja`, `vi`
+- LNB 타이틀: `titleKey`로 번역 키 지정 (없으면 `title` 사용)
+- 헤더 타이틀/컴포넌트 페이지 타이틀·설명은 i18n 키로 렌더링
+
+```js
+import { setLocale } from '@/i18n'
+
+setLocale('en')
+```
 
 ## 공용 컴포넌트 접근성/속성
 - `AppButton`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`, `name`

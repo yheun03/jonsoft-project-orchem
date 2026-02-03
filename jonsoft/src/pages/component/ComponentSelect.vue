@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Select</h1>
-            <p class="component__section-desc">디자인 시스템 셀렉트 컴포넌트를 한눈에 확인합니다.</p>
+            <h1 class="component__section-title">{{ t('components.select.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.select.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -44,8 +44,10 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import AppSelect from '@/components/AppSelect.vue'
 
+const { t } = useI18n()
 const selectOptions = [
     { label: '대기', value: 'waiting' },
     { label: '진행 중', value: 'working' },

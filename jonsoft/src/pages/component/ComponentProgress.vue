@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Progress</h1>
-            <p class="component__section-desc">디자인 시스템 프로그레스 컴포넌트를 한눈에 확인합니다.</p>
+            <h1 class="component__section-title">{{ t('components.progress.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.progress.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -24,7 +24,10 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import AppProgress from '@/components/AppProgress.vue'
+
+const { t } = useI18n()
 </script>
 
 <style lang="scss" scoped>

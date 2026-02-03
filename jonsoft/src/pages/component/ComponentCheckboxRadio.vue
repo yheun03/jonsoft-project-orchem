@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Checkbox & Radio</h1>
-            <p class="component__section-desc">디자인 시스템 체크박스/라디오 컴포넌트를 한눈에 확인합니다.</p>
+            <h1 class="component__section-title">{{ t('components.checkboxRadio.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.checkboxRadio.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -76,12 +76,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import AppCheckbox from '@/components/AppCheckbox.vue'
 import AppRadio from '@/components/AppRadio.vue'
 import AppToggle from '@/components/AppToggle.vue'
 import CalendarIcon from '@/assets/icons/24/ic-calendar.svg?component'
 import ArrowIcon from '@/assets/icons/24/ic-arrow-bottom.svg?component'
 
+const { t } = useI18n()
 const checkboxIconOnly = ref(false)
 const checkboxLabel = ref(false)
 const checkboxFilled = ref(true)

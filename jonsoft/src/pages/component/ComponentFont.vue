@@ -1,8 +1,8 @@
 <template>
     <section class="font-system">
         <header class="font-system__header">
-            <h1 class="font-system__title">Font System</h1>
-            <p class="font-system__desc">디자인 시스템 폰트 토큰을 한눈에 확인합니다.</p>
+            <h1 class="font-system__title">{{ t('components.font.title') }}</h1>
+            <p class="font-system__desc">{{ t('components.font.desc') }}</p>
         </header>
 
         <div class="font-system__section">
@@ -61,6 +61,9 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const mainRows = [
     { key: 'h1', name: 'Heading 1', weight: 'bold', size: 48, lineHeight: 56, sampleClass: 'font-system__sample--main-h1' },
     { key: 'h2', name: 'Heading 2', weight: 'bold', size: 40, lineHeight: 48, sampleClass: 'font-system__sample--main-h2' },

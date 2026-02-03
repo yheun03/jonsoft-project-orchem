@@ -1,8 +1,8 @@
 <template>
     <section class="component__section">
         <header class="component__section-header">
-            <h1 class="component__section-title">Table Detail</h1>
-            <p class="component__section-desc">선택한 행의 상세 페이지 예시입니다.</p>
+            <h1 class="component__section-title">{{ t('components.tableDetail.title') }}</h1>
+            <p class="component__section-desc">{{ t('components.tableDetail.desc') }}</p>
         </header>
 
         <div class="component__section-group">
@@ -14,9 +14,11 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import AppButton from '@/components/AppButton.vue'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
