@@ -14,11 +14,11 @@
                     <span class="layout__header-account-name">윤규화</span>
                 </div>
 
-                <button>
-                    <iconSetting />
+                <button aria-label="설정">
+                    <IconSetting />
                 </button>
-                <button>
-                    <iconLogout />
+                <button aria-label="로그아웃">
+                    <IconLogout />
                 </button>
             </div>
         </div>
@@ -26,6 +26,9 @@
 </template>
 
 <script setup>
-const logoUrl = new URL('@/assets/icons/logo.png', import.meta.url).href;
-const avatarUrl = new URL('@/assets/icons/24/ic-profile.svg', import.meta.url).href;
+import IconSetting from '@/assets/icons/24/ic-setting.svg?component'
+import IconLogout from '@/assets/icons/24/ic-sign-in.svg?component'
+
+const logoUrl = new URL('@/assets/icons/logo.png', import.meta.url).href
+const avatarUrl = new URL('@/assets/icons/24/ic-profile.svg', import.meta.url).href
 </script>
