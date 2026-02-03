@@ -6,6 +6,7 @@
 - `Vue Router 4`
 - `vite-svg-loader` (SVG → Vue 컴포넌트)
 - `Sass (SCSS)`
+- `AG Grid Community` (그리드/테이블)
 
 ## 주요 설정
 - 경로 별칭: `@` → `src` (`vite.config.js`, `jsconfig.json`)
@@ -116,6 +117,7 @@ const result = await confirm({
 - `Button` (`/component/button`): 버튼 variants와 접근성 속성 예시
 - `Select` (`/component/select`): 기본/커스텀 키 옵션 예시
 - `Modal` (`/component/modal`): confirm 옵션과 중첩 모달 동작
+- `Table` (`/component/table`): JSON 기반 그리드 기능 데모
 
 ## 공용 컴포넌트 접근성/속성
 - `AppButton`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`, `name`
@@ -124,3 +126,18 @@ const result = await confirm({
 - `AppSelect`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`, `name`
 
 `AppSelect`는 `name`이 있을 때 폼 제출을 위해 hidden input을 생성함
+
+## 그리드(AppGrid) 사용법
+- 공통 그리드 컴포넌트: `src/components/AppGrid.vue`
+- AG Grid Community 기반으로 컬럼 드래그/정렬/리사이즈/선택 기능 제공
+- `AppGridMultiInputRenderer`로 다중 입력 셀 렌더링 지원
+
+```vue
+<AppGrid
+  :column-defs="columnDefs"
+  :row-data="rows"
+  :grid-options="gridOptions"
+  :default-col-def="defaultColDef"
+  :quick-filter-text="keyword"
+/>
+```

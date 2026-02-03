@@ -55,11 +55,19 @@
         "to": "/component/modal"
     },
     {
+        "id": "table",
+        "title": "테이블",
+        "depth": 2,
+        "parentId": "component",
+        "order": 5,
+        "to": "/component/table"
+    },
+    {
         "id": "progress",
         "title": "프로그레스",
         "depth": 2,
         "parentId": "component",
-        "order": 5,
+        "order": 6,
         "to": "/component/progress"
     },
     {
@@ -67,15 +75,8 @@
         "title": "셀렉트",
         "depth": 2,
         "parentId": "component",
-        "order": 6,
+        "order": 7,
         "to": "/component/select"
-    },
-    {
-        "id": "table",
-        "title": "테이블",
-        "depth": 2,
-        "parentId": "component",
-        "order": 5
     },
     {
         "id": "orc-4164-b",

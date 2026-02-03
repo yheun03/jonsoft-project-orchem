@@ -5,6 +5,8 @@ import ComponentCheckboxRadio from '@/pages/component/ComponentCheckboxRadio.vue
 import ComponentInput from '@/pages/component/ComponentInput.vue'
 import ComponentFont from '@/pages/component/ComponentFont.vue'
 import ComponentModal from '@/pages/component/ComponentModal.vue'
+import ComponentTable from '@/pages/component/ComponentTable.vue'
+import ComponentTableDetail from '@/pages/component/ComponentTableDetail.vue'
 import ComponentSelect from '@/pages/component/ComponentSelect.vue'
 import ComponentProgress from '@/pages/component/ComponentProgress.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
@@ -39,6 +41,22 @@ const routes = [
         path: '/component/checkbox-radio',
         name: 'component-checkbox-radio',
         component: ComponentCheckboxRadio,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/component/table',
+        name: 'component-table',
+        component: ComponentTable,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/component/table/:id',
+        name: 'component-table-detail',
+        component: ComponentTableDetail,
         meta: {
             layout: 'default',
         },
