@@ -55,11 +55,19 @@
         "to": "/component/modal"
     },
     {
+        "id": "progress",
+        "title": "프로그레스",
+        "depth": 2,
+        "parentId": "component",
+        "order": 5,
+        "to": "/component/progress"
+    },
+    {
         "id": "select",
         "title": "셀렉트",
         "depth": 2,
         "parentId": "component",
-        "order": 5,
+        "order": 6,
         "to": "/component/select"
     },
     {

@@ -6,6 +6,7 @@ import ComponentInput from '@/pages/component/ComponentInput.vue'
 import ComponentFont from '@/pages/component/ComponentFont.vue'
 import ComponentModal from '@/pages/component/ComponentModal.vue'
 import ComponentSelect from '@/pages/component/ComponentSelect.vue'
+import ComponentProgress from '@/pages/component/ComponentProgress.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import TestPage from '@/pages/TestPage.vue'
 
@@ -46,6 +47,14 @@ const routes = [
         path: '/component/modal',
         name: 'component-modal',
         component: ComponentModal,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/component/progress',
+        name: 'component-progress',
+        component: ComponentProgress,
         meta: {
             layout: 'default',
         },
