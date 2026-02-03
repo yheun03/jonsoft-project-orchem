@@ -5,6 +5,11 @@
                 <AppHeader />
             </slot>
         </header>
+        <div v-if="showPageTabs" class="layout__pagination">
+            <slot name="pagination">
+                <AppPageTabs />
+            </slot>
+        </div>
         <aside v-if="hasLnb" class="layout__lnb">
             <slot name="lnb">
                 <AppSidebar
@@ -32,6 +37,7 @@ import { computed, ref } from 'vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
 import AppModalHost from '@/components/AppModalHost.vue'
+import AppPageTabs from '@/components/AppPageTabs.vue'
 
 const props = defineProps({
     gnbFull: {
@@ -46,6 +52,14 @@ const props = defineProps({
         type: String,
         default: 'compact',
         validator: (value) => ['compact', 'hidden'].includes(value),
+    },
+    paginationFull: {
+        type: Boolean,
+        default: false,
+    },
+    showPageTabs: {
+        type: Boolean,
+        default: true,
     },
     lnbInitialOpenAll: {
         type: Boolean,
@@ -79,6 +93,7 @@ const handleLnbControl = (event) => {
 const layoutClass = computed(() => ({
     layout: true,
     'layout__gnb-full': props.gnbFull,
+    'layout__pagination-full': props.paginationFull,
     'layout__lnb-none': !props.hasLnb,
     'layout__lnb-compact': props.hasLnb && props.lnbToggleMode === 'compact',
     'layout__lnb-hidden': props.hasLnb && props.lnbToggleMode === 'hidden',

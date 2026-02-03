@@ -1,0 +1,56 @@
+@use '../base/variables' as *;
+
+.app__page-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    overflow-x: auto;
+    background: $white;
+    border-bottom: 1px solid $black-4;
+}
+
+.app__page-tab {
+    @include font(b4, semibold);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid $black-3;
+    background: $black-5;
+    color: $black-1;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+        background: $white;
+        border-color: $primary-300;
+    }
+
+    &--active {
+        background: $primary-100;
+        border-color: $primary-300;
+        color: $primary-800;
+    }
+}
+
+.app__page-tab-title {
+    white-space: nowrap;
+}
+
+.app__page-tab-close {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    color: $black-2;
+
+    &:hover {
+        background: rgba($black-0, 0.08);
+    }
+}

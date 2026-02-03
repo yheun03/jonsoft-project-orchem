@@ -7,9 +7,10 @@
     --lnb-open-width: 150px;
     --lnb-width: var(--lnb-open-width);
     grid-template-columns: var(--lnb-width) 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-areas:
         "lnb gnb"
+        "lnb pagination"
         "lnb content";
     background: $primary-500;
     transition: grid-template-columns 0.25s ease;
@@ -18,6 +19,14 @@
 .layout__gnb-full {
     grid-template-areas:
         "gnb gnb"
+        "lnb pagination"
+        "lnb content";
+}
+
+.layout__pagination-full {
+    grid-template-areas:
+        "lnb gnb"
+        "pagination pagination"
         "lnb content";
 }
 
@@ -26,6 +35,7 @@
     grid-template-columns: 1fr;
     grid-template-areas:
         "gnb"
+        "pagination"
         "content";
 }
 
@@ -34,6 +44,13 @@
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+.layout__pagination {
+    grid-area: pagination;
+    position: sticky;
+    top: 0;
+    z-index: 9;
 }
 
 .layout__lnb {

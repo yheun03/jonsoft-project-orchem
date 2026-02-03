@@ -39,6 +39,34 @@
 - `layout__lnb-closed` 상태에서는 LNB 내 링크/토글 동작이 비활성화됨
 - LNB 상태 클래스는 `layout__*`로 통일하며 `lnb-none`과 `lnb-hidden`은 별도 상태로 유지
 
+### 레이아웃 그리드 구성
+- 기본 구조: `lnb gnb / lnb pagination / lnb content`
+- `gnbFull=true`: `gnb gnb / lnb pagination / lnb content`
+- `paginationFull=true`: `lnb gnb / pagination pagination / lnb content`
+- `hasLnb=false`: `gnb / pagination / content`
+
+```vue
+<DefaultLayout
+  :gnb-full="false"
+  :pagination-full="false"
+  :has-lnb="true"
+  :show-page-tabs="true"
+  lnb-toggle-mode="compact"
+>
+  <template #gnb>...</template>
+  <template #pagination>...</template>
+  <template #lnb>...</template>
+  <RouterView />
+</DefaultLayout>
+```
+
+### 페이지 히스토리 탭(AppPageTabs)
+- 기본 제공되는 `pagination` 영역에 자동으로 노출됨
+- `showPageTabs=false`로 pagination 영역을 숨길 수 있음
+- 사용자가 방문한 페이지 순서대로 탭이 추가됨
+- 탭 클릭 시 해당 라우트로 이동, 활성 탭만 active 스타일
+- X 버튼으로 탭 삭제 (탭이 1개면 X 숨김)
+
 ## LNB 데이터
 - `src/data/lnb.json` flat 구조를 트리로 변환 후 최대 3뎁스 렌더링
 - 항목 키: `id`, `title`, `depth`, `parentId`, `order`, `to`(내부), `href`(외부), `icon`
