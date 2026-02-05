@@ -8,6 +8,7 @@
 - `vite-svg-loader` (SVG → Vue 컴포넌트)
 - `Sass (SCSS)`
 - `AG Grid Community` (그리드/테이블)
+- `Chart.js` (차트)
 
 ## 주요 설정
 - 경로 별칭: `@` → `src` (`vite.config.js`, `jsconfig.json`)
@@ -119,6 +120,7 @@ const result = await confirm({
 - `Select` (`/component/select`): 기본/커스텀 키 옵션 예시
 - `Modal` (`/component/modal`): confirm 옵션과 중첩 모달 동작
 - `Table` (`/component/table`): JSON 기반 그리드 기능 데모
+- `Chart` (`/component/chart`): 바/라인/도넛/반도넛 데모
 - `Settings` (`/settings`): 다국어 선택
 
 ## i18n 사용법
@@ -154,5 +156,26 @@ setLocale('en')
   :grid-options="gridOptions"
   :default-col-def="defaultColDef"
   :quick-filter-text="keyword"
+/>
+```
+
+## 차트(AppChart) 사용법
+- 공통 차트 컴포넌트: `src/components/AppChart.vue`
+- Chart.js 기반으로 바/라인/도넛/반도넛 차트 렌더링
+- `data`에 Chart.js 데이터 객체를 넘기면 즉시 렌더링
+- `dataSource`로 JSON/비동기 데이터를 받아와 자동 반영 가능
+
+```vue
+<AppChart type="bar" :data="chartData" :options="chartOptions" />
+```
+
+```vue
+<AppChart
+  type="line"
+  :data-source="'/data/chart.json'"
+  :map-data="(json) => ({
+    labels: json.labels,
+    datasets: json.datasets
+  })"
 />
 ```

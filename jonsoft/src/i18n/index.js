@@ -34,6 +34,7 @@ const messages = {
             table: '테이블',
             progress: '프로그레스',
             select: '셀렉트',
+            chart: '차트',
             settings: '설정',
             orc4164b: 'ORC-4164(B)',
             orc11111kr1: 'ORC-11111(KR)',
@@ -80,6 +81,10 @@ const messages = {
             font: {
                 title: 'Font System',
                 desc: '디자인 시스템 폰트 토큰을 한눈에 확인합니다.'
+            },
+            chart: {
+                title: 'Chart',
+                desc: '바/라인/도넛 등 차트 스타일을 한눈에 확인합니다.'
             }
         },
         settings: {
@@ -110,6 +115,7 @@ const messages = {
             table: 'Table',
             progress: 'Progress',
             select: 'Select',
+            chart: 'Chart',
             settings: 'Settings',
             orc4164b: 'ORC-4164(B)',
             orc11111kr1: 'ORC-11111(KR)',
@@ -156,6 +162,10 @@ const messages = {
             font: {
                 title: 'Font System',
                 desc: 'Browse the design system font tokens at a glance.'
+            },
+            chart: {
+                title: 'Chart',
+                desc: 'Browse bar/line/donut chart styles at a glance.'
             }
         },
         settings: {
@@ -186,6 +196,7 @@ const messages = {
             table: 'テーブル',
             progress: 'プログレス',
             select: 'セレクト',
+            chart: 'チャート',
             settings: '設定',
             orc4164b: 'ORC-4164(B)',
             orc11111kr1: 'ORC-11111(KR)',
@@ -232,6 +243,10 @@ const messages = {
             font: {
                 title: 'Font System',
                 desc: 'デザインシステムのフォントトークンを一覧で確認します。'
+            },
+            chart: {
+                title: 'Chart',
+                desc: 'バー/ライン/ドーナツなどのチャートを一覧で確認します。'
             }
         },
         settings: {
@@ -262,6 +277,7 @@ const messages = {
             table: 'Bảng',
             progress: 'Tiến trình',
             select: 'Chọn',
+            chart: 'Biểu đồ',
             settings: 'Cài đặt',
             orc4164b: 'ORC-4164(B)',
             orc11111kr1: 'ORC-11111(KR)',
@@ -308,6 +324,10 @@ const messages = {
             font: {
                 title: 'Font System',
                 desc: 'Xem nhanh các token phông chữ trong hệ thống thiết kế.'
+            },
+            chart: {
+                title: 'Chart',
+                desc: 'Xem nhanh các kiểu biểu đồ bar/line/donut.'
             }
         },
         settings: {

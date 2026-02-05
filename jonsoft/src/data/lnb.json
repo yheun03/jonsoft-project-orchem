@@ -89,12 +89,21 @@
         "to": "/component/select"
     },
     {
+        "id": "chart",
+        "title": "차트",
+        "titleKey": "lnb.chart",
+        "depth": 2,
+        "parentId": "component",
+        "order": 8,
+        "to": "/component/chart"
+    },
+    {
         "id": "settings",
         "title": "설정",
         "titleKey": "lnb.settings",
         "depth": 1,
         "parentId": null,
-        "order": 9,
+        "order": 10,
         "to": "/settings"
     },
     {

@@ -1,0 +1,15 @@
+@use '../base/variables' as *;
+
+.app__chart {
+    width: 100%;
+    background: $white;
+    border-radius: 12px;
+    border: 1px solid $black-4;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.app__chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+}

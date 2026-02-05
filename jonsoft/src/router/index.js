@@ -9,6 +9,7 @@ import ComponentTable from '@/pages/component/ComponentTable.vue'
 import ComponentTableDetail from '@/pages/component/ComponentTableDetail.vue'
 import ComponentSelect from '@/pages/component/ComponentSelect.vue'
 import ComponentProgress from '@/pages/component/ComponentProgress.vue'
+import ComponentChart from '@/pages/component/ComponentChart.vue'
 import SettingsPage from '@/pages/SettingsPage.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import TestPage from '@/pages/TestPage.vue'
@@ -103,6 +104,14 @@ const routes = [
         },
     },
     {
+        path: '/component/chart',
+        name: 'component-chart',
+        component: ComponentChart,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
         path: '/settings',
         name: 'settings',
         component: SettingsPage,
@@ -121,7 +130,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,
     scrollBehavior() {
         return { top: 0 }

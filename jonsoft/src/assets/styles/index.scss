@@ -2,6 +2,7 @@
 @use './base/variables';
 @use './base/fonts';
 @use './base/layout';
+@use './base/theme';
 @use './base/scrollbar';
 @use './layout/header';
 @use './layout/lnb';
@@ -16,3 +17,4 @@
 @use './components/appPageTabs';
 @use './components/appProgress';
 @use './components/appGrid';
+@use './components/appChart';
