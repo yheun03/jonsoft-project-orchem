@@ -7,8 +7,8 @@
     &-list {
         display: flex;
         gap: 6px;
-        border-radius: 12px;
-        padding: 5px 7px;
+        border-radius: $radius-12;
+        padding: $space-5 $space-7;
         background-color: $primary-700;
     }
 
@@ -20,8 +20,8 @@
         @include font(t3);
         letter-spacing: -0.03em;
         color: $white;
-        padding-block: 6px;
-        border-radius: 12px;
+        padding-block: $space-6;
+        border-radius: $radius-12;
         cursor: pointer;
 
         &-active{

@@ -4,8 +4,8 @@
     position: absolute;
     width: 1px;
     height: 1px;
-    padding: 0;
-    margin: -1px;
+    padding: $space-0;
+    margin: -$space-1;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
@@ -18,8 +18,8 @@
     gap: 8px;
     cursor: pointer;
     position: relative;
-    padding: 6px 10px;
-    border-radius: 8px;
+    padding: $space-6 $space-10;
+    border-radius: $radius-8;
 
     &--disabled {
         opacity: 0.6;
@@ -45,7 +45,7 @@
     }
 
     &:focus-within {
-        box-shadow: 0 0 0 2px rgba($primary-300, 0.6);
+        box-shadow: $shadow-focus-strong;
     }
 
     &:active:not(.app__check--disabled) {
@@ -61,8 +61,8 @@
     &-control {
         width: 18px;
         height: 18px;
-        border-radius: 4px;
-        border: 1px solid $black-3;
+        border-radius: $radius-4;
+        border: $border-thin solid $black-3;
         background: $white;
         display: inline-flex;
         align-items: center;

@@ -4,13 +4,13 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 20px;
+    padding: $space-8 $space-20;
     flex-wrap: nowrap;
     overflow-x: auto;
     width: 100%;
     max-width: 100%;
     background: $white;
-    border-bottom: 1px solid $black-4;
+    border-bottom: $border-thin solid $black-4;
 }
 
 .app__page-tab {
@@ -18,10 +18,10 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 14px;
+    padding: $space-8 $space-14;
     flex: 0 0 auto;
-    border-radius: 999px;
-    border: 1px solid $black-3;
+    border-radius: $radius-pill;
+    border: $border-thin solid $black-3;
     background: $black-5;
     color: $black-1;
     cursor: pointer;
@@ -45,7 +45,7 @@
     &-close {
         width: 18px;
         height: 18px;
-        border-radius: 50%;
+        border-radius: $radius-circle;
         display: inline-flex;
         align-items: center;
         justify-content: center;

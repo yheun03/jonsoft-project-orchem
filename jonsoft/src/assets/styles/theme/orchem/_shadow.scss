@@ -1,0 +1,17 @@
+@use './colors' as *;
+
+$shadow-focus-strong: 0 0 0 2px rgba($primary-300, 0.6);
+$shadow-focus: 0 0 0 2px rgba($primary-300, 0.4);
+$shadow-focus-soft: 0 0 0 3px rgba($primary-300, 0.25);
+
+$shadow-modal: 0 12px 30px rgba($black-0, 0.18);
+$shadow-dropdown: 0 8px 20px rgba(4, 65, 74, 0.12);
+$shadow-datepicker: 0 12px 30px -18px rgba(15, 23, 42, 0.4);
+$shadow-toggle-thumb: 0 2px 6px rgba($black-0, 0.15);
+
+$shadow-font-section-dark: 0 6px 18px rgba(0, 0, 0, 0.35);
+$shadow-modal-dark: 0 12px 30px rgba(0, 0, 0, 0.45);
+$shadow-dropdown-dark: 0 8px 20px rgba(0, 0, 0, 0.45);
+$shadow-toggle-thumb-dark: 0 2px 6px rgba(0, 0, 0, 0.35);
+$shadow-focus-strong-dark: 0 0 0 2px rgba($primary-300-dark, 0.6);
+$shadow-focus-soft-dark: 0 0 0 3px rgba($primary-300-dark, 0.25);

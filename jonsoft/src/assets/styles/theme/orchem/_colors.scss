@@ -1,0 +1,165 @@
+@use "sass:map";
+
+// 컬러 팔레트 맵으로 일괄 관리 및 재사용성 향상
+$palette: (
+    "gradient": (
+        "primary": linear-gradient(90deg, #378B96 -285.42%, #00626F 100%),
+    ),
+    "primary": (800: #04414A,
+        700: #0A545E,
+        500: #00626F,
+        300: #4BB2BF,
+        100: #B2E0E6),
+    "secondary": (700: #006CC7,
+        600: #2687D8,
+        300: #7CC3FF),
+    "state": (
+        "success": #32C771,
+        "warning": #FFAA00,
+        "error": #FF4242
+    ),
+    "black": (0: #000000,
+        1: #505050,
+        2: #767676,
+        3: #D9D9D9,
+        4: #F0F0F0,
+        5: #F5F6F7),
+    "white": #FFFFFF,
+    "factory": (
+        "working": #25A175,
+        "loading": #FF8000,
+        "unready": #828282,
+        "stop": #C3C3C3
+    ),
+    "factory-bg": (
+        "done": #EDFFE3,
+        "done-border": #C9FFBC,
+        "stop": #FFE5E5,
+        "stop-border": #FFB4B4,
+        "working": #FFF9E6,
+        "working-border": #FF952B,
+        "mixing": #FFEEAA,
+        "filtering": #EFF6FF,
+        "mixing-text": #FF4E4E,
+        "filtering-text": #0064B7
+    )
+);
+
+$palette-dark: (
+    "gradient": (
+        "primary": linear-gradient(90deg, #1f4c53 -285.42%, #0c2f35 100%),
+    ),
+    "primary": (800: #0c3c43,
+        700: #0f4f58,
+        500: #1e6b77,
+        300: #4bb2bf,
+        100: #8dd7df),
+    "secondary": (700: #1b4f7a,
+        600: #2d6ea1,
+        300: #5fa6dc),
+    "state": (
+        "success": #41d983,
+        "warning": #ffb52e,
+        "error": #ff6b6b
+    ),
+    "black": (0: #f5f6f7,
+        1: #d4d9de,
+        2: #aeb5bc,
+        3: #3a4046,
+        4: #2a2f34,
+        5: #1c2024),
+    "white": #0f1114,
+    "factory": (
+        "working": #2ab88a,
+        "loading": #ff9a3c,
+        "unready": #a1a1a1,
+        "stop": #d6d6d6
+    ),
+    "factory-bg": (
+        "done": #1b2a1f,
+        "done-border": #2f4a36,
+        "stop": #2a1d1d,
+        "stop-border": #4a2a2a,
+        "working": #2a2418,
+        "working-border": #4a3920,
+        "mixing": #2a2518,
+        "filtering": #1a2028,
+        "mixing-text": #ff7a7a,
+        "filtering-text": #6aa6ff
+    )
+);
+
+// 컬러 추출 함수 (네임스페이스 가능하게 작성)
+@function palette($group, $shade: null) {
+    @if ($group =="white") {
+        @return map.get($palette, "white");
+    }
+
+    @else if ($shade !=null) {
+        @return map.get(map.get($palette, $group), $shade);
+    }
+
+    @else {
+        // 그룹만 주는 경우 전체 맵 반환
+        @return map.get($palette, $group);
+    }
+}
+
+@function palette-dark($group, $shade: null) {
+    @if ($group =="white") {
+        @return map.get($palette-dark, "white");
+    }
+
+    @else if ($shade !=null) {
+        @return map.get(map.get($palette-dark, $group), $shade);
+    }
+
+    @else {
+        @return map.get($palette-dark, $group);
+    }
+}
+
+// 별칭: 직접 변수 할당도 지원 (기존 코드 호환성 및 가독성)
+$primary-800: palette("primary", 800);
+$primary-700: palette("primary", 700);
+$primary-500: palette("primary", 500);
+$primary-300: palette("primary", 300);
+$primary-100: palette("primary", 100);
+
+$secondary-700: palette("secondary", 700);
+$secondary-600: palette("secondary", 600);
+$secondary-300: palette("secondary", 300);
+
+$success: palette("state", "success");
+$warning: palette("state", "warning");
+$error: palette("state", "error");
+
+$black-0: palette("black", 0);
+$black-1: palette("black", 1);
+$black-2: palette("black", 2);
+$black-3: palette("black", 3);
+$black-4: palette("black", 4);
+$black-5: palette("black", 5);
+$white: palette("white");
+
+$primary-800-dark: palette-dark("primary", 800);
+$primary-700-dark: palette-dark("primary", 700);
+$primary-500-dark: palette-dark("primary", 500);
+$primary-300-dark: palette-dark("primary", 300);
+$primary-100-dark: palette-dark("primary", 100);
+
+$secondary-700-dark: palette-dark("secondary", 700);
+$secondary-600-dark: palette-dark("secondary", 600);
+$secondary-300-dark: palette-dark("secondary", 300);
+
+$success-dark: palette-dark("state", "success");
+$warning-dark: palette-dark("state", "warning");
+$error-dark: palette-dark("state", "error");
+
+$black-0-dark: palette-dark("black", 0);
+$black-1-dark: palette-dark("black", 1);
+$black-2-dark: palette-dark("black", 2);
+$black-3-dark: palette-dark("black", 3);
+$black-4-dark: palette-dark("black", 4);
+$black-5-dark: palette-dark("black", 5);
+$white-dark: palette-dark("white");

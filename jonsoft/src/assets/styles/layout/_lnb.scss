@@ -3,7 +3,7 @@
 .layout__lnb {
     display: flex;
     flex-direction: column;
-    padding: 24px 10px;
+    padding: $space-24 $space-10;
     position: relative;
 
     &-header {
@@ -21,7 +21,7 @@
     &-content {
         flex: 1;
         overflow: auto;
-        margin-top: 14px;
+        margin-top: $space-14;
     }
 
     &-resize-handle {
@@ -54,8 +54,8 @@
 
 .app__menu {
     position: relative;
-    padding-inline: 5px;
-    padding-top: 14px;
+    padding-inline: $space-5;
+    padding-top: $space-14;
 
     &::before {
         content: '';
@@ -66,26 +66,26 @@
         width: 50px;
         height: 1.5px;
         background: $primary-100;
-        border-radius: 2px;
+        border-radius: $radius-2;
     }
 
     &-list {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: $space-10;
 
         .app__menu-list {
             gap: 6px;
 
             &.app__menu-children--open {
-                margin-top: 10px;
+                margin-top: $space-10;
             }
 
             &:not(:has(.app__icon)) {
                 .app__menu-link {
-                    padding-left: 20px;
+                    padding-left: $space-20;
                     @include font(b4);
-                    padding-block: 4px;
+                    padding-block: $space-4;
                 }
             }
         }
@@ -97,12 +97,12 @@
         background: unset;
         color: $white;
         width: 100%;
-        padding-block: 13px;
+        padding-block: $space-13;
         display: flex;
         align-items: center;
         text-align: center;
         gap: 6px;
-        border-radius: 12px;
+        border-radius: $radius-12;
         cursor: pointer;
         transition: 0.2s ease;
 
@@ -152,7 +152,7 @@
     justify-content: center;
     gap: 6px;
 
-    margin-bottom: 38px;
+    margin-bottom: $space-38;
 
     &-day {
         @include font(b3);

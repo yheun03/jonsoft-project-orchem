@@ -1,8 +1,8 @@
 @use '../base/variables' as *;
 
 :root {
-    --scrollbar-size: 6px;
-    --scrollbar-radius: 8px;
+    --scrollbar-size: #{$scrollbar-size};
+    --scrollbar-radius: #{$radius-scrollbar};
     --scrollbar-track: #{rgba($primary-800, 0.22)};
     --scrollbar-thumb: #{rgba($primary-300, 0.75)};
     --scrollbar-thumb-hover: #{rgba($primary-100, 0.9)};

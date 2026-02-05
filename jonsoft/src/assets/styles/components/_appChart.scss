@@ -3,9 +3,9 @@
 .app__chart {
     width: 100%;
     background: $white;
-    border-radius: 12px;
-    border: 1px solid $black-4;
-    padding: 16px;
+    border-radius: $radius-12;
+    border: $border-thin solid $black-4;
+    padding: $space-16;
     box-sizing: border-box;
 
     canvas {

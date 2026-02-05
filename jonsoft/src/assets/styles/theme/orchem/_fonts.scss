@@ -1,0 +1,50 @@
+@use "sass:map";
+
+$font-base: "Pretendard";
+$font-sub: "NanumSquare";
+$font-family: (
+    main: $font-base,
+    sub: $font-sub,
+);
+
+$font-weight: (
+    medium: 400,
+    semibold: 600,
+    bold: 800,
+);
+
+$typo-scale: (
+    main: (h1: (size: 48, line: 56, weight: bold),
+        h2: (size: 40, line: 48, weight: bold),
+        h3: (size: 32, line: 40, weight: bold),
+        h4: (size: 28, line: 36, weight: semibold),
+        t1: (size: 24, line: 32, weight: semibold),
+        t2: (size: 22, line: 30, weight: semibold),
+        t3: (size: 20, line: 28, weight: semibold),
+        b1: (size: 20, line: 28, weight: medium),
+        b2: (size: 18, line: 26, weight: medium),
+        b3: (size: 16, line: 24, weight: medium),
+        b4: (size: 14, line: 22, weight: medium),
+        b5: (size: 12, line: 20, weight: medium),
+        btn1: (size: 16, line: 24, weight: semibold),
+        btn2: (size: 14, line: 22, weight: semibold),
+    ),
+    sub: (h1: (size: 32, line: 40, weight: bold),
+        t1: (size: 20, line: 28, weight: semibold),
+        b1: (size: 16, line: 24, weight: medium),
+    )
+);
+
+@mixin font($token, $weight: null, $family: main) {
+    $t: map.get(map.get($typo-scale, $family), $token);
+    $resolved-weight: map.get($font-weight, map.get($t, weight));
+
+    @if $weight != null {
+        $resolved-weight: map.get($font-weight, $weight);
+    }
+
+    font-family: map.get($font-family, $family);
+    font-size: map.get($t, size) * 1px;
+    line-height: map.get($t, line) * 1px;
+    font-weight: $resolved-weight;
+}
