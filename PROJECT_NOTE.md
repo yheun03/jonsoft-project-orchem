@@ -128,6 +128,22 @@ const result = await confirm({
 - 원문: 레포 루트의 `PROJECT_NOTE.md`
 - 변경 시 HMR로 즉시 반영
 
+## 배포 라우팅 (후이즈 등 정적 호스팅)
+- 서버 리라이트가 없으면 직접 URL 접근 시 404가 발생할 수 있음
+- 적용됨: 후이즈 `.htaccess`로 `/framework/*`를 `/framework/index.html`로 리라이트
+
+```apacheconf
+RewriteEngine On
+
+# 실제 파일/폴더는 그대로 제공
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 나머지는 SPA로
+RewriteRule . /framework/index.html [L]
+```
+
 ```js
 import { setLocale } from '@/i18n'
 
