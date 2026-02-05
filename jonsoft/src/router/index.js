@@ -3,6 +3,7 @@ import HomePage from '@/pages/HomePage.vue'
 import ComponentButton from '@/pages/component/ComponentButton.vue'
 import ComponentCheckboxRadio from '@/pages/component/ComponentCheckboxRadio.vue'
 import ComponentInput from '@/pages/component/ComponentInput.vue'
+import ComponentCalendar from '@/pages/component/ComponentCalendar.vue'
 import ComponentFont from '@/pages/component/ComponentFont.vue'
 import ComponentModal from '@/pages/component/ComponentModal.vue'
 import ComponentTable from '@/pages/component/ComponentTable.vue'
@@ -92,6 +93,14 @@ const routes = [
         path: '/component/input',
         name: 'component-input',
         component: ComponentInput,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/component/calendar',
+        name: 'component-calendar',
+        component: ComponentCalendar,
         meta: {
             layout: 'default',
         },

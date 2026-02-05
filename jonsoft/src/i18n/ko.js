@@ -8,6 +8,7 @@ export default {
         font: '폰트',
         checkboxRadio: '체크박스/라디오',
         input: '인풋',
+            calendar: '캘린더',
         button: '버튼',
         modal: '모달',
         table: '테이블',
@@ -37,7 +38,29 @@ export default {
         },
         input: {
             title: 'Input',
-            desc: '디자인 시스템 입력 컴포넌트를 한눈에 확인합니다.'
+            desc: '디자인 시스템 입력 컴포넌트를 한눈에 확인합니다.',
+            calendar: {
+                title: '캘린더 인풋',
+                single: '단일 선택',
+                range: '기간 선택',
+                multiple: '다중 선택',
+                placeholderSingle: 'YYYY.MM.DD',
+                placeholderRange: 'YYYY.MM.DD ~ YYYY.MM.DD',
+                placeholderMultiple: '여러 날짜 선택',
+                helper: '토요일은 파란색, 일요일은 빨간색으로 표시됩니다.'
+            }
+        },
+        calendar: {
+            title: 'Calendar',
+            desc: '날짜 선택을 위한 캘린더 컴포넌트입니다.',
+            subtitle: '선택 유형',
+            single: '단일 선택',
+            range: '기간 선택',
+            multiple: '다중 선택',
+            placeholderSingle: 'YYYY.MM.DD',
+            placeholderRange: 'YYYY.MM.DD ~ YYYY.MM.DD',
+            placeholderMultiple: '여러 날짜 선택',
+            helper: '토요일은 파란색, 일요일은 빨간색으로 표시됩니다.'
         },
         modal: {
             title: 'Modal',

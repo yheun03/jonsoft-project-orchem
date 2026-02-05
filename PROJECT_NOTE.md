@@ -11,6 +11,7 @@
 - `Chart.js` (차트)
 - `jqwidgets-scripts` (UI 위젯)
 - `marked` (Markdown 렌더링)
+- `flatpickr` (캘린더/데이트피커)
 
 ## 버전
 - `vue`: `^3.5.24`
@@ -24,6 +25,7 @@
 - `chart.js`: `^4.5.1`
 - `jqwidgets-scripts`: `^25.0.0`
 - `marked`: `^17.0.1`
+- `flatpickr`: `^4.6.13`
 
 ## 자체 수정 버전
 - `v0.1.8` (2026-02-05): 후이즈 `.htaccess` 리라이트 설정 반영 및 문서화
@@ -185,6 +187,19 @@ setLocale('en')
 - `AppSelect`: `ariaLabel`, `ariaLabelledby`, `ariaDescribedby`, `id`, `name`
 
 `AppSelect`는 `name`이 있을 때 폼 제출을 위해 hidden input을 생성함
+
+## 캘린더(AppDatePicker) 사용법
+- 기반 라이브러리: `flatpickr`
+- 모드: `single` | `range` | `multiple`
+- 기본 포맷: `YYYY.MM.DD` (`dateFormat: 'Y.m.d'`)
+- 다국어: 현재 `vue-i18n` 로케일에 따라 캘린더 언어가 변경됨
+- 주말 색상: 토요일(파란색), 일요일(빨간색)
+
+```vue
+<AppDatePicker v-model="singleDate" />
+<AppDatePicker v-model="rangeDate" mode="range" />
+<AppDatePicker v-model="multipleDates" mode="multiple" />
+```
 
 ## 버튼(AppButton) 사용법
 - 스타일 타입(`appearance`): `filled | border | text`

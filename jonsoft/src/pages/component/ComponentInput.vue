@@ -120,9 +120,14 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import AppDatePicker from '@/components/AppDatePicker.vue'
 
 const { t } = useI18n()
+const singleDate = ref('')
+const rangeDate = ref([])
+const multipleDates = ref([])
 </script>
 
 <style lang="scss" scoped>

@@ -53,6 +53,15 @@
         "to": "/component/input"
     },
     {
+        "id": "calendar",
+        "title": "캘린더",
+        "titleKey": "lnb.calendar",
+        "depth": 2,
+        "parentId": "component",
+        "order": 2.5,
+        "to": "/component/calendar"
+    },
+    {
         "id": "button",
         "title": "버튼",
         "titleKey": "lnb.button",

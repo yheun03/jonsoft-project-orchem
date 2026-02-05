@@ -8,6 +8,7 @@ export default {
         font: 'フォント',
         checkboxRadio: 'チェックボックス/ラジオ',
         input: '入力',
+            calendar: 'カレンダー',
         button: 'ボタン',
         modal: 'モーダル',
         table: 'テーブル',
@@ -37,7 +38,29 @@ export default {
         },
         input: {
             title: 'Input',
-            desc: 'デザインシステムの入力コンポーネントを一覧で確認します。'
+            desc: 'デザインシステムの入力コンポーネントを一覧で確認します。',
+            calendar: {
+                title: 'カレンダー入力',
+                single: '単一選択',
+                range: '期間選択',
+                multiple: '複数選択',
+                placeholderSingle: '日付を選択',
+                placeholderRange: '開始日 ~ 終了日',
+                placeholderMultiple: '複数の日付を選択',
+                helper: '土曜は青、日曜は赤で表示します。'
+            }
+        },
+        calendar: {
+            title: 'Calendar',
+            desc: '日付選択用のカレンダーコンポーネントです。',
+            subtitle: '選択タイプ',
+            single: '単一選択',
+            range: '期間選択',
+            multiple: '複数選択',
+            placeholderSingle: 'YYYY.MM.DD',
+            placeholderRange: 'YYYY.MM.DD ~ YYYY.MM.DD',
+            placeholderMultiple: '複数の日付を選択',
+            helper: '土曜は青、日曜は赤で表示します。'
         },
         modal: {
             title: 'Modal',

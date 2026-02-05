@@ -1,0 +1,62 @@
+@use '../base/variables' as *;
+
+.app__date-input {
+    @include font(b4, medium);
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid $black-3;
+    border-radius: 8px;
+    background: $white;
+    color: $black-0;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+
+    &:focus {
+        border-color: $primary-500;
+        box-shadow: 0 0 0 3px rgba($primary-300, 0.25);
+    }
+
+    &--disabled {
+        background: $black-5;
+        color: $black-2;
+        cursor: not-allowed;
+    }
+}
+
+.flatpickr-calendar {
+    border-radius: 12px;
+    box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.4);
+    border: 1px solid $black-4;
+}
+
+.flatpickr-current-month {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 8px;
+}
+
+.flatpickr-day.app__date-day--sunday {
+    color: #ef4444;
+}
+
+.flatpickr-day.app__date-day--saturday {
+    color: #3b82f6;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.inRange {
+    background: $primary-500;
+    border-color: $primary-500;
+}
+
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.inRange:hover {
+    background: $primary-700;
+    border-color: $primary-700;
+}

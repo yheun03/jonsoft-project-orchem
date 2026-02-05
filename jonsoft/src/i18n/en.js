@@ -8,6 +8,7 @@ export default {
         font: 'Fonts',
         checkboxRadio: 'Checkbox/Radio',
         input: 'Input',
+            calendar: 'Calendar',
         button: 'Button',
         modal: 'Modal',
         table: 'Table',
@@ -37,7 +38,29 @@ export default {
         },
         input: {
             title: 'Input',
-            desc: 'Browse the design system input components at a glance.'
+            desc: 'Browse the design system input components at a glance.',
+            calendar: {
+                title: 'Calendar Input',
+                single: 'Single selection',
+                range: 'Range selection',
+                multiple: 'Multiple selection',
+                placeholderSingle: 'Select a date',
+                placeholderRange: 'Start date ~ End date',
+                placeholderMultiple: 'Select multiple dates',
+                helper: 'Saturdays are blue and Sundays are red.'
+            }
+        },
+        calendar: {
+            title: 'Calendar',
+            desc: 'Calendar component for selecting dates.',
+            subtitle: 'Selection Types',
+            single: 'Single selection',
+            range: 'Range selection',
+            multiple: 'Multiple selection',
+            placeholderSingle: 'YYYY.MM.DD',
+            placeholderRange: 'YYYY.MM.DD ~ YYYY.MM.DD',
+            placeholderMultiple: 'Select multiple dates',
+            helper: 'Saturdays are blue and Sundays are red.'
         },
         modal: {
             title: 'Modal',

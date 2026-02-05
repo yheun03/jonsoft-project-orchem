@@ -8,6 +8,7 @@ export default {
         font: 'Phông chữ',
         checkboxRadio: 'Checkbox/Radio',
         input: 'Nhập liệu',
+            calendar: 'Lịch',
         button: 'Nút',
         modal: 'Hộp thoại',
         table: 'Bảng',
@@ -37,7 +38,29 @@ export default {
         },
         input: {
             title: 'Input',
-            desc: 'Xem nhanh các thành phần nhập liệu trong hệ thống thiết kế.'
+            desc: 'Xem nhanh các thành phần nhập liệu trong hệ thống thiết kế.',
+            calendar: {
+                title: 'Nhập lịch',
+                single: 'Chọn một ngày',
+                range: 'Chọn khoảng ngày',
+                multiple: 'Chọn nhiều ngày',
+                placeholderSingle: 'Chọn ngày',
+                placeholderRange: 'Ngày bắt đầu ~ Ngày kết thúc',
+                placeholderMultiple: 'Chọn nhiều ngày',
+                helper: 'Thứ Bảy màu xanh, Chủ Nhật màu đỏ.'
+            }
+        },
+        calendar: {
+            title: 'Calendar',
+            desc: 'Thành phần lịch để chọn ngày.',
+            subtitle: 'Kiểu chọn',
+            single: 'Chọn một ngày',
+            range: 'Chọn khoảng ngày',
+            multiple: 'Chọn nhiều ngày',
+            placeholderSingle: 'YYYY.MM.DD',
+            placeholderRange: 'YYYY.MM.DD ~ YYYY.MM.DD',
+            placeholderMultiple: 'Chọn nhiều ngày',
+            helper: 'Thứ Bảy màu xanh, Chủ Nhật màu đỏ.'
         },
         modal: {
             title: 'Modal',
