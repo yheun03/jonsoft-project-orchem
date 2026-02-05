@@ -9,6 +9,15 @@
         "to": "/"
     },
     {
+        "id": "project-note",
+        "title": "프로젝트 노트",
+        "titleKey": "lnb.projectNote",
+        "depth": 1,
+        "parentId": null,
+        "order": 0,
+        "to": "/project-note"
+    },
+    {
         "id": "component",
         "title": "컴포넌트",
         "titleKey": "lnb.component",

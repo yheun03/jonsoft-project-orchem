@@ -35,6 +35,7 @@ const messages = {
             progress: '프로그레스',
             select: '셀렉트',
             chart: '차트',
+            projectNote: '프로젝트 노트',
             close: '메뉴 닫기',
             settings: '설정',
             orc4164b: 'ORC-4164(B)',
@@ -99,6 +100,10 @@ const messages = {
                 ja: '일본어',
                 vi: '베트남어'
             }
+        },
+        projectNote: {
+            title: '프로젝트 노트',
+            desc: 'PROJECT_NOTE.md 내용을 그대로 표시합니다.'
         }
     },
     en: {
@@ -117,6 +122,7 @@ const messages = {
             progress: 'Progress',
             select: 'Select',
             chart: 'Chart',
+            projectNote: 'Project Notes',
             close: 'Close menu',
             settings: 'Settings',
             orc4164b: 'ORC-4164(B)',
@@ -181,6 +187,10 @@ const messages = {
                 ja: 'Japanese',
                 vi: 'Vietnamese'
             }
+        },
+        projectNote: {
+            title: 'Project Notes',
+            desc: 'Displays the contents of PROJECT_NOTE.md as-is.'
         }
     },
     ja: {
@@ -199,6 +209,7 @@ const messages = {
             progress: 'プログレス',
             select: 'セレクト',
             chart: 'チャート',
+            projectNote: 'プロジェクトノート',
             close: 'メニューを閉じる',
             settings: '設定',
             orc4164b: 'ORC-4164(B)',
@@ -263,6 +274,10 @@ const messages = {
                 ja: '日本語',
                 vi: 'ベトナム語'
             }
+        },
+        projectNote: {
+            title: 'プロジェクトノート',
+            desc: 'PROJECT_NOTE.md の内容をそのまま表示します。'
         }
     },
     vi: {
@@ -281,6 +296,7 @@ const messages = {
             progress: 'Tiến trình',
             select: 'Chọn',
             chart: 'Biểu đồ',
+            projectNote: 'Ghi chú dự án',
             close: 'Đóng menu',
             settings: 'Cài đặt',
             orc4164b: 'ORC-4164(B)',
@@ -345,6 +361,10 @@ const messages = {
                 ja: 'Tiếng Nhật',
                 vi: 'Tiếng Việt'
             }
+        },
+        projectNote: {
+            title: 'Ghi chú dự án',
+            desc: 'Hiển thị nguyên bản nội dung PROJECT_NOTE.md.'
         }
     }
 }

@@ -8,9 +8,15 @@ export default defineConfig({
     base: '/framework',
     // base: './',
     plugins: [vue(), svgLoader()],
+    server: {
+        fs: {
+            allow: [path.resolve(__dirname, '..')],
+        },
+    },
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            '@root': path.resolve(__dirname, '..'),
         },
     },
 })

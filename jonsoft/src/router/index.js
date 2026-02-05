@@ -10,6 +10,7 @@ import ComponentTableDetail from '@/pages/component/ComponentTableDetail.vue'
 import ComponentSelect from '@/pages/component/ComponentSelect.vue'
 import ComponentProgress from '@/pages/component/ComponentProgress.vue'
 import ComponentChart from '@/pages/component/ComponentChart.vue'
+import ProjectNotePage from '@/pages/ProjectNotePage.vue'
 import SettingsPage from '@/pages/SettingsPage.vue'
 import NotFoundPage from '@/pages/NotFoundPage.vue'
 import TestPage from '@/pages/TestPage.vue'
@@ -107,6 +108,14 @@ const routes = [
         path: '/component/chart',
         name: 'component-chart',
         component: ComponentChart,
+        meta: {
+            layout: 'default',
+        },
+    },
+    {
+        path: '/project-note',
+        name: 'project-note',
+        component: ProjectNotePage,
         meta: {
             layout: 'default',
         },
