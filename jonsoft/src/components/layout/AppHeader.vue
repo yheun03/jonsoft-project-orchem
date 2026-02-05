@@ -14,12 +14,18 @@
                     <span class="layout__header-account-name">윤규화</span>
                 </div>
 
-                <button :aria-label="t('settings.title')">
-                    <IconSetting />
-                </button>
-                <button aria-label="로그아웃">
-                    <IconLogout />
-                </button>
+                <RouterLink to="/settings" aria-label="settings">
+                    <AppButton layout="icon" appearance="border" color="primary-800" :ariaLabel="t('settings.title')">
+                        <template #icon>
+                            <IconSetting />
+                        </template>
+                    </AppButton>
+                </RouterLink>
+                <AppButton layout="icon" appearance="border" color="primary-800" ariaLabel="로그아웃">
+                    <template #icon>
+                        <IconLogout />
+                    </template>
+                </AppButton>
             </div>
         </div>
     </div>
@@ -27,6 +33,8 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { RouterLink } from 'vue-router'
+import AppButton from '@/components/AppButton.vue'
 import IconSetting from '@/assets/icons/24/ic-setting.svg?component'
 import IconLogout from '@/assets/icons/24/ic-sign-in.svg?component'
 

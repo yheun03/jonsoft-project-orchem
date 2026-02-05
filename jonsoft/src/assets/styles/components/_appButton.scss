@@ -56,20 +56,26 @@ $app-button-colors: (
     }
 }
 
-.app__button--text {
+.app__button--appearance-text {
     background: transparent;
     border-color: transparent;
     padding-inline: 4px;
     color: var(--app-button-text, $primary-500);
 }
 
-.app__button--filled {
+.app__button--appearance-filled {
     background: var(--app-button-bg, $primary-500);
     color: var(--app-button-text, $white);
 }
 
-.app__button--icon {
-    padding: 8px;
+.app__button--appearance-border {
+    background: transparent;
+    border-color: var(--app-button-bg, $primary-500);
+    color: var(--app-button-text, $primary-500);
+}
+
+.app__button--layout-icon {
+    padding: 0;
     width: 36px;
     height: 36px;
 }
@@ -78,8 +84,8 @@ $app-button-colors: (
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
+    // width: 18px;
+    // height: 18px;
 
     svg,
     img {

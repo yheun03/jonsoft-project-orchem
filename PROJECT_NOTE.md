@@ -144,6 +144,22 @@ setLocale('en')
 
 `AppSelect`는 `name`이 있을 때 폼 제출을 위해 hidden input을 생성함
 
+## 버튼(AppButton) 사용법
+- 스타일 타입(`appearance`): `filled | border | text`
+- 레이아웃 타입(`layout`): `text | text-icon | icon-text | icon`
+- 아이콘만 있는 보더 버튼은 `appearance="border" layout="icon"` 조합
+- 기존 `variant`는 하위 호환(점진 교체 권장)
+
+```vue
+<AppButton appearance="filled" layout="text" label="확인" />
+<AppButton appearance="border" layout="icon" ariaLabel="설정">
+  <template #icon>...</template>
+</AppButton>
+<AppButton appearance="text" layout="text-icon" label="다음">
+  <template #icon-right>...</template>
+</AppButton>
+```
+
 ## 그리드(AppGrid) 사용법
 - 공통 그리드 컴포넌트: `src/components/AppGrid.vue`
 - AG Grid Community 기반으로 컬럼 드래그/정렬/리사이즈/선택 기능 제공
