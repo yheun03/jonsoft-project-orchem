@@ -5,6 +5,19 @@
     flex-direction: column;
     padding: 24px 10px;
     position: relative;
+
+    &-header {
+        &-actions {
+            position: absolute;
+            right: 0;
+            top: 50px;
+            .app__button {
+                position: relative;
+                left: 100%;
+            }
+        }
+    }
+
     &-content {
         flex: 1;
         overflow: auto;
@@ -33,7 +46,7 @@
         padding: 0;
         justify-content: center;
 
-        & > *:not(.app__menu-icon) {
+        &>*:not(.app__menu-icon) {
             display: none;
         }
     }
@@ -43,6 +56,7 @@
     position: relative;
     padding-inline: 5px;
     padding-top: 14px;
+
     &::before {
         content: '';
         position: absolute;
@@ -54,6 +68,7 @@
         background: $primary-100;
         border-radius: 2px;
     }
+
     &-list {
         display: flex;
         flex-direction: column;
@@ -66,8 +81,9 @@
                 margin-top: 10px;
             }
 
-        &:not(:has(.app__icon)) {
-            // 임의로 추가
+            &:not(:has(.app__icon)) {
+
+                // 임의로 추가
                 .app__menu-link {
                     padding-left: 20px;
                     @include font(b4);
@@ -118,6 +134,7 @@
         overflow: hidden;
         transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
         will-change: max-height;
+
         &--open {
             max-height: 600px;
             opacity: 1;
@@ -143,4 +160,3 @@
         color: $white;
     }
 }
-

@@ -43,16 +43,16 @@
     grid-area: gnb;
     position: sticky;
     top: 0;
-    z-index: 10;
+    // z-index: 10;
 }
 
 .layout__pagination {
     grid-area: pagination;
     position: sticky;
     top: 0;
-    z-index: 9;
     min-width: 0;
     overflow-x: auto;
+    // z-index: 9;
 }
 
 .layout__lnb {

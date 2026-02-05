@@ -8,6 +8,19 @@
                 <span class="app__date-day">{{ today }}</span>
             </div>
             <AppTab :tabs="tabs" />
+            <div class="layout__lnb-header-actions">
+                <AppButton
+                    class="app__lnb-toggle control__lnb"
+                    appearance="border"
+                    layout="icon"
+                    color="white"
+                    :ariaLabel="t('lnb.close')"
+                >
+                    <template #icon>
+                        <iconArrowBottom />
+                    </template>
+                </AppButton>
+            </div>
         </div>
     </div>
     <div class="layout__lnb-content">
@@ -115,6 +128,7 @@ import { RouterLink, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 // 공통 탭(탭 UI) 컴포넌트
 import AppTab from '@/components/AppTab.vue'
+import AppButton from '@/components/AppButton.vue'
 
 // LNB(좌측 네비게이션 바) 메뉴 데이터(JSON)
 import navItems from '@/data/lnb.json'
@@ -135,7 +149,7 @@ const props = defineProps({
     // 최초 로딩 시 LNB 하위 메뉴를 모두 열지 여부
     lnbInitialOpenAll: {
         type: Boolean,
-        default: true,
+        default: false,
     },
     // 동일 레벨에서 하나의 부모만 열지 여부 (true면 아코디언)
     lnbSingleOpen: {
