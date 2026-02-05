@@ -104,6 +104,48 @@ const messages = {
         projectNote: {
             title: '프로젝트 노트',
             desc: 'PROJECT_NOTE.md 내용을 그대로 표시합니다.'
+        },
+        home: {
+            eyebrow: 'JO&SOFT Framework',
+            title: 'UI 프레임워크',
+            subtitle: 'JO&SOFT 표준 UI 프레임워크로, 공통 레이아웃과 컴포넌트, 다국어 및 디자인 토큰 체계를 기반으로 일관된 화면을 빠르게 구축합니다.',
+            actions: {
+                projectNote: '프로젝트 노트 보기',
+                components: '컴포넌트 살펴보기'
+            },
+            cards: {
+                goal: {
+                    title: '핵심 목표',
+                    items: [
+                        '표준 레이아웃과 UI 컴포넌트 체계 제공',
+                        '페이지 히스토리, 모달, 차트 등 공통 기능 내장',
+                        '다국어(i18n) 및 디자인 토큰 기반 확장성 확보'
+                    ]
+                },
+                scope: {
+                    title: '주요 구성',
+                    items: [
+                        '레이아웃: GNB, LNB, 콘텐츠 영역',
+                        'UI: 버튼, 입력, 테이블, 차트, 탭, 토글',
+                        '데이터: LNB 메뉴 JSON, 테이블 샘플'
+                    ]
+                },
+                guide: {
+                    title: '빠른 안내',
+                    items: [
+                        '신규 페이지 추가 시 라우터와 LNB를 함께 갱신',
+                        '공통 스타일은 SCSS 토큰/믹스인 기준으로 적용',
+                        '프로젝트 노트에 변경 이력을 체계적으로 기록'
+                    ]
+                }
+            }
+        },
+        notFound: {
+            title: '페이지를 찾을 수 없습니다',
+            descLine1: '요청하신 주소가 변경되었거나 삭제되었습니다.',
+            descLine2: '아래 버튼을 통해 홈으로 이동해 주세요.',
+            back: '이전 화면',
+            home: '홈으로 돌아가기'
         }
     },
     en: {
@@ -191,6 +233,48 @@ const messages = {
         projectNote: {
             title: 'Project Notes',
             desc: 'Displays the contents of PROJECT_NOTE.md as-is.'
+        },
+        home: {
+            eyebrow: 'JO&SOFT Framework',
+            title: 'UI Framework',
+            subtitle: 'The JO&SOFT standard UI framework enables rapid, consistent screen building based on shared layouts, components, i18n, and design tokens.',
+            actions: {
+                projectNote: 'View Project Notes',
+                components: 'Explore Components'
+            },
+            cards: {
+                goal: {
+                    title: 'Core Goals',
+                    items: [
+                        'Provide standardized layouts and UI components',
+                        'Include common features like page history, modal, and charts',
+                        'Ensure scalability with i18n and design tokens'
+                    ]
+                },
+                scope: {
+                    title: 'Key Modules',
+                    items: [
+                        'Layout: GNB, LNB, content area',
+                        'UI: buttons, inputs, tables, charts, tabs, toggles',
+                        'Data: LNB menu JSON, table samples'
+                    ]
+                },
+                guide: {
+                    title: 'Quick Guide',
+                    items: [
+                        'Update router and LNB together when adding pages',
+                        'Apply common styles using SCSS tokens/mixins',
+                        'Record changes in the project notes'
+                    ]
+                }
+            }
+        },
+        notFound: {
+            title: 'Page not found',
+            descLine1: 'The address you requested has changed or was removed.',
+            descLine2: 'Please use the buttons below to continue.',
+            back: 'Go back',
+            home: 'Back to home'
         }
     },
     ja: {
@@ -278,6 +362,48 @@ const messages = {
         projectNote: {
             title: 'プロジェクトノート',
             desc: 'PROJECT_NOTE.md の内容をそのまま表示します。'
+        },
+        home: {
+            eyebrow: 'JO&SOFT Framework',
+            title: 'UI フレームワーク',
+            subtitle: 'JO&SOFT 標準 UI フレームワークとして、共通レイアウトとコンポーネント、多言語対応、デザイントークンに基づき一貫した画面を迅速に構築します。',
+            actions: {
+                projectNote: 'プロジェクトノートを見る',
+                components: 'コンポーネントを見る'
+            },
+            cards: {
+                goal: {
+                    title: '主要目的',
+                    items: [
+                        '標準レイアウトと UI コンポーネントの提供',
+                        'ページ履歴、モーダル、チャートなどの共通機能を内蔵',
+                        '多言語対応とデザイントークンによる拡張性を確保'
+                    ]
+                },
+                scope: {
+                    title: '主な構成',
+                    items: [
+                        'レイアウト: GNB、LNB、コンテンツ領域',
+                        'UI: ボタン、入力、テーブル、チャート、タブ、トグル',
+                        'データ: LNB メニュー JSON、テーブルサンプル'
+                    ]
+                },
+                guide: {
+                    title: 'クイックガイド',
+                    items: [
+                        '新規ページ追加時はルーターと LNB を同時に更新',
+                        '共通スタイルは SCSS トークン/ミックスインで適用',
+                        'プロジェクトノートに変更履歴を記録'
+                    ]
+                }
+            }
+        },
+        notFound: {
+            title: 'ページが見つかりません',
+            descLine1: '指定されたアドレスは変更または削除されました。',
+            descLine2: '下のボタンから移動してください。',
+            back: '前の画面へ',
+            home: 'ホームへ戻る'
         }
     },
     vi: {
@@ -365,6 +491,48 @@ const messages = {
         projectNote: {
             title: 'Ghi chú dự án',
             desc: 'Hiển thị nguyên bản nội dung PROJECT_NOTE.md.'
+        },
+        home: {
+            eyebrow: 'JO&SOFT Framework',
+            title: 'Khung giao diện UI',
+            subtitle: 'Khung UI chuẩn của JO&SOFT giúp xây dựng màn hình nhất quán và nhanh chóng dựa trên layout, component dùng chung, i18n và design token.',
+            actions: {
+                projectNote: 'Xem ghi chú dự án',
+                components: 'Xem các component'
+            },
+            cards: {
+                goal: {
+                    title: 'Mục tiêu chính',
+                    items: [
+                        'Cung cấp layout và component UI theo chuẩn',
+                        'Tích hợp tính năng chung như lịch sử trang, modal, biểu đồ',
+                        'Đảm bảo khả năng mở rộng với i18n và design token'
+                    ]
+                },
+                scope: {
+                    title: 'Thành phần chính',
+                    items: [
+                        'Layout: GNB, LNB, khu vực nội dung',
+                        'UI: nút, nhập liệu, bảng, biểu đồ, tab, toggle',
+                        'Dữ liệu: menu LNB JSON, mẫu bảng'
+                    ]
+                },
+                guide: {
+                    title: 'Hướng dẫn nhanh',
+                    items: [
+                        'Cập nhật router và LNB khi thêm trang mới',
+                        'Áp dụng style chung bằng SCSS token/mixin',
+                        'Ghi lại thay đổi trong project note'
+                    ]
+                }
+            }
+        },
+        notFound: {
+            title: 'Không tìm thấy trang',
+            descLine1: 'Địa chỉ bạn yêu cầu đã thay đổi hoặc đã bị xóa.',
+            descLine2: 'Vui lòng dùng các nút bên dưới để tiếp tục.',
+            back: 'Quay lại',
+            home: 'Về trang chủ'
         }
     }
 }

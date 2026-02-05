@@ -2,14 +2,18 @@
     <section class="not-found">
         <div class="not-found__card">
             <div class="not-found__badge">404</div>
-            <h1 class="not-found__title">페이지를 찾을 수 없습니다</h1>
+            <h1 class="not-found__title">{{ t('notFound.title') }}</h1>
             <p class="not-found__desc">
-                요청하신 주소가 변경되었거나 삭제되었습니다.<br/>
-                아래 버튼을 통해 홈으로 이동해 주세요.
+                {{ t('notFound.descLine1') }}<br/>
+                {{ t('notFound.descLine2') }}
             </p>
             <div class="not-found__actions">
-                <button class="not-found__ghost" type="button" @click="goBack">이전 화면</button>
-                <RouterLink class="not-found__link" to="/">홈으로 돌아가기</RouterLink>
+                <button class="not-found__ghost" type="button" @click="goBack">
+                    {{ t('notFound.back') }}
+                </button>
+                <RouterLink class="not-found__link" to="/">
+                    {{ t('notFound.home') }}
+                </RouterLink>
             </div>
         </div>
         <div class="not-found__bg"></div>
@@ -18,7 +22,9 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const goBack = () => window.history.back()
 </script>
 

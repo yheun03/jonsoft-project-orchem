@@ -1,45 +1,42 @@
 <template>
     <section class="home">
         <div class="home__hero">
-            <p class="home__eyebrow">JO&SOFT Framework</p>
-            <h1 class="home__title">UI 프레임워크</h1>
-            <p class="home__subtitle">
-                JO&amp;SOFT 표준 UI 프레임워크로, 공통 레이아웃과 컴포넌트,
-                다국어 및 디자인 토큰 체계를 기반으로 일관된 화면을 빠르게 구축합니다.
-            </p>
+            <p class="home__eyebrow">{{ t('home.eyebrow') }}</p>
+            <h1 class="home__title">{{ t('home.title') }}</h1>
+            <p class="home__subtitle">{{ t('home.subtitle') }}</p>
             <div class="home__actions">
                 <RouterLink class="home__button home__button--primary" to="/project-note">
-                    프로젝트 노트 보기
+                    {{ t('home.actions.projectNote') }}
                 </RouterLink>
                 <RouterLink class="home__button home__button--ghost" to="/component/button">
-                    컴포넌트 살펴보기
+                    {{ t('home.actions.components') }}
                 </RouterLink>
             </div>
         </div>
 
         <div class="home__grid">
             <article class="home__card">
-                <h2>핵심 목표</h2>
+                <h2>{{ t('home.cards.goal.title') }}</h2>
                 <ul>
-                    <li>표준 레이아웃과 UI 컴포넌트 체계 제공</li>
-                    <li>페이지 히스토리, 모달, 차트 등 공통 기능 내장</li>
-                    <li>다국어(i18n) 및 디자인 토큰 기반 확장성 확보</li>
+                    <li>{{ t('home.cards.goal.items.0') }}</li>
+                    <li>{{ t('home.cards.goal.items.1') }}</li>
+                    <li>{{ t('home.cards.goal.items.2') }}</li>
                 </ul>
             </article>
             <article class="home__card">
-                <h2>주요 구성</h2>
+                <h2>{{ t('home.cards.scope.title') }}</h2>
                 <ul>
-                    <li>레이아웃: GNB, LNB, 콘텐츠 영역</li>
-                    <li>UI: 버튼, 입력, 테이블, 차트, 탭, 토글</li>
-                    <li>데이터: LNB 메뉴 JSON, 테이블 샘플</li>
+                    <li>{{ t('home.cards.scope.items.0') }}</li>
+                    <li>{{ t('home.cards.scope.items.1') }}</li>
+                    <li>{{ t('home.cards.scope.items.2') }}</li>
                 </ul>
             </article>
             <article class="home__card">
-                <h2>빠른 안내</h2>
+                <h2>{{ t('home.cards.guide.title') }}</h2>
                 <ul>
-                    <li>신규 페이지 추가 시 라우터와 LNB를 함께 갱신</li>
-                    <li>공통 스타일은 SCSS 토큰/믹스인 기준으로 적용</li>
-                    <li>프로젝트 노트에 변경 이력을 체계적으로 기록</li>
+                    <li>{{ t('home.cards.guide.items.0') }}</li>
+                    <li>{{ t('home.cards.guide.items.1') }}</li>
+                    <li>{{ t('home.cards.guide.items.2') }}</li>
                 </ul>
             </article>
         </div>
@@ -170,4 +167,7 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
