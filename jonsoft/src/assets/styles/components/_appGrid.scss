@@ -51,10 +51,16 @@
     border: 1px solid $black-3;
     background: $white;
     color: $black-1;
+    width: 100%;
 }
 
 .app__grid-multi-input {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    align-items: center;
     gap: 6px;
+    height: 100%;
+}
+
+.app__grid-multi-input .app__grid-input {
+    flex: 1;
 }

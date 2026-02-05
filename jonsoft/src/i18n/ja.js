@@ -57,7 +57,36 @@ export default {
         },
         tableDetail: {
             title: 'Table Detail',
-            desc: '選択した行の詳細ページ例です。'
+            desc: '選択した行の詳細ページ例です。',
+            selectedId: '選択 ID',
+            empty: '選択したデータが見つかりません。',
+            fields: {
+                include: '含める',
+                order: '順番',
+                itemCode: '検査項目',
+                itemName: '検査項目名',
+                result: '結果',
+                value: '測定値',
+                status: '状態',
+                multiLeft: '複数入力(左)',
+                multiRight: '複数入力(右)'
+            },
+            actions: {
+                back: '戻る',
+                delete: '削除',
+                save: '保存'
+            },
+            results: {
+                none: '未選択',
+                pass: '適合',
+                fail: '不適合'
+            },
+            statuses: {
+                default: '基本',
+                success: '適合',
+                error: '不適合'
+            },
+            deleteConfirm: 'この項目を削除しますか？'
         },
         font: {
             title: 'Font System',
@@ -125,5 +154,18 @@ export default {
         descLine2: '下のボタンから移動してください。',
         back: '前の画面へ',
         home: 'ホームへ戻る'
+    },
+    grid: {
+        noRows: '該当する行がありません',
+        filter: {
+            contains: '含む',
+            notContains: '含まない',
+            equals: '一致',
+            notEquals: '不一致',
+            startsWith: '次で始まる',
+            endsWith: '次で終わる',
+            blank: '空白',
+            notBlank: '空白以外'
+        }
     }
 }

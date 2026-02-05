@@ -57,7 +57,36 @@ export default {
         },
         tableDetail: {
             title: 'Table Detail',
-            desc: '선택한 행의 상세 페이지 예시입니다.'
+            desc: '선택한 행의 상세 페이지 예시입니다.',
+            selectedId: '선택 ID',
+            empty: '선택한 데이터를 찾을 수 없습니다.',
+            fields: {
+                include: '포함',
+                order: '순번',
+                itemCode: '검사항목',
+                itemName: '검사항목명',
+                result: '결과',
+                value: '측정값',
+                status: '상태',
+                multiLeft: '다중 입력(좌)',
+                multiRight: '다중 입력(우)'
+            },
+            actions: {
+                back: '뒤로가기',
+                delete: '삭제',
+                save: '저장'
+            },
+            results: {
+                none: '미선택',
+                pass: '적합',
+                fail: '부적합'
+            },
+            statuses: {
+                default: '기본',
+                success: '적합',
+                error: '부적합'
+            },
+            deleteConfirm: '해당 항목을 삭제하시겠습니까?'
         },
         font: {
             title: 'Font System',
@@ -125,5 +154,18 @@ export default {
         descLine2: '아래 버튼을 통해 홈으로 이동해 주세요.',
         back: '이전 화면',
         home: '홈으로 돌아가기'
+    },
+    grid: {
+        noRows: '검색된 결과가 없습니다',
+        filter: {
+            contains: '포함',
+            notContains: '포함하지 않음',
+            equals: '일치',
+            notEquals: '불일치',
+            startsWith: '시작',
+            endsWith: '끝',
+            blank: '빈 값',
+            notBlank: '빈 값 아님'
+        }
     }
 }

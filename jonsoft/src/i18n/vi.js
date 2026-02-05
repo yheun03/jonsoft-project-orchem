@@ -57,7 +57,36 @@ export default {
         },
         tableDetail: {
             title: 'Table Detail',
-            desc: 'Ví dụ trang chi tiết của hàng đã chọn.'
+            desc: 'Ví dụ trang chi tiết của hàng đã chọn.',
+            selectedId: 'ID đã chọn',
+            empty: 'Không tìm thấy dữ liệu đã chọn.',
+            fields: {
+                include: 'Bao gồm',
+                order: 'Thứ tự',
+                itemCode: 'Mã hạng mục',
+                itemName: 'Tên hạng mục',
+                result: 'Kết quả',
+                value: 'Giá trị',
+                status: 'Trạng thái',
+                multiLeft: 'Nhập nhiều (Trái)',
+                multiRight: 'Nhập nhiều (Phải)'
+            },
+            actions: {
+                back: 'Quay lại',
+                delete: 'Xóa',
+                save: 'Lưu'
+            },
+            results: {
+                none: 'Chưa chọn',
+                pass: 'Đạt',
+                fail: 'Không đạt'
+            },
+            statuses: {
+                default: 'Mặc định',
+                success: 'Đạt',
+                error: 'Không đạt'
+            },
+            deleteConfirm: 'Xóa mục này?'
         },
         font: {
             title: 'Font System',
@@ -125,5 +154,18 @@ export default {
         descLine2: 'Vui lòng dùng các nút bên dưới để tiếp tục.',
         back: 'Quay lại',
         home: 'Về trang chủ'
+    },
+    grid: {
+        noRows: 'Không có kết quả phù hợp',
+        filter: {
+            contains: 'Chứa',
+            notContains: 'Không chứa',
+            equals: 'Bằng',
+            notEquals: 'Không bằng',
+            startsWith: 'Bắt đầu với',
+            endsWith: 'Kết thúc với',
+            blank: 'Trống',
+            notBlank: 'Không trống'
+        }
     }
 }

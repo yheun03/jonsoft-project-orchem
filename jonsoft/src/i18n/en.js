@@ -57,7 +57,36 @@ export default {
         },
         tableDetail: {
             title: 'Table Detail',
-            desc: 'Example detail page for a selected row.'
+            desc: 'Example detail page for a selected row.',
+            selectedId: 'Selected ID',
+            empty: 'No data found for the selected item.',
+            fields: {
+                include: 'Include',
+                order: 'Order',
+                itemCode: 'Item Code',
+                itemName: 'Item Name',
+                result: 'Result',
+                value: 'Value',
+                status: 'Status',
+                multiLeft: 'Multi Input (Left)',
+                multiRight: 'Multi Input (Right)'
+            },
+            actions: {
+                back: 'Back',
+                delete: 'Delete',
+                save: 'Save'
+            },
+            results: {
+                none: 'Not selected',
+                pass: 'Pass',
+                fail: 'Fail'
+            },
+            statuses: {
+                default: 'Default',
+                success: 'Pass',
+                error: 'Fail'
+            },
+            deleteConfirm: 'Delete this item?'
         },
         font: {
             title: 'Font System',
@@ -125,5 +154,18 @@ export default {
         descLine2: 'Please use the buttons below to continue.',
         back: 'Go back',
         home: 'Back to home'
+    },
+    grid: {
+        noRows: 'No matching rows',
+        filter: {
+            contains: 'Contains',
+            notContains: 'Does not contain',
+            equals: 'Equals',
+            notEquals: 'Does not equal',
+            startsWith: 'Begins with',
+            endsWith: 'Ends with',
+            blank: 'Blank',
+            notBlank: 'Not blank'
+        }
     }
 }

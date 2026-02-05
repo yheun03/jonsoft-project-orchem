@@ -44,14 +44,14 @@ import { useRouter } from 'vue-router'
 import AppGrid from '@/components/AppGrid.vue'
 import AppGridMultiInputRenderer from '@/components/AppGridMultiInputRenderer.vue'
 import AppButton from '@/components/AppButton.vue'
-import tableRows from '@/data/table.json'
+import { tableRowsStore } from '@/data/tableStore'
 
 const { t } = useI18n()
 const router = useRouter()
 const gridRef = ref(null)
 const keyword = ref('')
 const appliedKeyword = ref('')
-const rows = ref(Array.isArray(tableRows) ? tableRows : [])
+const rows = tableRowsStore
 
 const columnDefs = [
     {
