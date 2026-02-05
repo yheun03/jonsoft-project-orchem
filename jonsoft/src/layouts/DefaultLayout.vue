@@ -1,16 +1,16 @@
 <template>
-    <div ref="layoutRef" :class="layoutClass" :style="layoutStyle" @click="handleLnbControl">
+    <div :class="layoutClass" :style="layoutStyle" @click="handleLnbControl">
         <header class="layout__gnb">
             <slot name="gnb">
                 <AppHeader />
             </slot>
         </header>
-        <div v-if="showPageTabs" class="layout__pagination">
+        <div class="layout__pagination">
             <slot name="pagination">
                 <AppPageTabs />
             </slot>
         </div>
-        <aside v-if="hasLnb" class="layout__lnb">
+        <aside class="layout__lnb">
             <slot name="lnb">
                 <AppSidebar
                     :lnb-initial-open-all="lnbInitialOpenAll"
@@ -40,27 +40,6 @@ import AppModalHost from '@/components/AppModalHost.vue'
 import AppPageTabs from '@/components/AppPageTabs.vue'
 
 const props = defineProps({
-    gnbFull: {
-        type: Boolean,
-        default: false,
-    },
-    hasLnb: {
-        type: Boolean,
-        default: true,
-    },
-    lnbToggleMode: {
-        type: String,
-        default: 'compact',
-        validator: (value) => ['compact', 'hidden'].includes(value),
-    },
-    paginationFull: {
-        type: Boolean,
-        default: false,
-    },
-    showPageTabs: {
-        type: Boolean,
-        default: true,
-    },
     lnbInitialOpenAll: {
         type: Boolean,
         default: true,
@@ -69,18 +48,24 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    // 확장 스케폴딩: 필요 시 아래 옵션을 복구해서 사용
+    // gnbFull: { type: Boolean, default: false },
+    // paginationFull: { type: Boolean, default: false },
+    // showPageTabs: { type: Boolean, default: true },
+    // hasLnb: { type: Boolean, default: true },
+    // lnbToggleMode: {
+    //     type: String,
+    //     default: 'compact',
+    //     validator: (value) => ['compact', 'hidden'].includes(value),
+    // },
 })
 
 const lnbActive = ref(true)
-const layoutRef = ref(null)
 const lnbWidth = ref(150)
 const minLnbWidth = 120
 const maxLnbWidth = 360
 
 const handleLnbControl = (event) => {
-    if (!props.hasLnb) {
-        return
-    }
     const target = event.target
     if (!(target instanceof Element)) {
         return
@@ -92,25 +77,26 @@ const handleLnbControl = (event) => {
 
 const layoutClass = computed(() => ({
     layout: true,
-    'layout__gnb-full': props.gnbFull,
-    'layout__pagination-full': props.paginationFull,
-    'layout__lnb-none': !props.hasLnb,
-    'layout__lnb-compact': props.hasLnb && props.lnbToggleMode === 'compact',
-    'layout__lnb-hidden': props.hasLnb && props.lnbToggleMode === 'hidden',
-    'layout__lnb-active': props.hasLnb && lnbActive.value,
-    'layout__lnb-closed': props.hasLnb && !lnbActive.value,
+    'layout__lnb-active': lnbActive.value,
+    'layout__lnb-closed': !lnbActive.value,
+    // 확장 스케폴딩
+    // 'layout__gnb-full': props.gnbFull,
+    // 'layout__pagination-full': props.paginationFull,
+    // 'layout__lnb-none': !props.hasLnb,
+    // 'layout__lnb-compact': props.hasLnb && props.lnbToggleMode === 'compact',
+    // 'layout__lnb-hidden': props.hasLnb && props.lnbToggleMode === 'hidden',
 }))
 
 const layoutStyle = computed(() => ({
     '--lnb-open-width': `${lnbWidth.value}px`,
 }))
 
-const showResizeHandle = computed(() => props.hasLnb && lnbActive.value)
+const showResizeHandle = computed(() => lnbActive.value)
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max)
 
 const onResizeStart = (event) => {
-    if (!props.hasLnb || !lnbActive.value) {
+    if (!lnbActive.value) {
         return
     }
     const startX = event.clientX

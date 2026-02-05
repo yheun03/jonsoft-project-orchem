@@ -149,12 +149,12 @@ const props = defineProps({
     // 최초 로딩 시 LNB 하위 메뉴를 모두 열지 여부
     lnbInitialOpenAll: {
         type: Boolean,
-        default: false,
+        required: true,
     },
     // 동일 레벨에서 하나의 부모만 열지 여부 (true면 아코디언)
     lnbSingleOpen: {
         type: Boolean,
-        default: false,
+        required: true,
     },
 })
 

@@ -16,28 +16,29 @@
     transition: grid-template-columns 0.25s ease;
 }
 
-.layout__gnb-full {
-    grid-template-areas:
-        "gnb gnb"
-        "lnb pagination"
-        "lnb content";
-}
-
-.layout__pagination-full {
-    grid-template-areas:
-        "lnb gnb"
-        "pagination pagination"
-        "lnb content";
-}
-
-.layout__lnb-none {
-    --lnb-width: 0px;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "gnb"
-        "pagination"
-        "content";
-}
+// 확장 스케폴딩: 필요 시 아래 스타일 블록 복구
+// .layout__gnb-full {
+//     grid-template-areas:
+//         "gnb gnb"
+//         "lnb pagination"
+//         "lnb content";
+// }
+//
+// .layout__pagination-full {
+//     grid-template-areas:
+//         "lnb gnb"
+//         "pagination pagination"
+//         "lnb content";
+// }
+//
+// .layout__lnb-none {
+//     --lnb-width: 0px;
+//     grid-template-columns: 1fr;
+//     grid-template-areas:
+//         "gnb"
+//         "pagination"
+//         "content";
+// }
 
 .layout__gnb {
     grid-area: gnb;
@@ -66,12 +67,8 @@
     overflow: auto;
 }
 
-.layout__lnb-compact.layout__lnb-closed {
+.layout__lnb-closed {
     --lnb-width: 60px;
-}
-
-.layout__lnb-hidden.layout__lnb-closed {
-    --lnb-width: 0px;
 }
 
 .layout__lnb-active {
