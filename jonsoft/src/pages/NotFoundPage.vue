@@ -7,7 +7,10 @@
                 요청하신 주소가 변경되었거나 삭제되었습니다.<br/>
                 아래 버튼을 통해 홈으로 이동해 주세요.
             </p>
-            <RouterLink class="not-found__link" to="/">홈으로 돌아가기</RouterLink>
+            <div class="not-found__actions">
+                <button class="not-found__ghost" type="button" @click="goBack">이전 화면</button>
+                <RouterLink class="not-found__link" to="/">홈으로 돌아가기</RouterLink>
+            </div>
         </div>
         <div class="not-found__bg"></div>
     </section>
@@ -15,6 +18,8 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+
+const goBack = () => window.history.back()
 </script>
 
 <style scoped>
@@ -78,6 +83,7 @@ import { RouterLink } from 'vue-router'
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
+    font-size: 14px;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     box-shadow: 0 12px 24px -18px rgba(0, 98, 111, 0.6);
 }
@@ -85,6 +91,36 @@ import { RouterLink } from 'vue-router'
 .not-found__link:hover {
     transform: translateY(-1px);
     box-shadow: 0 16px 28px -18px rgba(0, 98, 111, 0.7);
+}
+
+.not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.not-found__ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 12px;
+    border: 1px solid #cbd5f5;
+    background: #ffffff;
+    color: #1e3a8a;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    box-shadow: 0 10px 20px -20px rgba(30, 58, 138, 0.7);
+}
+
+.not-found__ghost:hover {
+    transform: translateY(-1px);
+    border-color: #94a3b8;
+    box-shadow: 0 14px 26px -22px rgba(30, 58, 138, 0.7);
 }
 
 .not-found__bg {
