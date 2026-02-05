@@ -7,12 +7,17 @@
 - `Vue I18n 11`
 - `vite-svg-loader` (SVG → Vue 컴포넌트)
 - `Sass (SCSS)`
-- `AG Grid Community` (그리드/테이블)
+- `AG Grid Community` / `ag-grid-vue3` (그리드/테이블)
 - `Chart.js` (차트)
+- `jqwidgets-scripts` (UI 위젯)
+- `marked` (Markdown 렌더링)
 
 ## 주요 설정
 - 경로 별칭: `@` → `src` (`vite.config.js`, `jsconfig.json`)
+- 경로 별칭: `@root` → 레포 루트 (`vite.config.js`)
+- dev 서버 파일 접근: `server.fs.allow`에 레포 루트 허용
 - SVG 컴포넌트 사용: `import Icon from '@/assets/icon.svg?component'`
+- Markdown 원문 로딩: `import note from '@root/PROJECT_NOTE.md?raw'`
 - 폰트 경로: `@/assets/fonts` (Pretendard, NanumSquare)
 - 타이포 믹스인: `@include font(token, weight?, family?)`
 - 디자인 토큰: `primary/secondary/state/black/factory/factory-bg` 팔레트 최신화
@@ -31,29 +36,18 @@
 - 컴포넌트: `app__*` (예: `app__input`, `app__textarea`, `app__button-disabled`)
 
 ## 레이아웃 사용법
-- 기본: `lnb/gnb` + `lnb/content`
-- `gnbFull`: `gnb/gnb` + `lnb/content`
-- `hasLnb=false`: LNB 없는 레이아웃
 - 404 등 예외 페이지: 라우터 `meta.layout = 'empty'`로 레이아웃 없이 표시
 - `lnbToggleMode`: `'compact' | 'hidden'` (기본 compact)
-- `.control__lnb` 클릭 시 `expanded ↔ lnbToggleMode`로 토글됨
+- `.control__lnb` 클릭 시 `layout__lnb-active ↔ layout__lnb-closed`로 토글됨
 - `layout__lnb-active`: LNB 열림 상태 클래스
 - `layout__lnb-closed`: LNB 닫힘 상태 클래스 (compact/hidden 공통)
+- `hidden` 모드: LNB는 `translate`로 숨김 (폭은 유지)
+- `compact` 모드: LNB 폭을 축소해서 공간만 유지
 - `layout__lnb-closed` 상태에서는 LNB 내 링크/토글 동작이 비활성화됨
-- LNB 상태 클래스는 `layout__*`로 통일하며 `lnb-none`과 `lnb-hidden`은 별도 상태로 유지
-
-### 레이아웃 그리드 구성
-- 기본 구조: `lnb gnb / lnb pagination / lnb content`
-- `gnbFull=true`: `gnb gnb / lnb pagination / lnb content`
-- `paginationFull=true`: `lnb gnb / pagination pagination / lnb content`
-- `hasLnb=false`: `gnb / pagination / content`
+- LNB 상태 클래스는 `layout__*`로 통일
 
 ```vue
 <DefaultLayout
-  :gnb-full="false"
-  :pagination-full="false"
-  :has-lnb="true"
-  :show-page-tabs="true"
   lnb-toggle-mode="compact"
 >
   <template #gnb>...</template>
@@ -65,7 +59,6 @@
 
 ### 페이지 히스토리 탭(AppPageTabs)
 - 기본 제공되는 `pagination` 영역에 자동으로 노출됨
-- `showPageTabs=false`로 pagination 영역을 숨길 수 있음
 - 사용자가 방문한 페이지 순서대로 탭이 추가됨
 - 탭 클릭 시 해당 라우트로 이동, 활성 탭만 active 스타일
 - X 버튼으로 탭 삭제 (탭이 1개면 X 숨김)
@@ -129,6 +122,11 @@ const result = await confirm({
 - 지원 로케일: `ko`, `en`, `ja`, `vi`
 - LNB 타이틀: `titleKey`로 번역 키 지정 (없으면 `title` 사용)
 - 헤더 타이틀/컴포넌트 페이지 타이틀·설명은 i18n 키로 렌더링
+
+## 프로젝트 노트 페이지
+- 경로: `/project-note`
+- 원문: 레포 루트의 `PROJECT_NOTE.md`
+- 변경 시 HMR로 즉시 반영
 
 ```js
 import { setLocale } from '@/i18n'
