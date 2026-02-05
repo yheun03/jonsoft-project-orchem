@@ -11,49 +11,49 @@
         opacity: 0.6;
         cursor: not-allowed;
     }
-}
 
-.app__toggle-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
+    &-input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
 
-.app__toggle-track {
-    width: 44px;
-    height: 24px;
-    border-radius: 999px;
-    background: $black-4;
-    position: relative;
-    transition: background 0.2s ease;
-}
+        &:checked + .app__toggle-track {
+            background: $primary-500;
 
-.app__toggle-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: $white;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.2s ease;
-    box-shadow: 0 2px 6px rgba($black-0, 0.15);
-}
+            .app__toggle-thumb {
+                transform: translateX(20px);
+            }
+        }
 
-.app__toggle-label {
-    @include font(b4, semibold);
-    color: $black-1;
-}
+        &:focus-visible + .app__toggle-track {
+            outline: 2px solid $primary-300;
+            outline-offset: 2px;
+        }
+    }
 
-.app__toggle-input:checked + .app__toggle-track {
-    background: $primary-500;
-}
+    &-track {
+        width: 44px;
+        height: 24px;
+        border-radius: 999px;
+        background: $black-4;
+        position: relative;
+        transition: background 0.2s ease;
+    }
 
-.app__toggle-input:checked + .app__toggle-track .app__toggle-thumb {
-    transform: translateX(20px);
-}
+    &-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $white;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: transform 0.2s ease;
+        box-shadow: 0 2px 6px rgba($black-0, 0.15);
+    }
 
-.app__toggle-input:focus-visible + .app__toggle-track {
-    outline: 2px solid $primary-300;
-    outline-offset: 2px;
+    &-label {
+        @include font(b4, semibold);
+        color: $black-1;
+    }
 }

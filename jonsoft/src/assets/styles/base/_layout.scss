@@ -14,6 +14,41 @@
         "lnb content";
     background: $primary-500;
     transition: grid-template-columns 0.25s ease;
+
+    &__gnb {
+        grid-area: gnb;
+        position: sticky;
+        top: 0;
+        // z-index: 10;
+    }
+
+    &__pagination {
+        grid-area: pagination;
+        position: sticky;
+        top: 0;
+        min-width: 0;
+        overflow-x: auto;
+        // z-index: 9;
+    }
+
+    &__lnb {
+        grid-area: lnb;
+        background: palette("gradient", "primary");
+    }
+
+    &__content {
+        grid-area: content;
+        padding: 32px;
+        overflow: auto;
+    }
+
+    &__lnb-closed {
+        --lnb-width: 60px;
+    }
+
+    &__lnb-active {
+        --lnb-width: var(--lnb-open-width);
+    }
 }
 
 // 확장 스케폴딩: 필요 시 아래 스타일 블록 복구
@@ -40,48 +75,13 @@
 //         "content";
 // }
 
-.layout__gnb {
-    grid-area: gnb;
-    position: sticky;
-    top: 0;
-    // z-index: 10;
-}
-
-.layout__pagination {
-    grid-area: pagination;
-    position: sticky;
-    top: 0;
-    min-width: 0;
-    overflow-x: auto;
-    // z-index: 9;
-}
-
-.layout__lnb {
-    grid-area: lnb;
-    background: palette("gradient", "primary");
-}
-
-.layout__content {
-    grid-area: content;
-    padding: 32px;
-    overflow: auto;
-}
-
-.layout__lnb-closed {
-    --lnb-width: 60px;
-}
-
-.layout__lnb-active {
-    --lnb-width: var(--lnb-open-width);
-}
-
-
-.app__icon{
+.app__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease;
-    svg{
+
+    svg {
         width: inherit;
         height: inherit;
     }

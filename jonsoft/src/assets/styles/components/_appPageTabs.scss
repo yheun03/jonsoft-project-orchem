@@ -37,24 +37,24 @@
         border-color: $primary-300;
         color: $primary-800;
     }
-}
 
-.app__page-tab-title {
-    white-space: nowrap;
-}
+    &-title {
+        white-space: nowrap;
+    }
 
-.app__page-tab-close {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    line-height: 1;
-    color: $black-2;
+    &-close {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        line-height: 1;
+        color: $black-2;
 
-    &:hover {
-        background: rgba($black-0, 0.08);
+        &:hover {
+            background: rgba($black-0, 0.08);
+        }
     }
 }

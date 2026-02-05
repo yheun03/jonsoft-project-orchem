@@ -23,31 +23,31 @@
         overflow: auto;
         margin-top: 14px;
     }
-}
 
-.layout__lnb-resize-handle {
-    position: absolute;
-    top: 0;
-    right: -3px;
-    width: 6px;
-    height: 100%;
-    cursor: col-resize;
-    background: transparent;
-    z-index: 2;
-}
-
-.layout__lnb-closed {
-    .app__menu {
-        padding: 0;
-        pointer-events: none;
+    &-resize-handle {
+        position: absolute;
+        top: 0;
+        right: -3px;
+        width: 6px;
+        height: 100%;
+        cursor: col-resize;
+        background: transparent;
+        z-index: 2;
     }
 
-    .app__menu-link {
-        padding: 0;
-        justify-content: center;
+    &-closed {
+        .app__menu {
+            padding: 0;
+            pointer-events: none;
+        }
 
-        &>*:not(.app__menu-icon) {
-            display: none;
+        .app__menu-link {
+            padding: 0;
+            justify-content: center;
+
+            & > *:not(.app__menu-icon) {
+                display: none;
+            }
         }
     }
 }
@@ -82,12 +82,10 @@
             }
 
             &:not(:has(.app__icon)) {
-
-                // 임의로 추가
                 .app__menu-link {
                     padding-left: 20px;
                     @include font(b4);
-                    padding-block: 4px
+                    padding-block: 4px;
                 }
             }
         }

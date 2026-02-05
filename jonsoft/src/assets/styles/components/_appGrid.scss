@@ -3,64 +3,76 @@
 .app__grid {
     width: 100%;
     height: 420px;
-}
+    position: relative;
 
-.app__grid > div {
-    height: 100%;
-}
+    > div {
+        height: 100%;
+    }
 
-.app__grid .ag-root-wrapper {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid $black-3;
-}
+    .ag-root-wrapper {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid $black-3;
+    }
 
-.app__grid .ag-header {
-    background: $black-5;
-    color: $black-1;
-    border-bottom: 1px solid $black-3;
-}
+    .ag-header {
+        background: $black-5;
+        color: $black-1;
+        border-bottom: 1px solid $black-3;
+    }
 
-.app__grid .ag-row {
-    border-bottom: 1px solid $black-4;
-}
+    .ag-row {
+        border-bottom: 1px solid $black-4;
 
-.app__grid .ag-row.ag-row-selected {
-    background: rgba($primary-100, 0.6);
-}
+        &.ag-row-selected {
+            background: rgba($primary-100, 0.6);
+        }
+    }
 
-.app__grid-overlay {
-    @include font(b4, medium);
-    color: $black-2;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    width: 100%;
-}
+    .ag-overlay {
+        display: none;
+    }
 
-.app__grid-overlay-icon {
-    font-size: 16px;
-}
+    &-overlay {
+        @include font(b4, medium);
+        color: $black-2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
 
-.app__grid-input {
-    @include font(b5, medium);
-    height: 28px;
-    padding: 0 8px;
-    border-radius: 6px;
-    border: 1px solid $black-3;
-    background: $white;
-    color: $black-1;
-    width: 100%;
-}
+        &--forced {
+            position: absolute;
+            inset: 0;
+            background: $white;
+            z-index: 3;
+        }
+    }
 
-.app__grid-multi-input {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    height: 100%;
-}
+    &-overlay-icon {
+        font-size: 16px;
+    }
 
-.app__grid-multi-input .app__grid-input {
-    flex: 1;
+    &-input {
+        @include font(b5, medium);
+        height: 28px;
+        padding: 0 8px;
+        border-radius: 6px;
+        border: 1px solid $black-3;
+        background: $white;
+        color: $black-1;
+        width: 100%;
+    }
+
+    &-multi-input {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        height: 100%;
+
+        .app__grid-input {
+            flex: 1;
+        }
+    }
 }

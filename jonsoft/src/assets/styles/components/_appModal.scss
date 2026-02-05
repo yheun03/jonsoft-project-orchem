@@ -1,20 +1,20 @@
 @use '../base/variables' as *;
 
-.app__modal-layer {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.app__modal-dim {
-    position: absolute;
-    inset: 0;
-    background: rgba($black-0, 0.45);
-}
-
 .app__modal {
+    &-layer {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-dim {
+        position: absolute;
+        inset: 0;
+        background: rgba($black-0, 0.45);
+    }
+
     position: relative;
     min-width: 320px;
     max-width: 520px;
@@ -26,54 +26,54 @@
     flex-direction: column;
     gap: 12px;
     padding: 20px;
-}
 
-.app__modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.app__modal-title {
-    @include font(t2, semibold);
-    color: $black-0;
-}
-
-.app__modal-close {
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    font-size: 20px;
-    line-height: 1;
-    color: $black-2;
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-
-    &:hover {
-        background: $black-5;
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
     }
 
-    &:focus-visible {
-        outline: 2px solid $primary-300;
-        outline-offset: 2px;
+    &-title {
+        @include font(t2, semibold);
+        color: $black-0;
     }
-}
 
-.app__modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+    &-close {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 1;
+        color: $black-2;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
 
-.app__modal-message {
-    @include font(b3, medium);
-    color: $black-1;
-}
+        &:hover {
+            background: $black-5;
+        }
 
-.app__modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
+        &:focus-visible {
+            outline: 2px solid $primary-300;
+            outline-offset: 2px;
+        }
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &-message {
+        @include font(b3, medium);
+        color: $black-1;
+    }
+
+    &-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+    }
 }

@@ -51,63 +51,65 @@
     &:active:not(.app__check--disabled) {
         transform: translateY(1px);
     }
-}
 
-.app__check-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
+    &-input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
 
-.app__check-control {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    border: 1px solid $black-3;
-    background: $white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s ease;
-}
+    &-control {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        border: 1px solid $black-3;
+        background: $white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+    }
 
-.app__check-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    &-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-    svg,
-    img {
-        width: 100%;
-        height: 100%;
-        display: block;
+        svg,
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    &-label {
+        @include font(b4, semibold);
+        color: $black-1;
     }
 }
 
-.app__check-label {
-    @include font(b4, semibold);
-    color: $black-1;
-}
+.app__check {
+    &--checked &-control {
+        background: $primary-500;
+        border-color: $primary-500;
 
-.app__check--checked .app__check-control {
-    background: $primary-500;
-    border-color: $primary-500;
-}
+        &::after {
+            content: '';
+            width: 8px;
+            height: 4px;
+            border-left: 2px solid $white;
+            border-bottom: 2px solid $white;
+            transform: rotate(-45deg);
+        }
+    }
 
-.app__check--checked .app__check-control::after {
-    content: '';
-    width: 8px;
-    height: 4px;
-    border-left: 2px solid $white;
-    border-bottom: 2px solid $white;
-    transform: rotate(-45deg);
-}
+    &--filled &-control,
+    &--filled-icon-text &-control {
+        display: none;
+    }
 
-.app__check--filled .app__check-control,
-.app__check--filled-icon-text .app__check-control {
-    display: none;
-}
-
-.app__check--icon .app__check-label {
-    display: none;
+    &--icon &-label {
+        display: none;
+    }
 }

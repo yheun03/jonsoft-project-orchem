@@ -39,61 +39,63 @@
     &:active:not(.app__radio--disabled) {
         transform: translateY(1px);
     }
-}
 
-.app__radio-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
+    &-input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
 
-.app__radio-control {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 1px solid $black-3;
-    background: $white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s ease;
-}
+    &-control {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 1px solid $black-3;
+        background: $white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+    }
 
-.app__radio-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    &-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-    svg,
-    img {
-        width: 100%;
-        height: 100%;
-        display: block;
+        svg,
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    &-label {
+        @include font(b4, semibold);
+        color: $black-1;
     }
 }
 
-.app__radio-label {
-    @include font(b4, semibold);
-    color: $black-1;
-}
+.app__radio {
+    &--checked &-control {
+        border-color: $primary-500;
 
-.app__radio--checked .app__radio-control {
-    border-color: $primary-500;
-}
+        &::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: $primary-500;
+        }
+    }
 
-.app__radio--checked .app__radio-control::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: $primary-500;
-}
+    &--filled &-control,
+    &--filled-icon-text &-control {
+        display: none;
+    }
 
-.app__radio--filled .app__radio-control,
-.app__radio--filled-icon-text .app__radio-control {
-    display: none;
-}
-
-.app__radio--icon .app__radio-label {
-    display: none;
+    &--icon &-label {
+        display: none;
+    }
 }

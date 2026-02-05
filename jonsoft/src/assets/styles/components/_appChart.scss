@@ -7,9 +7,9 @@
     border: 1px solid $black-4;
     padding: 16px;
     box-sizing: border-box;
-}
 
-.app__chart canvas {
-    width: 100% !important;
-    height: 100% !important;
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
 }

@@ -24,39 +24,40 @@
     }
 }
 
-.flatpickr-calendar {
-    border-radius: 12px;
-    box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.4);
-    border: 1px solid $black-4;
-}
+.flatpickr {
+    &-calendar {
+        border-radius: 12px;
+        box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.4);
+        border: 1px solid $black-4;
+    }
 
-.flatpickr-current-month {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    gap: 8px;
-}
+    &-current-month {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 8px;
+    }
 
-.flatpickr-day.app__date-day--sunday {
-    color: #ef4444;
-}
+    &-day {
+        &.app__date-day--sunday {
+            color: #ef4444;
+        }
 
-.flatpickr-day.app__date-day--saturday {
-    color: #3b82f6;
-}
+        &.app__date-day--saturday {
+            color: #3b82f6;
+        }
 
-.flatpickr-day.selected,
-.flatpickr-day.startRange,
-.flatpickr-day.endRange,
-.flatpickr-day.inRange {
-    background: $primary-500;
-    border-color: $primary-500;
-}
+        &.selected,
+        &.startRange,
+        &.endRange,
+        &.inRange {
+            background: $primary-500;
+            border-color: $primary-500;
 
-.flatpickr-day.selected:hover,
-.flatpickr-day.startRange:hover,
-.flatpickr-day.endRange:hover,
-.flatpickr-day.inRange:hover {
-    background: $primary-700;
-    border-color: $primary-700;
+            &:hover {
+                background: $primary-700;
+                border-color: $primary-700;
+            }
+        }
+    }
 }
