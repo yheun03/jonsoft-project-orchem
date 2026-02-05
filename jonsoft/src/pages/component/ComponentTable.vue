@@ -12,12 +12,13 @@
                     v-model="keyword"
                     class="app__table-search"
                     type="text"
+                    name="temp-table-search"
                     placeholder="검색어를 입력하세요"
                     @keyup.enter="applySearch"
                 />
                 <div class="app__table-search-actions">
-                    <AppButton label="검색" variant="filled" color="primary-500" @click="applySearch" />
-                    <AppButton label="초기화" variant="text" textColor="black-2" @click="resetSearch" />
+                    <AppButton label="검색" name="temp-table-search-submit" variant="filled" color="primary-500" @click="applySearch" />
+                    <AppButton label="초기화" name="temp-table-search-reset" variant="text" textColor="black-2" @click="resetSearch" />
                 </div>
             </div>
         </div>

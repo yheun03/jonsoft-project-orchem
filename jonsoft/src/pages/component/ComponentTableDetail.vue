@@ -27,31 +27,31 @@
                     <tr>
                         <th>{{ t('components.tableDetail.fields.include') }}</th>
                         <td>
-                            <input v-model="form.include" type="checkbox" />
+                            <input v-model="form.include" name="temp-detail-include" type="checkbox" />
                         </td>
                     </tr>
                     <tr>
                         <th>{{ t('components.tableDetail.fields.order') }}</th>
                         <td>
-                            <input v-model.number="form.order" type="number" />
+                            <input v-model.number="form.order" name="temp-detail-order" type="number" />
                         </td>
                     </tr>
                     <tr>
                         <th>{{ t('components.tableDetail.fields.itemCode') }}</th>
                         <td>
-                            <input v-model="form.itemCode" type="text" />
+                            <input v-model="form.itemCode" name="temp-detail-item-code" type="text" />
                         </td>
                     </tr>
                     <tr>
                         <th>{{ t('components.tableDetail.fields.itemName') }}</th>
                         <td>
-                            <input v-model="form.itemName" type="text" />
+                            <input v-model="form.itemName" name="temp-detail-item-name" type="text" />
                         </td>
                     </tr>
                     <tr>
                         <th>{{ t('components.tableDetail.fields.result') }}</th>
                         <td>
-                            <select v-model="form.result">
+                            <select v-model="form.result" name="temp-detail-result">
                                 <option value="">{{ t('components.tableDetail.results.none') }}</option>
                                 <option value="적합">{{ t('components.tableDetail.results.pass') }}</option>
                                 <option value="부적합">{{ t('components.tableDetail.results.fail') }}</option>
@@ -61,13 +61,13 @@
                     <tr>
                         <th>{{ t('components.tableDetail.fields.value') }}</th>
                         <td>
-                            <input v-model="form.value" type="text" />
+                            <input v-model="form.value" name="temp-detail-value" type="text" />
                         </td>
                     </tr>
                     <tr>
                         <th>{{ t('components.tableDetail.fields.status') }}</th>
                         <td>
-                            <select v-model="form.status">
+                            <select v-model="form.status" name="temp-detail-status">
                                 <option value="default">{{ t('components.tableDetail.statuses.default') }}</option>
                                 <option value="success">{{ t('components.tableDetail.statuses.success') }}</option>
                                 <option value="error">{{ t('components.tableDetail.statuses.error') }}</option>
@@ -77,13 +77,13 @@
                     <tr>
                         <th>{{ t('components.tableDetail.fields.multiLeft') }}</th>
                         <td>
-                            <input v-model="form.multiInput.left" type="text" />
+                            <input v-model="form.multiInput.left" name="temp-detail-multi-left" type="text" />
                         </td>
                     </tr>
                     <tr>
                         <th>{{ t('components.tableDetail.fields.multiRight') }}</th>
                         <td>
-                            <input v-model="form.multiInput.right" type="text" />
+                            <input v-model="form.multiInput.right" name="temp-detail-multi-right" type="text" />
                         </td>
                     </tr>
                 </tbody>
@@ -91,18 +91,21 @@
             <div class="detail-actions">
                 <AppButton
                     :label="t('components.tableDetail.actions.back')"
+                    name="temp-detail-back"
                     variant="text"
                     textColor="black-2"
                     @click="goBack"
                 />
                 <AppButton
                     :label="t('components.tableDetail.actions.delete')"
+                    name="temp-detail-delete"
                     variant="border"
                     color="secondary-600"
                     @click="onDelete"
                 />
                 <AppButton
                     :label="t('components.tableDetail.actions.save')"
+                    name="temp-detail-save"
                     variant="filled"
                     color="primary-500"
                     @click="onSave"

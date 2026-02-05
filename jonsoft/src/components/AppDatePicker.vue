@@ -1,17 +1,21 @@
 <template>
     <input
         ref="inputRef"
-        :id="inputId"
+        :id="computedId"
+        :name="computedName"
         :class="['app__date-input', { 'app__date-input--disabled': disabled }]"
         :placeholder="placeholder"
         :disabled="disabled"
+        :aria-label="ariaLabel || undefined"
+        :aria-labelledby="ariaLabelledby || undefined"
+        :aria-describedby="ariaDescribedby || undefined"
         type="text"
         readonly
     />
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import flatpickr from 'flatpickr'
 import 'flatpickr/dist/flatpickr.css'
@@ -21,6 +25,10 @@ import { Vietnamese } from 'flatpickr/dist/l10n/vn.js'
 
 const props = defineProps({
     inputId: {
+        type: String,
+        default: ''
+    },
+    name: {
         type: String,
         default: ''
     },
@@ -44,6 +52,18 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false
+    },
+    ariaLabel: {
+        type: String,
+        default: ''
+    },
+    ariaLabelledby: {
+        type: String,
+        default: ''
+    },
+    ariaDescribedby: {
+        type: String,
+        default: ''
     }
 })
 
@@ -51,6 +71,10 @@ const emit = defineEmits(['update:modelValue'])
 const inputRef = ref(null)
 const picker = ref(null)
 const { locale } = useI18n()
+const fallbackId = `date-input-${Math.random().toString(36).slice(2, 9)}`
+
+const computedId = computed(() => props.inputId || fallbackId)
+const computedName = computed(() => props.name || computedId.value)
 
 const localeMap = {
     ko: Korean,

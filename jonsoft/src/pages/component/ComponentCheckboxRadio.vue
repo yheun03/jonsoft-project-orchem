@@ -8,10 +8,10 @@
         <div class="component__section-group">
             <h2 class="component__section-subtitle">체크박스</h2>
             <div class="component__section-row">
-                <AppCheckbox v-model="checkboxIconOnly" variant="icon" aria-label="아이콘 체크" />
-                <AppCheckbox v-model="checkboxLabel" variant="icon-label" label="라벨 체크" />
-                <AppCheckbox v-model="checkboxFilled" variant="filled" label="면 선택" />
-                <AppCheckbox v-model="checkboxFilledIcon" variant="filled-icon-text" label="면 선택 + 아이콘">
+                <AppCheckbox v-model="checkboxIconOnly" name="temp-check-icon" variant="icon" aria-label="아이콘 체크" />
+                <AppCheckbox v-model="checkboxLabel" name="temp-check-label" variant="icon-label" label="라벨 체크" />
+                <AppCheckbox v-model="checkboxFilled" name="temp-check-filled" variant="filled" label="면 선택" />
+                <AppCheckbox v-model="checkboxFilledIcon" name="temp-check-filled-icon" variant="filled-icon-text" label="면 선택 + 아이콘">
                     <template #icon>
                         <CalendarIcon />
                     </template>
@@ -22,10 +22,10 @@
         <div class="component__section-group">
             <h2 class="component__section-subtitle">라디오</h2>
             <div class="component__section-row">
-                <AppRadio v-model="radioValue" name="radio-basic" value="icon" variant="icon" aria-label="아이콘 라디오" />
-                <AppRadio v-model="radioValue" name="radio-basic" value="label" variant="icon-label" label="라벨 라디오" />
-                <AppRadio v-model="radioValue" name="radio-basic" value="filled" variant="filled" label="면 선택" />
-                <AppRadio v-model="radioValue" name="radio-basic" value="filled-icon" variant="filled-icon-text" label="면 선택 + 아이콘">
+                <AppRadio v-model="radioValue" name="temp-radio-basic" value="icon" variant="icon" aria-label="아이콘 라디오" />
+                <AppRadio v-model="radioValue" name="temp-radio-basic" value="label" variant="icon-label" label="라벨 라디오" />
+                <AppRadio v-model="radioValue" name="temp-radio-basic" value="filled" variant="filled" label="면 선택" />
+                <AppRadio v-model="radioValue" name="temp-radio-basic" value="filled-icon" variant="filled-icon-text" label="면 선택 + 아이콘">
                     <template #icon>
                         <ArrowIcon />
                     </template>
@@ -37,8 +37,8 @@
         <div class="component__section-group">
             <h2 class="component__section-subtitle">토글</h2>
             <div class="component__section-row">
-                <AppToggle v-model="toggleEnabled" label="알림" ariaLabel="알림 설정" />
-                <AppToggle label="자동 저장" ariaLabel="자동 저장" disabled />
+                <AppToggle v-model="toggleEnabled" name="temp-toggle-noti" label="알림" ariaLabel="알림 설정" />
+                <AppToggle name="temp-toggle-auto" label="자동 저장" ariaLabel="자동 저장" disabled />
             </div>
             <p class="component__section-hint">선택 값: {{ toggleEnabled ? 'ON' : 'OFF' }}</p>
         </div>
@@ -49,22 +49,23 @@
                 <span id="check-help" class="component__section-hint">작업 동의 체크</span>
                 <AppCheckbox
                     v-model="checkboxLabel"
+                    name="temp-check-props"
                     variant="icon-label"
                     label="동의"
                     ariaDescribedby="check-help"
                 />
-                <AppCheckbox v-model="checkboxFilled" variant="filled" label="비활성" disabled />
+                <AppCheckbox v-model="checkboxFilled" name="temp-check-disabled" variant="filled" label="비활성" disabled />
                 <span id="radio-help" class="component__section-hint">우선 순위 선택</span>
                 <AppRadio
                     v-model="radioValue"
-                    name="radio-props"
+                    name="temp-radio-props"
                     value="high"
                     label="높음"
                     ariaDescribedby="radio-help"
                 />
                 <AppRadio
                     v-model="radioValue"
-                    name="radio-props"
+                    name="temp-radio-props"
                     value="low"
                     label="낮음"
                     disabled

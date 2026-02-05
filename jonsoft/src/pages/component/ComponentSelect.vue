@@ -8,8 +8,18 @@
         <div class="component__section-group">
             <h2 class="component__section-subtitle">셀렉트</h2>
             <div class="component__section-row">
-                <AppSelect v-model="selectValue" :options="selectOptions" placeholder="작업 상태 선택" />
-                <AppSelect v-model="selectRole" :options="roleOptions" placeholder="역할 선택" />
+                <AppSelect
+                    v-model="selectValue"
+                    name="temp-select-status"
+                    :options="selectOptions"
+                    placeholder="작업 상태 선택"
+                />
+                <AppSelect
+                    v-model="selectRole"
+                    name="temp-select-role"
+                    :options="roleOptions"
+                    placeholder="역할 선택"
+                />
             </div>
             <p class="component__section-hint">선택 값: {{ selectValue }}</p>
         </div>
@@ -20,18 +30,21 @@
                 <span id="select-help" class="component__section-hint">진행 상태를 선택하세요.</span>
                 <AppSelect
                     v-model="selectValue"
+                    name="temp-select-state"
                     :options="selectOptions"
                     placeholder="상태 선택"
                     ariaDescribedby="select-help"
                 />
                 <AppSelect
                     v-model="selectRole"
+                    name="temp-select-disabled"
                     :options="roleOptions"
                     placeholder="비활성"
                     disabled
                 />
                 <AppSelect
                     v-model="customValue"
+                    name="temp-select-custom"
                     :options="customOptions"
                     labelKey="name"
                     valueKey="code"

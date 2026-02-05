@@ -14,6 +14,7 @@
                     </label>
                     <AppDatePicker
                         :input-id="'calendar-demo-single'"
+                        name="temp-calendar-single"
                         v-model="singleDate"
                         :placeholder="t('components.calendar.placeholderSingle')"
                     />
@@ -24,6 +25,7 @@
                     </label>
                     <AppDatePicker
                         :input-id="'calendar-demo-range'"
+                        name="temp-calendar-range"
                         v-model="rangeDate"
                         mode="range"
                         :placeholder="t('components.calendar.placeholderRange')"
@@ -35,6 +37,7 @@
                     </label>
                     <AppDatePicker
                         :input-id="'calendar-demo-multiple'"
+                        name="temp-calendar-multiple"
                         v-model="multipleDates"
                         mode="multiple"
                         :placeholder="t('components.calendar.placeholderMultiple')"

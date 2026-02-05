@@ -12,6 +12,7 @@
                     <label class="component__label" for="input-basic">기본 입력</label>
                     <input
                         id="input-basic"
+                        name="temp-input-basic"
                         class="component__input"
                         type="text"
                         placeholder="기본 입력"
@@ -23,6 +24,7 @@
                     <label class="component__label" for="input-disabled">비활성</label>
                     <input
                         id="input-disabled"
+                        name="temp-input-disabled"
                         class="component__input"
                         type="text"
                         placeholder="비활성"
@@ -35,6 +37,7 @@
                     <label class="component__label" for="input-error">오류 상태</label>
                     <input
                         id="input-error"
+                        name="temp-input-error"
                         class="component__input component__input--error"
                         type="text"
                         placeholder="오류 상태"
@@ -53,6 +56,7 @@
                     <label class="component__label" for="textarea-basic">기본 입력</label>
                     <textarea
                         id="textarea-basic"
+                        name="temp-textarea-basic"
                         class="component__textarea"
                         rows="4"
                         placeholder="내용을 입력하세요"
@@ -64,6 +68,7 @@
                     <label class="component__label" for="textarea-disabled">비활성</label>
                     <textarea
                         id="textarea-disabled"
+                        name="temp-textarea-disabled"
                         class="component__textarea"
                         rows="4"
                         placeholder="비활성"
@@ -82,6 +87,7 @@
                     <label class="component__label" for="input-required">필수 입력</label>
                     <input
                         id="input-required"
+                        name="temp-input-required"
                         class="component__input"
                         type="text"
                         placeholder="필수 입력"
@@ -94,6 +100,7 @@
                     <label class="component__label" for="input-readonly">읽기 전용</label>
                     <input
                         id="input-readonly"
+                        name="temp-input-readonly"
                         class="component__input"
                         type="text"
                         value="readonly"
@@ -106,6 +113,7 @@
                     <label class="component__label" for="textarea-count">최대 글자 수</label>
                     <textarea
                         id="textarea-count"
+                        name="temp-textarea-count"
                         class="component__textarea"
                         rows="3"
                         placeholder="100자 이내"
