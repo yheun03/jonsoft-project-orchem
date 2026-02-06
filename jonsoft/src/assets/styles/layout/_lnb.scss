@@ -1,5 +1,9 @@
 @use '../base/variables' as *;
 
+html {
+    font-size: 1px;
+}
+
 .layout__lnb {
     position: relative;
 

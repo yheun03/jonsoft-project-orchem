@@ -44,7 +44,7 @@ $typo-scale: (
     }
 
     font-family: map.get($font-family, $family);
-    font-size: map.get($t, size) * 1px;
+    font-size: map.get($t, size) * 1rem;
     line-height: map.get($t, line) * 1px;
     font-weight: $resolved-weight;
 }
