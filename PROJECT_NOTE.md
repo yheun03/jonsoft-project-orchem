@@ -9,7 +9,6 @@
 - `Sass (SCSS)`
 - `AG Grid Community` / `ag-grid-vue3` (그리드/테이블)
 - `Chart.js` (차트)
-- `jqwidgets-scripts` (UI 위젯)
 - `marked` (Markdown 렌더링)
 - `flatpickr` (캘린더/데이트피커)
 
@@ -23,11 +22,11 @@
 - `ag-grid-community`: `^35.0.1`
 - `ag-grid-vue3`: `^35.0.1`
 - `chart.js`: `^4.5.1`
-- `jqwidgets-scripts`: `^25.0.0`
 - `marked`: `^17.0.1`
 - `flatpickr`: `^4.6.13`
 
 ## 자체 수정 버전
+- `v0.1.9` (2026-02-05): 테마 토큰 구조 분리(theme/orchem) 및 SCSS 중첩 정리
 - `v0.1.8` (2026-02-05): 후이즈 `.htaccess` 리라이트 설정 반영 및 문서화
 - `v0.1.7` (2026-02-05): 프로젝트 노트 내용 개선 및 레이아웃 사용법 정리
 - `v0.1.6` (2026-02-05): 프로젝트 노트 페이지/마크다운 렌더링 및 국제화 문서화
@@ -50,15 +49,17 @@
 - Markdown 원문 로딩: `import note from '@root/PROJECT_NOTE.md?raw'`
 - 폰트 경로: `@/assets/fonts` (Pretendard, NanumSquare)
 - 타이포 믹스인: `@include font(token, weight?, family?)`
-- 디자인 토큰: `primary/secondary/state/black/factory/factory-bg` 팔레트 최신화
+- 테마 토큰: `src/assets/styles/theme/{company}`에 색상/폰트/라운드/그림자/테두리/간격 정의
+- 테마 연결: `src/assets/styles/base/_variables.scss`에서 활성 테마를 `@forward`
 
 ## 폴더 구조
 - `src/router`: 라우터 설정
 - `src/pages`: 라우팅 화면 컴포넌트
 - `src/layouts`: 공통 레이아웃
 - `src/components`: 공통/레이아웃 UI
-- `src/styles/base`: 리셋/토큰/믹스인
-- `src/styles/components`: 공통 UI 스타일
+- `src/assets/styles/base`: 리셋/토큰/믹스인
+- `src/assets/styles/components`: 공통 UI 스타일
+- `src/assets/styles/theme`: 회사별 테마 토큰
 
 ## 네이밍 규칙
 - 레이아웃: `layout__*` (예: `layout__lnb`, `layout__gnb`)
@@ -71,7 +72,7 @@
 - `.control__lnb` 클릭 시 `layout__lnb-active ↔ layout__lnb-closed`로 토글됨
 - `layout__lnb-active`: LNB 열림 상태 클래스
 - `layout__lnb-closed`: LNB 닫힘 상태 클래스 (compact/hidden 공통)
-- `hidden` 모드: LNB는 `translate`로 숨김 (폭은 유지)
+- `hidden` 모드: LNB 폭 0 유지 + 컨테이너를 왼쪽으로 이동하여 숨김
 - `compact` 모드: LNB 폭을 축소해서 공간만 유지
 - `layout__lnb-closed` 상태에서는 LNB 내 링크/토글 동작이 비활성화됨
 - LNB 상태 클래스는 `layout__*`로 통일

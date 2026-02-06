@@ -45,7 +45,7 @@
     &__lnb-closed {
         --lnb-width: 60px;
         &.layout__lnb-hidden{
-            --lnb-width: 10px;
+            --lnb-width: 0px;
         }
     }
 
