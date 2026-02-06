@@ -1,125 +1,128 @@
 <template>
-    <div class="layout__lnb-header">
-        <div class="layout__lnb-header-inner">
-            <div class="app__date">
-                <i class="app__icon app__icon-ic-calendar">
-                    <iconCalendar />
-                </i>
-                <span class="app__date-day">{{ today }}</span>
-            </div>
-            <AppTab :tabs="tabs" />
-            <div class="layout__lnb-header-actions">
-                <AppButton
-                    class="app__lnb-toggle control__lnb"
-                    appearance="border"
-                    layout="icon"
-                    color="white"
-                    :ariaLabel="t('lnb.close')"
-                >
-                    <template #icon>
-                        <iconArrowBottom />
-                    </template>
-                </AppButton>
+    <div class="layout__lnb-header-actions">
+        <AppButton
+            class="app__lnb-toggle control__lnb"
+            appearance="border"
+            layout="icon"
+            color="white"
+            :ariaLabel="t('lnb.close')"
+        >
+            <template #icon>
+                <iconArrowBottom />
+            </template>
+        </AppButton>
+    </div>
+    <div class="layout__lnb-container stat-visible">
+        <div class="layout__lnb-header">
+            <div class="layout__lnb-header-inner">
+                <div class="app__date">
+                    <i class="app__icon app__icon-ic-calendar">
+                        <iconCalendar />
+                    </i>
+                    <span class="app__date-day">{{ today }}</span>
+                </div>
+                <AppTab :tabs="tabs" />
             </div>
         </div>
-    </div>
-    <div class="layout__lnb-content">
-        <nav class="app__menu">
-            <ul class="app__menu-list">
-                <li v-for="item in navTree" :key="item.id" class="app__menu-item">
-                    <button
-                        v-if="isToggleItem(item)"
-                        type="button"
-                        class="app__menu-link app__menu-link--parent"
-                        :aria-expanded="isOpen(item.id)"
-                        @click="toggleOpen(item.id)"
-                    >
-                        <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
-                            <component :is="iconMap[item.icon]" />
-                        </i>
-                        <p class="app__menu-label">{{ resolveTitle(item) }}</p>
-                        <i class="app__icon app__icon-ic-arrow-bottom">
-                            <iconArrowBottom />
-                        </i>
-                    </button>
-                    <component
-                        v-else
-                        :is="item.to ? RouterLink : (item.href ? 'a' : 'span')"
-                        :class="['app__menu-link', { 'app__menu-active': isActiveItem(item) }]"
-                        :to="item.to"
-                        :href="item.href"
-                        :target="item.href ? '_blank' : undefined"
-                        :rel="item.href ? 'noreferrer' : undefined"
-                    >
-                        <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
-                            <component :is="iconMap[item.icon]" />
-                        </i>
-                        <p class="app__menu-label">{{ resolveTitle(item) }}</p>
-                    </component>
-                    <ul
-                        v-if="item.children?.length"
-                        class="app__menu-list app__menu-list--depth-2 app__menu-children"
-                        :class="{ 'app__menu-children--open': isOpen(item.id) }"
-                        :aria-hidden="!isOpen(item.id)"
-                    >
-                        <li v-for="child in item.children" :key="child.id" class="app__menu-item">
-                            <button
-                                v-if="isToggleItem(child)"
-                                type="button"
-                                class="app__menu-link app__menu-link--parent"
-                                :aria-expanded="isOpen(child.id)"
-                                @click="toggleOpen(child.id)"
-                            >
-                                <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
-                                    <component :is="iconMap[child.icon]" />
-                                </i>
-                                <p class="app__menu-label">{{ resolveTitle(child) }}</p>
-                                <i class="app__icon app__icon-ic-arrow-bottom">
-                                    <iconArrowBottom />
-                                </i>
-                            </button>
-                            <component
-                                v-else
-                                :is="child.to ? RouterLink : (child.href ? 'a' : 'span')"
-                                :class="['app__menu-link', { 'app__menu-active': isActiveItem(child) }]"
-                                :to="child.to"
-                                :href="child.href"
-                                :target="child.href ? '_blank' : undefined"
-                                :rel="child.href ? 'noreferrer' : undefined"
-                            >
-                                <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
-                                    <component :is="iconMap[child.icon]" />
-                                </i>
-                                <p class="app__menu-label">{{ resolveTitle(child) }}</p>
-                            </component>
-                            <ul
-                                v-if="child.children?.length"
-                                class="app__menu-list app__menu-list--depth-3 app__menu-children"
-                                :class="{ 'app__menu-children--open': isOpen(child.id) }"
-                                :aria-hidden="!isOpen(child.id)"
-                            >
-                                <li v-for="leaf in child.children" :key="leaf.id" class="app__menu-item">
-                                    <component
-                                        :is="leaf.to ? RouterLink : (leaf.href ? 'a' : 'span')"
-                                        :class="['app__menu-link', { 'app__menu-active': isActiveItem(leaf) }]"
-                                        :to="leaf.to"
-                                        :href="leaf.href"
-                                        :target="leaf.href ? '_blank' : undefined"
-                                        :rel="leaf.href ? 'noreferrer' : undefined"
-                                    >
-                                    <i v-if="leaf.icon" :class="['app__icon', `app__icon-${leaf.icon}`]">
-                                        <component :is="iconMap[leaf.icon]" />
+        <div class="layout__lnb-content">
+            <nav class="app__menu">
+                <ul class="app__menu-list">
+                    <li v-for="item in navTree" :key="item.id" class="app__menu-item">
+                        <button
+                            v-if="isToggleItem(item)"
+                            type="button"
+                            class="app__menu-link app__menu-link--parent"
+                            :aria-expanded="isOpen(item.id)"
+                            @click="toggleOpen(item.id)"
+                        >
+                            <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
+                                <component :is="iconMap[item.icon]" />
+                            </i>
+                            <p class="app__menu-label">{{ resolveTitle(item) }}</p>
+                            <i class="app__icon app__icon-ic-arrow-bottom">
+                                <iconArrowBottom />
+                            </i>
+                        </button>
+                        <component
+                            v-else
+                            :is="item.to ? RouterLink : (item.href ? 'a' : 'span')"
+                            :class="['app__menu-link', { 'app__menu-active': isActiveItem(item) }]"
+                            :to="item.to"
+                            :href="item.href"
+                            :target="item.href ? '_blank' : undefined"
+                            :rel="item.href ? 'noreferrer' : undefined"
+                        >
+                            <i v-if="item.icon" :class="['app__icon', `app__icon-${item.icon}`]">
+                                <component :is="iconMap[item.icon]" />
+                            </i>
+                            <p class="app__menu-label">{{ resolveTitle(item) }}</p>
+                        </component>
+                        <ul
+                            v-if="item.children?.length"
+                            class="app__menu-list app__menu-list--depth-2 app__menu-children"
+                            :class="{ 'app__menu-children--open': isOpen(item.id) }"
+                            :aria-hidden="!isOpen(item.id)"
+                        >
+                            <li v-for="child in item.children" :key="child.id" class="app__menu-item">
+                                <button
+                                    v-if="isToggleItem(child)"
+                                    type="button"
+                                    class="app__menu-link app__menu-link--parent"
+                                    :aria-expanded="isOpen(child.id)"
+                                    @click="toggleOpen(child.id)"
+                                >
+                                    <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
+                                        <component :is="iconMap[child.icon]" />
                                     </i>
-                                        <p class="app__menu-label">{{ resolveTitle(leaf) }}</p>
-                                    </component>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+                                    <p class="app__menu-label">{{ resolveTitle(child) }}</p>
+                                    <i class="app__icon app__icon-ic-arrow-bottom">
+                                        <iconArrowBottom />
+                                    </i>
+                                </button>
+                                <component
+                                    v-else
+                                    :is="child.to ? RouterLink : (child.href ? 'a' : 'span')"
+                                    :class="['app__menu-link', { 'app__menu-active': isActiveItem(child) }]"
+                                    :to="child.to"
+                                    :href="child.href"
+                                    :target="child.href ? '_blank' : undefined"
+                                    :rel="child.href ? 'noreferrer' : undefined"
+                                >
+                                    <i v-if="child.icon" :class="['app__icon', `app__icon-${child.icon}`]">
+                                        <component :is="iconMap[child.icon]" />
+                                    </i>
+                                    <p class="app__menu-label">{{ resolveTitle(child) }}</p>
+                                </component>
+                                <ul
+                                    v-if="child.children?.length"
+                                    class="app__menu-list app__menu-list--depth-3 app__menu-children"
+                                    :class="{ 'app__menu-children--open': isOpen(child.id) }"
+                                    :aria-hidden="!isOpen(child.id)"
+                                >
+                                    <li v-for="leaf in child.children" :key="leaf.id" class="app__menu-item">
+                                        <component
+                                            :is="leaf.to ? RouterLink : (leaf.href ? 'a' : 'span')"
+                                            :class="['app__menu-link', { 'app__menu-active': isActiveItem(leaf) }]"
+                                            :to="leaf.to"
+                                            :href="leaf.href"
+                                            :target="leaf.href ? '_blank' : undefined"
+                                            :rel="leaf.href ? 'noreferrer' : undefined"
+                                        >
+                                        <i v-if="leaf.icon" :class="['app__icon', `app__icon-${leaf.icon}`]">
+                                            <component :is="iconMap[leaf.icon]" />
+                                        </i>
+                                            <p class="app__menu-label">{{ resolveTitle(leaf) }}</p>
+                                        </component>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
+    <!-- <div class="layout__lnb-container stat-hidden"></div> -->
 </template>
 
 <script setup>

@@ -48,16 +48,15 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    // 확장 스케폴딩: 필요 시 아래 옵션을 복구해서 사용
-    // gnbFull: { type: Boolean, default: false },
-    // paginationFull: { type: Boolean, default: false },
-    // showPageTabs: { type: Boolean, default: true },
-    // hasLnb: { type: Boolean, default: true },
-    // lnbToggleMode: {
-    //     type: String,
-    //     default: 'compact',
-    //     validator: (value) => ['compact', 'hidden'].includes(value),
-    // },
+    hasLnb: { type: Boolean, default: true },
+    lnbToggleMode: {
+        type: String,
+        default: 'hidden',
+        validator: (value) => ['compact', 'hidden'].includes(value),
+    },
+    gnbFull: { type: Boolean, default: false },
+    paginationFull: { type: Boolean, default: false },
+    showPageTabs: { type: Boolean, default: true },
 })
 
 const lnbActive = ref(true)
@@ -79,12 +78,11 @@ const layoutClass = computed(() => ({
     layout: true,
     'layout__lnb-active': lnbActive.value,
     'layout__lnb-closed': !lnbActive.value,
-    // 확장 스케폴딩
-    // 'layout__gnb-full': props.gnbFull,
-    // 'layout__pagination-full': props.paginationFull,
-    // 'layout__lnb-none': !props.hasLnb,
-    // 'layout__lnb-compact': props.hasLnb && props.lnbToggleMode === 'compact',
-    // 'layout__lnb-hidden': props.hasLnb && props.lnbToggleMode === 'hidden',
+    'layout__lnb-compact': props.hasLnb && props.lnbToggleMode === 'compact',
+    'layout__lnb-hidden': props.hasLnb && props.lnbToggleMode === 'hidden',
+    'layout__lnb-none': !props.hasLnb,
+    'layout__gnb-full': props.gnbFull,
+    'layout__pagination-full': props.paginationFull,
 }))
 
 const layoutStyle = computed(() => ({
