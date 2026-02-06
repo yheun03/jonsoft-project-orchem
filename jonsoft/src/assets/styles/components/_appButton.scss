@@ -98,15 +98,15 @@ $app-button-colors: (
         display: inline-flex;
         align-items: center;
     }
-}
 
-@each $name, $value in $app-button-colors {
-    .app__button--color-#{$name} {
-        --app-button-bg: #{$value};
-        border-color: #{$value};
-    }
+    @each $name, $value in $app-button-colors {
+        &--color-#{$name} {
+            --app-button-bg: #{$value};
+            border-color: #{$value};
+        }
 
-    .app__button--text-#{$name} {
-        --app-button-text: #{$value};
+        &--text-#{$name} {
+            --app-button-text: #{$value};
+        }
     }
 }

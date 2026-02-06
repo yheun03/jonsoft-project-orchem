@@ -87,9 +87,7 @@
         @include font(b4, semibold);
         color: $black-1;
     }
-}
 
-.app__check {
     &--checked &-control {
         background: $primary-500;
         border-color: $primary-500;

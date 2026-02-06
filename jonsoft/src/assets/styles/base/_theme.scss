@@ -1,319 +1,339 @@
 @use './variables' as *;
 
-:root.theme--light {
-    color-scheme: light;
-}
-
-:root.theme--dark {
-    --scrollbar-track: #{rgba($primary-700-dark, 0.35)};
-    --scrollbar-thumb: #{rgba($primary-300-dark, 0.65)};
-    --scrollbar-thumb-hover: #{rgba($primary-100-dark, 0.8)};
-
-    color-scheme: dark;
-}
-
-:root.theme--dark {
-    .layout {
-        background: $white-dark;
+:root {
+    &.theme--light {
+        color-scheme: light;
     }
 
-    .layout__content {
-        background: $white-dark;
-        color: $black-0-dark;
-    }
+    &.theme--dark {
+        --scrollbar-track: #{rgba($primary-700-dark, 0.35)};
+        --scrollbar-thumb: #{rgba($primary-300-dark, 0.65)};
+        --scrollbar-thumb-hover: #{rgba($primary-100-dark, 0.8)};
 
-    .layout__header {
-        background-color: $black-5-dark;
-    }
+        color-scheme: dark;
 
-    .layout__header-logo-text {
-        color: $primary-300-dark;
-    }
+        .layout {
+            background: $white-dark;
 
-    .layout__header-account-name {
-        color: $black-0-dark;
-    }
+            &__content {
+                background: $white-dark;
+                color: $black-0-dark;
+            }
 
-    .layout__lnb {
-        background: palette-dark("gradient", "primary");
-    }
+            &__header {
+                background-color: $black-5-dark;
 
-    .app__menu::before {
-        background: $primary-100-dark;
-    }
+                &-logo-text {
+                    color: $primary-300-dark;
+                }
 
-    .app__menu-link {
-        color: $black-0-dark;
-    }
+                &-account-name {
+                    color: $black-0-dark;
+                }
+            }
 
-    .app__menu-link:hover,
-    .app__menu-link:active,
-    .app__menu-link.app__menu-active {
-        background: $black-4-dark;
-        color: $primary-100-dark;
-
-        .app__icon path {
-            fill: $primary-100-dark;
+            &__lnb {
+                background: palette-dark("gradient", "primary");
+            }
         }
-    }
 
-    .app__date-day {
-        color: $black-0-dark;
-    }
+        .app__menu {
+            &::before {
+                background: $primary-100-dark;
+            }
 
-    .app__tab-list {
-        background-color: $primary-700-dark;
-    }
+            &-link {
+                color: $black-0-dark;
 
-    .app__tab-item {
-        color: $black-0-dark;
-    }
+                &:hover,
+                &:active,
+                &.app__menu-active {
+                    background: $black-4-dark;
+                    color: $primary-100-dark;
 
-    .app__tab-item-active {
-        background-color: $black-5-dark;
-        color: $primary-100-dark;
-    }
+                    .app__icon path {
+                        fill: $primary-100-dark;
+                    }
+                }
+            }
+        }
 
-    .app__page-tabs {
-        background: $black-5-dark;
-        border-bottom-color: $black-3-dark;
-    }
+        .app__date {
+            &-day {
+                color: $black-0-dark;
+            }
+        }
 
-    .app__page-tab {
-        background: $black-4-dark;
-        border-color: $black-3-dark;
-        color: $black-1-dark;
-    }
+        .app__tab {
+            &-list {
+                background-color: $primary-700-dark;
+            }
 
-    .app__page-tab:hover {
-        background: $black-5-dark;
-        border-color: $primary-300-dark;
-    }
+            &-item {
+                color: $black-0-dark;
 
-    .app__page-tab--active {
-        background: $primary-100-dark;
-        border-color: $primary-300-dark;
-        color: $primary-800-dark;
-    }
+                &-active {
+                    background-color: $black-5-dark;
+                    color: $primary-100-dark;
+                }
+            }
+        }
 
-    .app__page-tab-close {
-        color: $black-2-dark;
-    }
+        .app__page {
+            &-tabs {
+                background: $black-5-dark;
+                border-bottom-color: $black-3-dark;
+            }
 
-    .app__page-tab-close:hover {
-        background: rgba(0, 0, 0, 0.2);
-    }
+            &-tab {
+                background: $black-4-dark;
+                border-color: $black-3-dark;
+                color: $black-1-dark;
 
-    .component__section-title,
-    .component__section-subtitle,
-    .component__section-hint,
-    .font-system__title,
-    .font-system__section-title,
-    .settings__title,
-    .settings__label {
-        color: $black-0-dark;
-    }
+                &:hover {
+                    background: $black-5-dark;
+                    border-color: $primary-300-dark;
+                }
 
-    .component__section-desc,
-    .font-system__desc,
-    .settings__desc,
-    .component__helper {
-        color: $black-2-dark;
-    }
+                &--active {
+                    background: $primary-100-dark;
+                    border-color: $primary-300-dark;
+                    color: $primary-800-dark;
+                }
 
-    .font-system__section {
-        background: $black-5-dark;
-        box-shadow: $shadow-font-section-dark;
-    }
+                &-close {
+                    color: $black-2-dark;
 
-    .font-system__divider {
-        background: $black-4-dark;
-    }
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
 
-    .component__input,
-    .component__textarea {
-        background: $black-5-dark;
-        border-color: $black-3-dark;
-        color: $black-0-dark;
-    }
+        .component__section-title,
+        .component__section-subtitle,
+        .component__section-hint,
+        .font-system__title,
+        .font-system__section-title,
+        .settings__title,
+        .settings__label {
+            color: $black-0-dark;
+        }
 
-    .component__input:focus,
-    .component__textarea:focus {
-        border-color: $primary-300-dark;
-        box-shadow: $shadow-focus-soft-dark;
-    }
+        .component__section-desc,
+        .font-system__desc,
+        .settings__desc,
+        .component__helper {
+            color: $black-2-dark;
+        }
 
-    .component__input:disabled,
-    .component__textarea:disabled {
-        background: $black-4-dark;
-        color: $black-2-dark;
-        border-color: $black-3-dark;
-    }
+        .font-system {
+            &__section {
+                background: $black-5-dark;
+                box-shadow: $shadow-font-section-dark;
+            }
 
-    .app__select-opener {
-        background: $black-5-dark;
-        border-color: $black-3-dark;
-        color: $black-0-dark;
-    }
+            &__divider {
+                background: $black-4-dark;
+            }
+        }
 
-    .app__select-opener:disabled {
-        background: $black-4-dark;
-        color: $black-2-dark;
-    }
+        .component {
+            &__input,
+            &__textarea {
+                background: $black-5-dark;
+                border-color: $black-3-dark;
+                color: $black-0-dark;
 
-    .app__select-list {
-        background: $black-5-dark;
-        border-color: $black-3-dark;
-        box-shadow: $shadow-dropdown-dark;
-    }
+                &:focus {
+                    border-color: $primary-300-dark;
+                    box-shadow: $shadow-focus-soft-dark;
+                }
 
-    .app__select-option {
-        color: $black-1-dark;
-    }
+                &:disabled {
+                    background: $black-4-dark;
+                    color: $black-2-dark;
+                    border-color: $black-3-dark;
+                }
+            }
+        }
 
-    .app__select-option:hover,
-    .app__select-option[aria-selected='true'] {
-        background: rgba($primary-100-dark, 0.2);
-        color: $primary-100-dark;
-    }
+        .app__select {
+            &-opener {
+                background: $black-5-dark;
+                border-color: $black-3-dark;
+                color: $black-0-dark;
 
-    .app__toggle-track {
-        background: $black-4-dark;
-    }
+                &:disabled {
+                    background: $black-4-dark;
+                    color: $black-2-dark;
+                }
+            }
 
-    .app__toggle-thumb {
-        background: $black-0-dark;
-        box-shadow: $shadow-toggle-thumb-dark;
-    }
+            &-list {
+                background: $black-5-dark;
+                border-color: $black-3-dark;
+                box-shadow: $shadow-dropdown-dark;
+            }
 
-    .app__toggle-label {
-        color: $black-1-dark;
-    }
+            &-option {
+                color: $black-1-dark;
 
-    .app__check--filled,
-    .app__check--filled-icon-text {
-        background: $black-5-dark;
-    }
+                &:hover,
+                &[aria-selected='true'] {
+                    background: rgba($primary-100-dark, 0.2);
+                    color: $primary-100-dark;
+                }
+            }
+        }
 
-    .app__check--checked.app__check--filled,
-    .app__check--checked.app__check--filled-icon-text {
-        background: $primary-100-dark;
-    }
+        .app__toggle {
+            &-track {
+                background: $black-4-dark;
+            }
 
-    .app__check:hover:not(.app__check--disabled) {
-        background: $black-5-dark;
-    }
+            &-thumb {
+                background: $black-0-dark;
+                box-shadow: $shadow-toggle-thumb-dark;
+            }
 
-    .app__check:focus-within {
-        box-shadow: $shadow-focus-strong-dark;
-    }
+            &-label {
+                color: $black-1-dark;
+            }
+        }
 
-    .app__check-control {
-        border-color: $black-3-dark;
-        background: $black-5-dark;
-    }
+        .app__check {
+            &--filled,
+            &--filled-icon-text {
+                background: $black-5-dark;
+            }
 
-    .app__check-label {
-        color: $black-1-dark;
-    }
+            &--checked.app__check--filled,
+            &--checked.app__check--filled-icon-text {
+                background: $primary-100-dark;
+            }
 
-    .app__check--checked .app__check-control {
-        background: $primary-500-dark;
-        border-color: $primary-500-dark;
-    }
+            &:hover:not(.app__check--disabled) {
+                background: $black-5-dark;
+            }
 
-    .app__radio-control {
-        border-color: $black-3-dark;
-        background: $black-5-dark;
-    }
+            &:focus-within {
+                box-shadow: $shadow-focus-strong-dark;
+            }
 
-    .app__radio--filled,
-    .app__radio--filled-icon-text {
-        background: $black-5-dark;
-    }
+            &-control {
+                border-color: $black-3-dark;
+                background: $black-5-dark;
+            }
 
-    .app__radio--checked.app__radio--filled,
-    .app__radio--checked.app__radio--filled-icon-text {
-        background: $primary-100-dark;
-    }
+            &-label {
+                color: $black-1-dark;
+            }
 
-    .app__radio:hover:not(.app__radio--disabled) {
-        background: $black-5-dark;
-    }
+            &--checked &-control {
+                background: $primary-500-dark;
+                border-color: $primary-500-dark;
+            }
+        }
 
-    .app__radio:focus-within {
-        box-shadow: $shadow-focus-strong-dark;
-    }
+        .app__radio {
+            &-control {
+                border-color: $black-3-dark;
+                background: $black-5-dark;
+            }
 
-    .app__radio-label {
-        color: $black-1-dark;
-    }
+            &--filled,
+            &--filled-icon-text {
+                background: $black-5-dark;
+            }
 
-    .app__radio--checked .app__radio-control {
-        border-color: $primary-500-dark;
-    }
+            &--checked.app__check--filled,
+            &--checked.app__check--filled-icon-text {
+                background: $primary-100-dark;
+            }
 
-    .app__radio--checked .app__radio-control::after {
-        background: $primary-500-dark;
-    }
+            &:hover:not(.app__radio--disabled) {
+                background: $black-5-dark;
+            }
 
-    .app__progress-track {
-        background: $black-4-dark;
-    }
+            &:focus-within {
+                box-shadow: $shadow-focus-strong-dark;
+            }
 
-    .app__progress-bar {
-        background: $primary-500-dark;
-    }
+            &-label {
+                color: $black-1-dark;
+            }
 
-    .app__progress-label {
-        color: $black-1-dark;
-    }
+            &--checked &-control {
+                border-color: $primary-500-dark;
 
-    .app__modal-dim {
-        background: rgba(0, 0, 0, 0.6);
-    }
+                &::after {
+                    background: $primary-500-dark;
+                }
+            }
+        }
 
-    .app__modal {
-        background: $black-5-dark;
-        box-shadow: $shadow-modal-dark;
-    }
+        .app__progress {
+            &-track {
+                background: $black-4-dark;
+            }
 
-    .app__modal-title {
-        color: $black-0-dark;
-    }
+            &-bar {
+                background: $primary-500-dark;
+            }
 
-    .app__modal-message {
-        color: $black-1-dark;
-    }
+            &-label {
+                color: $black-1-dark;
+            }
+        }
 
-    .app__modal-close {
-        color: $black-2-dark;
-    }
+        .app__modal {
+            &-dim {
+                background: rgba(0, 0, 0, 0.6);
+            }
 
-    .app__modal-close:hover {
-        background: $black-4-dark;
-    }
+            background: $black-5-dark;
+            box-shadow: $shadow-modal-dark;
 
-    .app__modal-close:focus-visible {
-        outline-color: $primary-300-dark;
-    }
+            &-title {
+                color: $black-0-dark;
+            }
 
-    .app__chart {
-        background: $black-5-dark;
-        border-color: $black-3-dark;
-    }
+            &-message {
+                color: $black-1-dark;
+            }
 
-    .ag-theme-alpine {
-        --ag-background-color: #0f1114;
-        --ag-foreground-color: #f2f2f2;
-        --ag-header-background-color: #151b1f;
-        --ag-header-foreground-color: #e5e5e5;
-        --ag-odd-row-background-color: #12161a;
-        --ag-row-hover-color: #1a2026;
-        --ag-border-color: #2d343a;
-        --ag-row-border-color: #1f262c;
-        --ag-input-background-color: #1a1f23;
-        --ag-input-border-color: #2d343a;
-        --ag-control-panel-background-color: #151b1f;
+            &-close {
+                color: $black-2-dark;
+
+                &:hover {
+                    background: $black-4-dark;
+                }
+
+                &:focus-visible {
+                    outline-color: $primary-300-dark;
+                }
+            }
+        }
+
+        .app__chart {
+            background: $black-5-dark;
+            border-color: $black-3-dark;
+        }
+
+        .ag-theme-alpine {
+            --ag-background-color: #0f1114;
+            --ag-foreground-color: #f2f2f2;
+            --ag-header-background-color: #151b1f;
+            --ag-header-foreground-color: #e5e5e5;
+            --ag-odd-row-background-color: #12161a;
+            --ag-row-hover-color: #1a2026;
+            --ag-border-color: #2d343a;
+            --ag-row-border-color: #1f262c;
+            --ag-input-background-color: #1a1f23;
+            --ag-input-border-color: #2d343a;
+            --ag-control-panel-background-color: #151b1f;
+        }
     }
 }

@@ -75,9 +75,7 @@
         @include font(b4, semibold);
         color: $black-1;
     }
-}
 
-.app__radio {
     &--checked &-control {
         border-color: $primary-500;
 
