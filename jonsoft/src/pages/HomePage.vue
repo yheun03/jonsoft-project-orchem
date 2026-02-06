@@ -146,6 +146,7 @@
 .home__card li {
     margin: 6px 0;
     line-height: 1.5;
+    font-size: 16rem;
 }
 
 @media (max-width: 1024px) {

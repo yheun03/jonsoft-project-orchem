@@ -26,6 +26,7 @@ const renderedHtml = computed(() => marked.parse(projectNote))
     gap: 20px;
     max-width: 980px;
     margin: 0 auto;
+    font-size: 16rem;
 }
 
 .project-note__header {
