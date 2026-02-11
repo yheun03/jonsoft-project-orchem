@@ -10,11 +10,9 @@
             <div class="component__section-row">
                 <div class="component__field">
                     <label class="component__label" for="input-basic">기본 입력</label>
-                    <input
-                        id="input-basic"
+                    <AppInput
+                        input-id="input-basic"
                         name="temp-input-basic"
-                        class="component__input"
-                        type="text"
                         placeholder="기본 입력"
                         aria-describedby="input-basic-help"
                     />
@@ -22,11 +20,9 @@
                 </div>
                 <div class="component__field">
                     <label class="component__label" for="input-disabled">비활성</label>
-                    <input
-                        id="input-disabled"
+                    <AppInput
+                        input-id="input-disabled"
                         name="temp-input-disabled"
-                        class="component__input"
-                        type="text"
                         placeholder="비활성"
                         disabled
                         aria-describedby="input-disabled-help"
@@ -35,13 +31,11 @@
                 </div>
                 <div class="component__field">
                     <label class="component__label" for="input-error">오류 상태</label>
-                    <input
-                        id="input-error"
+                    <AppInput
+                        input-id="input-error"
                         name="temp-input-error"
-                        class="component__input component__input--error"
-                        type="text"
                         placeholder="오류 상태"
-                        aria-invalid="true"
+                        invalid
                         aria-describedby="input-error-help"
                     />
                     <p id="input-error-help" class="component__helper component__helper--error">필수 입력 항목입니다.</p>
@@ -54,27 +48,25 @@
             <div class="component__section-row">
                 <div class="component__field component__field--wide">
                     <label class="component__label" for="textarea-basic">기본 입력</label>
-                    <textarea
-                        id="textarea-basic"
+                    <AppTextarea
+                        textarea-id="textarea-basic"
                         name="temp-textarea-basic"
-                        class="component__textarea"
-                        rows="4"
+                        :rows="4"
                         placeholder="내용을 입력하세요"
                         aria-describedby="textarea-basic-help"
-                    ></textarea>
+                    />
                     <p id="textarea-basic-help" class="component__helper">최대 200자까지 입력할 수 있습니다.</p>
                 </div>
                 <div class="component__field component__field--wide">
                     <label class="component__label" for="textarea-disabled">비활성</label>
-                    <textarea
-                        id="textarea-disabled"
+                    <AppTextarea
+                        textarea-id="textarea-disabled"
                         name="temp-textarea-disabled"
-                        class="component__textarea"
-                        rows="4"
+                        :rows="4"
                         placeholder="비활성"
                         disabled
                         aria-describedby="textarea-disabled-help"
-                    ></textarea>
+                    />
                     <p id="textarea-disabled-help" class="component__helper">비활성 상태에서는 입력할 수 없습니다.</p>
                 </div>
             </div>
@@ -85,25 +77,20 @@
             <div class="component__section-row">
                 <div class="component__field">
                     <label class="component__label" for="input-required">필수 입력</label>
-                    <input
-                        id="input-required"
+                    <AppInput
+                        input-id="input-required"
                         name="temp-input-required"
-                        class="component__input"
-                        type="text"
                         placeholder="필수 입력"
-                        required
                         aria-describedby="input-required-help"
                     />
                     <p id="input-required-help" class="component__helper">필수 항목입니다.</p>
                 </div>
                 <div class="component__field">
                     <label class="component__label" for="input-readonly">읽기 전용</label>
-                    <input
-                        id="input-readonly"
+                    <AppInput
+                        input-id="input-readonly"
                         name="temp-input-readonly"
-                        class="component__input"
-                        type="text"
-                        value="readonly"
+                        model-value="readonly"
                         readonly
                         aria-describedby="input-readonly-help"
                     />
@@ -111,15 +98,14 @@
                 </div>
                 <div class="component__field component__field--wide">
                     <label class="component__label" for="textarea-count">최대 글자 수</label>
-                    <textarea
-                        id="textarea-count"
+                    <AppTextarea
+                        textarea-id="textarea-count"
                         name="temp-textarea-count"
-                        class="component__textarea"
-                        rows="3"
+                        :rows="3"
                         placeholder="100자 이내"
-                        maxlength="100"
+                        :maxlength="100"
                         aria-describedby="textarea-count-help"
-                    ></textarea>
+                    />
                     <p id="textarea-count-help" class="component__helper">최대 100자까지 입력됩니다.</p>
                 </div>
             </div>
@@ -128,14 +114,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import AppDatePicker from '@/components/AppDatePicker.vue'
+import AppInput from '@/components/AppInput.vue'
+import AppTextarea from '@/components/AppTextarea.vue'
 
 const { t } = useI18n()
-const singleDate = ref('')
-const rangeDate = ref([])
-const multipleDates = ref([])
 </script>
 
 <style lang="scss" scoped>
@@ -204,38 +187,5 @@ const multipleDates = ref([])
 
 .component__helper--error {
     color: $error;
-}
-
-.component__input,
-.component__textarea {
-    @include font(b4, medium);
-    padding: 10px 12px;
-    border: 1px solid $black-3;
-    border-radius: 8px;
-    background: $white;
-    color: $black-0;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.component__input:focus,
-.component__textarea:focus {
-    border-color: $primary-500;
-    box-shadow: 0 0 0 3px rgba($primary-300, 0.25);
-}
-
-.component__input:disabled,
-.component__textarea:disabled {
-    background: $black-5;
-    color: $black-2;
-    cursor: not-allowed;
-}
-
-.component__input--error {
-    border-color: $error;
-}
-
-.component__textarea {
-    resize: vertical;
 }
 </style>

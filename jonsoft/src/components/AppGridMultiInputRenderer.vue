@@ -1,24 +1,23 @@
 <template>
     <div class="app__grid-multi-input">
-        <input
-            class="app__grid-input"
-            type="text"
-            :value="currentValue.left"
-            @input="onLeftInput"
+        <AppInput
+            :model-value="currentValue.left"
+            size="compact"
             placeholder="값1"
+            @update:model-value="onLeftInput"
         />
-        <input
-            class="app__grid-input"
-            type="text"
-            :value="currentValue.right"
-            @input="onRightInput"
+        <AppInput
+            :model-value="currentValue.right"
+            size="compact"
             placeholder="값2"
+            @update:model-value="onRightInput"
         />
     </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import AppInput from '@/components/AppInput.vue'
 
 const props = defineProps({
     params: {
@@ -29,11 +28,11 @@ const props = defineProps({
 
 const currentValue = computed(() => props.params.value || { left: '', right: '' })
 
-const onLeftInput = (event) => {
-    props.params.setValue({ ...currentValue.value, left: event.target.value })
+const onLeftInput = (value) => {
+    props.params.setValue({ ...currentValue.value, left: value })
 }
 
-const onRightInput = (event) => {
-    props.params.setValue({ ...currentValue.value, right: event.target.value })
+const onRightInput = (value) => {
+    props.params.setValue({ ...currentValue.value, right: value })
 }
 </script>
