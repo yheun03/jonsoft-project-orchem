@@ -38,15 +38,12 @@
 
     &__content {
         grid-area: content;
-        padding: $space-32;
+        padding: 32px;
         overflow: auto;
     }
 
     &__lnb-closed {
         --lnb-width: 60px;
-        &.layout__lnb-hidden{
-            --lnb-width: 0px;
-        }
     }
 
     &__lnb-active {

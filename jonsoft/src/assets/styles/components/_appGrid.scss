@@ -10,19 +10,19 @@
     }
 
     .ag-root-wrapper {
-        border-radius: $radius-12;
+        border-radius: 12px;
         overflow: hidden;
-        border: $border-thin solid $black-3;
+        border: 1px solid $black-3;
     }
 
     .ag-header {
         background: $black-5;
         color: $black-1;
-        border-bottom: $border-thin solid $black-3;
+        border-bottom: 1px solid $black-3;
     }
 
     .ag-row {
-        border-bottom: $border-thin solid $black-4;
+        border-bottom: 1px solid $black-4;
 
         &.ag-row-selected {
             background: rgba($primary-100, 0.6);
@@ -57,9 +57,9 @@
     &-input {
         @include font(b5, medium);
         height: 28px;
-        padding: 0 $space-8;
-        border-radius: $radius-6;
-        border: $border-thin solid $black-3;
+        padding: 0 8px;
+        border-radius: 6px;
+        border: 1px solid $black-3;
         background: $white;
         color: $black-1;
         width: 100%;
