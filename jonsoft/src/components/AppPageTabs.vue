@@ -1,21 +1,12 @@
 <template>
-    <div class="app__page-tabs">
-        <button
-            v-for="tab in tabs"
-            :key="tab.path"
-            type="button"
-            class="app__page-tab"
-            :class="{ 'app__page-tab--active': tab.path === activePath }"
-            @click="moveTo(tab.path)"
-        >
+    <div class="app__page-tabs" role="tablist" aria-label="페이지 탭">
+        <button v-for="tab in tabs" :key="tab.path" type="button" class="app__page-tab"
+            :class="{ 'app__page-tab--active': tab.path === activePath }" role="tab"
+            :aria-selected="tab.path === activePath" @click="moveTo(tab.path)">
             <span class="app__page-tab-title">{{ tab.title }}</span>
-            <span
-                v-if="tabs.length > 1"
-                class="app__page-tab-close"
-                role="button"
-                aria-label="탭 닫기"
-                @click.stop="close(tab.path)"
-            >
+
+            <span v-if="tabs.length > 1" class="app__page-tab-close" role="button" aria-label="탭 닫기"
+                @click.stop="close(tab.path)">
                 ×
             </span>
         </button>
@@ -35,26 +26,17 @@ const tabs = computed(() => state.tabs)
 const activePath = computed(() => route.fullPath || route.path)
 
 const moveTo = (path) => {
-    if (path === activePath.value) {
-        return
-    }
+    if (path === activePath.value) return
     router.push(path)
 }
 
 const close = (path) => {
     const { index } = removeTab(path) || {}
-    if (index === undefined) {
-        return
-    }
-    if (path !== activePath.value) {
-        return
-    }
+    if (index === undefined) return
+    if (path !== activePath.value) return
+
     const next = tabs.value[index] || tabs.value[index - 1]
-    if (next) {
-        router.push(next.path)
-        return
-    }
-    router.push('/')
+    router.push(next ? next.path : '/')
 }
 
 onMounted(() => {

@@ -3,32 +3,17 @@
 .app__radio {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    cursor: pointer;
     position: relative;
+    cursor: pointer;
+
     padding: 6px 10px;
     border-radius: 999px;
+    gap: 8px;
 
-    &--disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
+    transition: 0.2s ease;
 
-    &--filled {
-        background: $black-5;
-    }
-
-    &--filled-icon-text {
-        background: $black-5;
-        gap: 10px;
-    }
-
-    &--checked.app__radio--filled,
-    &--checked.app__radio--filled-icon-text {
-        background: $primary-100;
-    }
-
-    &:hover:not(.app__radio--disabled) {
+    /* interaction */
+    &:hover:not(&--disabled) {
         background: $black-5;
     }
 
@@ -36,9 +21,40 @@
         box-shadow: 0 0 0 2px rgba($primary-300, 0.6);
     }
 
-    &:active:not(.app__radio--disabled) {
+    &:active:not(&--disabled) {
         transform: translateY(1px);
     }
+
+    /* =========================
+     Modifier
+  ========================== */
+
+    &--disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    &--filled,
+    &--filled-icon-text {
+        background: $black-5;
+    }
+
+    &--filled-icon-text {
+        gap: 10px;
+    }
+
+    /* checked + filled 계열 배경 */
+    &--checked {
+
+        &.app__radio--filled,
+        &.app__radio--filled-icon-text {
+            background: $primary-100;
+        }
+    }
+
+    /* =========================
+     Element
+  ========================== */
 
     &-input {
         position: absolute;
@@ -49,12 +65,14 @@
     &-control {
         width: 18px;
         height: 18px;
-        border-radius: 50%;
-        border: 1px solid $black-3;
-        background: $white;
+
         display: inline-flex;
         align-items: center;
         justify-content: center;
+
+        border-radius: 50%;
+        border: 1px solid $black-3;
+        background: $white;
         transition: 0.2s ease;
     }
 
@@ -75,9 +93,11 @@
         @include font(b4, semibold);
         color: $black-1;
     }
-}
 
-.app__radio {
+    /* =========================
+     State 기반 Element 변경
+  ========================== */
+
     &--checked &-control {
         border-color: $primary-500;
 

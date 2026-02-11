@@ -1,28 +1,83 @@
 @use '../base/variables' as *;
 
 .app__progress {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
 
+    /* =========================
+     Track
+  ========================== */
+
     &-track {
+        position: relative;
         width: 220px;
         height: 10px;
+
         border-radius: 999px;
         background: $black-4;
         overflow: hidden;
     }
 
+    /* =========================
+     Bar
+  ========================== */
+
     &-bar {
         height: 100%;
         background: $primary-500;
-        transition: width 0.2s ease;
+        border-radius: inherit;
+        transition: width 0.25s ease, background-color 0.2s ease;
     }
+
+    /* =========================
+     Label
+  ========================== */
 
     &-label {
         @include font(b5, medium);
         color: $black-1;
         min-width: 40px;
         text-align: right;
+    }
+
+    /* =========================
+     State Variants
+  ========================== */
+
+    &--success &-bar {
+        background: $success;
+    }
+
+    &--warning &-bar {
+        background: $warning;
+    }
+
+    &--error &-bar {
+        background: $error;
+    }
+
+    &--disabled {
+        opacity: 0.6;
+
+        .app__progress-bar {
+            background: $black-3;
+        }
+    }
+
+    /* =========================
+     Size Variants
+  ========================== */
+
+    &--sm &-track {
+        height: 6px;
+    }
+
+    &--md &-track {
+        height: 10px;
+    }
+
+    &--lg &-track {
+        height: 14px;
     }
 }

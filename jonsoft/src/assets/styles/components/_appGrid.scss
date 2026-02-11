@@ -5,14 +5,18 @@
     height: 420px;
     position: relative;
 
-    > div {
+    >div {
         height: 100%;
     }
 
+    /* =========================
+     AG Grid Theme Override
+  ========================== */
+
     .ag-root-wrapper {
+        border: 1px solid $black-3;
         border-radius: 12px;
         overflow: hidden;
-        border: 1px solid $black-3;
     }
 
     .ag-header {
@@ -31,11 +35,17 @@
 
     .ag-overlay {
         display: none;
+        /* 기본 overlay 숨기고, 커스텀 overlay 사용 */
     }
+
+    /* =========================
+     Overlay
+  ========================== */
 
     &-overlay {
         @include font(b4, medium);
         color: $black-2;
+
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -45,8 +55,8 @@
         &--forced {
             position: absolute;
             inset: 0;
-            background: $white;
             z-index: 3;
+            background: $white;
         }
     }
 
@@ -54,15 +64,43 @@
         font-size: 16px;
     }
 
+    /* =========================
+     Cell Editor Input
+  ========================== */
+
     &-input {
         @include font(b5, medium);
+
+        width: 100%;
         height: 28px;
         padding: 0 8px;
-        border-radius: 6px;
+
         border: 1px solid $black-3;
+        border-radius: 6px;
+
         background: $white;
         color: $black-1;
-        width: 100%;
+        outline: none;
+        transition: 0.2s ease;
+
+        &:focus-visible {
+            border-color: $primary-500;
+            box-shadow: 0 0 0 3px rgba($primary-300, 0.25);
+        }
+
+        &:focus {
+            border-color: $primary-500;
+            box-shadow: 0 0 0 3px rgba($primary-300, 0.25);
+        }
+
+        &:disabled,
+        &[aria-disabled='true'] {
+            background: $black-5;
+            color: $black-2;
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none;
+        }
     }
 
     &-multi-input {
@@ -73,6 +111,8 @@
 
         .app__grid-input {
             flex: 1;
+            min-width: 0;
+            /* flex overflow 방지 */
         }
     }
 }

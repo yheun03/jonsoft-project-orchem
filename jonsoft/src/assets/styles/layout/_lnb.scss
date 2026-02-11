@@ -1,5 +1,9 @@
 @use '../base/variables' as *;
 
+/* =========================================================
+   LNB Layout
+========================================================= */
+
 .layout__lnb {
     display: flex;
     flex-direction: column;
@@ -7,10 +11,13 @@
     position: relative;
 
     &-header {
+        position: relative;
+
         &-actions {
             position: absolute;
-            right: 0;
             top: 50px;
+            right: 0;
+
             .app__button {
                 position: relative;
                 left: 100%;
@@ -35,6 +42,7 @@
         z-index: 2;
     }
 
+    /* collapsed state */
     &-closed {
         .app__menu {
             padding: 0;
@@ -45,18 +53,23 @@
             padding: 0;
             justify-content: center;
 
-            & > *:not(.app__menu-icon) {
+            &>*:not(.app__menu-icon) {
                 display: none;
             }
         }
     }
 }
 
+/* =========================================================
+   Menu
+========================================================= */
+
 .app__menu {
     position: relative;
     padding-inline: 5px;
     padding-top: 14px;
 
+    /* 상단 구분선 */
     &::before {
         content: '';
         position: absolute;
@@ -65,9 +78,13 @@
         transform: translateX(-50%);
         width: 50px;
         height: 1.5px;
-        background: $primary-100;
         border-radius: 2px;
+        background: $primary-100;
     }
+
+    /* =========================
+     List
+  ========================== */
 
     &-list {
         display: flex;
@@ -81,57 +98,92 @@
                 margin-top: 10px;
             }
 
-            &:not(:has(.app__icon)) {
-                .app__menu-link {
-                    padding-left: 20px;
-                    @include font(b4);
-                    padding-block: 4px;
-                }
+            /* 아이콘 없는 하위 메뉴 대응 */
+            &:not(.app__menu-has-icon) .app__menu-link {
+                padding-left: 20px;
+                padding-block: 4px;
+                @include font(b4, medium);
             }
         }
     }
 
+    /* =========================
+     Link
+  ========================== */
+
     &-link {
-        @include font(b3);
-        border: unset;
-        background: unset;
-        color: $white;
-        width: 100%;
-        padding-block: 13px;
+        @include font(b3, medium);
+
         display: flex;
         align-items: center;
-        text-align: center;
         gap: 6px;
+
+        width: 100%;
+        padding-block: 13px;
+        border: 0;
         border-radius: 12px;
+
+        background: transparent;
+        color: $white;
+
         cursor: pointer;
         transition: 0.2s ease;
+        outline: none;
 
-        &:hover,
-        &:active,
+        /* hover */
+        &:hover:not(:disabled) {
+            background: $white;
+            color: $primary-800;
+
+            .app__icon path {
+                stroke: $primary-800;
+                fill: $primary-800;
+            }
+        }
+
+        /* active press */
+        &:active:not(:disabled) {
+            transform: translateY(1px);
+        }
+
+        /* focus */
+        &:focus-visible {
+            outline: 2px solid $primary-300;
+            outline-offset: 2px;
+        }
+
+        /* active state */
         &.app__menu-active {
             background: $white;
             color: $primary-800;
 
-            .app__icon {
-                path {
-                    stroke: $primary-800;
-                    fill: $primary-800;
-                }
+            .app__icon path {
+                stroke: $primary-800;
+                fill: $primary-800;
             }
         }
     }
 
     &-label {
-        text-align: center;
         flex: 1;
+        text-align: center;
     }
+
+    /* =========================
+     Children (accordion)
+  ========================== */
 
     &-children {
         max-height: 0;
         opacity: 0;
         transform: translateY(-4px);
         overflow: hidden;
-        transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
+
+        transition:
+            max-height 0.3s ease,
+            opacity 0.2s ease,
+            transform 0.2s ease;
+
         will-change: max-height;
 
         &--open {
@@ -141,10 +193,16 @@
         }
     }
 
+    /* parent arrow rotation */
     &-link--parent[aria-expanded='true'] .app__icon-ic-arrow-bottom {
         transform: rotate(180deg);
+        transition: transform 0.2s ease;
     }
 }
+
+/* =========================================================
+   Date (LNB top info)
+========================================================= */
 
 .app__date {
     display: flex;
@@ -155,7 +213,7 @@
     margin-bottom: 38px;
 
     &-day {
-        @include font(b3);
+        @include font(b3, medium);
         color: $white;
     }
 }

@@ -17,7 +17,7 @@
         opacity: 0;
         pointer-events: none;
 
-        &:checked + .app__toggle-track {
+        &:checked+.app__toggle-track {
             background: $primary-500;
 
             .app__toggle-thumb {
@@ -25,7 +25,7 @@
             }
         }
 
-        &:focus-visible + .app__toggle-track {
+        &:focus-visible+.app__toggle-track {
             outline: 2px solid $primary-300;
             outline-offset: 2px;
         }

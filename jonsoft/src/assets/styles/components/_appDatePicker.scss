@@ -1,36 +1,79 @@
 @use '../base/variables' as *;
 
+/* =========================================================
+   Date Input (Theme aligned)
+========================================================= */
+
 .app__date-input {
     @include font(b4, medium);
+
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid $black-3;
+
+    box-sizing: border-box;
     border-radius: 8px;
+    border: 1px solid $black-3;
+
     background: $white;
     color: $black-0;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box;
 
+    transition: 0.2s ease;
+    outline: none;
+
+    &::placeholder {
+        color: $black-2;
+    }
+
+    /* 버튼과 같은 결의 focus ring */
+    &:focus-visible {
+        border-color: $primary-500;
+        box-shadow: 0 0 0 3px rgba($primary-300, 0.25);
+    }
+
+    /* 일부 환경 fallback */
     &:focus {
         border-color: $primary-500;
         box-shadow: 0 0 0 3px rgba($primary-300, 0.25);
     }
 
+    /* 버튼 느낌의 hover/active */
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.app__date-input--disabled) {
+        filter: brightness(0.98);
+    }
+
+    &:active:not(:disabled):not([aria-disabled='true']):not(.app__date-input--disabled) {
+        filter: brightness(0.96);
+        transform: translateY(1px);
+    }
+
+    /* disabled: 케이스 다양하게 대응 */
+    &:disabled,
+    &[aria-disabled='true'],
     &--disabled {
         background: $black-5;
         color: $black-2;
         cursor: not-allowed;
+        opacity: 0.6;
+        box-shadow: none;
+        transform: none;
     }
 }
 
+/* =========================================================
+   Flatpickr Override (Theme aligned)
+========================================================= */
+
 .flatpickr {
+
+    /* 캘린더 컨테이너 */
     &-calendar {
         border-radius: 12px;
-        box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.4);
         border: 1px solid $black-4;
+        background: $white;
+        box-shadow: 0 12px 30px -18px rgba($black-0, 0.25);
     }
 
+    /* 월 헤더: 기존 스타일 유지 + 정렬만 */
     &-current-month {
         display: flex;
         flex-direction: row-reverse;
@@ -38,7 +81,24 @@
         gap: 8px;
     }
 
+    /* weekday 헤더 텍스트 톤 */
+    &-weekday {
+        color: $black-2;
+        font-weight: 600;
+    }
+
+    /* 날짜 셀 */
     &-day {
+        border-radius: 8px;
+        transition: 0.2s ease;
+
+        /* 기본 hover: 버튼 hover 결의(너무 진하지 않게) */
+        &:hover:not(.selected):not(.startRange):not(.endRange):not(.inRange) {
+            background: rgba($primary-300, 0.15);
+            border-color: transparent;
+        }
+
+        /* 주말 색상(기존 유지) */
         &.app__date-day--sunday {
             color: #ef4444;
         }
@@ -47,16 +107,34 @@
             color: #3b82f6;
         }
 
+        /* 선택/범위: primary + white */
         &.selected,
         &.startRange,
         &.endRange,
         &.inRange {
             background: $primary-500;
             border-color: $primary-500;
+            color: $white;
 
             &:hover {
                 background: $primary-700;
                 border-color: $primary-700;
+            }
+        }
+
+        /* 오늘 표시가 있는 테마를 쓰는 경우 대비 */
+        &.today:not(.selected):not(.startRange):not(.endRange):not(.inRange) {
+            border-color: $primary-300;
+        }
+
+        /* disabled 날짜(테마에 따라 class가 다를 수 있어 범용 처리) */
+        &.flatpickr-disabled,
+        &.disabled {
+            color: $black-3;
+            cursor: not-allowed;
+
+            &:hover {
+                background: transparent;
             }
         }
     }

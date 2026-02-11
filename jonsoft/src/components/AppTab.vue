@@ -13,7 +13,7 @@
                     :aria-selected="tab.key === activeKey"
                     :tabindex="tab.key === activeKey ? 0 : -1"
                     :disabled="tab.disabled"
-                    :class="{ 'app__tab-item-active': tab.key === activeKey }"
+                    :class="{ 'app__tab-item--active': tab.key === activeKey }"
                     @click="selectTab(tab)"
                 >
                     <span class="app__tab-item-label">{{ tab.label }}</span>

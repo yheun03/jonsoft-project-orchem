@@ -21,20 +21,7 @@ $app-button-colors: (
     'white': $white
 );
 
-.app__button {
-    @include font(btn2);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    background: var(--app-button-bg, $primary-500);
-    color: var(--app-button-text, $white);
-    cursor: pointer;
-    transition: 0.2s ease;
-
+@mixin app-button-interaction {
     &:focus-visible {
         outline: 2px solid $primary-300;
         outline-offset: 2px;
@@ -54,6 +41,30 @@ $app-button-colors: (
         opacity: 0.6;
         cursor: not-allowed;
     }
+}
+
+.app__button {
+    @include font(btn2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+
+    background: var(--app-button-bg, $primary-500);
+    color: var(--app-button-text, $white);
+
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    @include app-button-interaction;
+
+    /* =========================
+     Appearance
+  ========================== */
 
     &--appearance-text {
         background: transparent;
@@ -73,18 +84,24 @@ $app-button-colors: (
         color: var(--app-button-text, $primary-500);
     }
 
+    /* =========================
+     Layout
+  ========================== */
+
     &--layout-icon {
-        padding: 0;
         width: 36px;
         height: 36px;
+        padding: 0;
     }
+
+    /* =========================
+     Elements
+  ========================== */
 
     &-icon {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        // width: 18px;
-        // height: 18px;
 
         svg,
         img {
@@ -100,10 +117,13 @@ $app-button-colors: (
     }
 }
 
+/* =========================
+   CSS Vars by Modifier
+========================== */
+
 @each $name, $value in $app-button-colors {
     .app__button--color-#{$name} {
         --app-button-bg: #{$value};
-        border-color: #{$value};
     }
 
     .app__button--text-#{$name} {
