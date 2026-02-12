@@ -36,7 +36,7 @@
 import { computed, ref } from 'vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
-import AppModalHost from '@/components/AppModalHost.vue'
+import AppModalHost from '@/components/modals/AppModalHost.vue'
 import AppPageTabs from '@/components/AppPageTabs.vue'
 
 const props = defineProps({

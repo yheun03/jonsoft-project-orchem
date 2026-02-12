@@ -43,7 +43,7 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import AppGrid from '@/components/AppGrid.vue'
-import AppGridMultiInputRenderer from '@/components/AppGridMultiInputRenderer.vue'
+import AppGridMultiInputRenderer from '@/components/grids/AppGridMultiInputRenderer.vue'
 import AppButton from '@/components/AppButton.vue'
 import { tableRowsStore } from '@/data/tableStore'
 

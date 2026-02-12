@@ -75,6 +75,7 @@ const goBack = () => window.history.back()
 .not-found__desc {
     margin: 0 0 24px;
     line-height: 1.7;
+    font-size: 14rem;
     color: #64748b;
 }
 
