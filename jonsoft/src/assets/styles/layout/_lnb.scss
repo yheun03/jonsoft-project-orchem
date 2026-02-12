@@ -53,14 +53,13 @@
         .app__menu {
             padding: 0;
             pointer-events: none;
-        }
-
-        .app__menu-link {
-            padding: 0;
-            justify-content: center;
-
-            &>*:not(.app__menu-icon) {
-                display: none;
+            &-link {
+                padding: 0;
+                justify-content: center;
+    
+                &>*:not(.app__menu-icon) {
+                    display: none;
+                }
             }
         }
     }
