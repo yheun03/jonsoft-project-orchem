@@ -1,5 +1,9 @@
 @use "sass:map";
 
+html{
+    font-size: 1px;
+}
+
 // base/_fonts.scss
 $font-base: "Pretendard";
 $font-sub: "NanumSquare";
@@ -45,8 +49,8 @@ $typo-scale: (
     }
 
     font-family: map.get($font-family, $family);
-    font-size: map.get($t, size) * 1px;
-    line-height: map.get($t, line) * 1px;
+    font-size: map.get($t, size) * 1rem;
+    line-height: map.get($t, line) * 1rem;
     font-weight: $resolved-weight;
 }
 
