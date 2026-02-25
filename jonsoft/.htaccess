@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# 실제 파일/폴더는 그대로 제공
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 나머지는 SPA로
+RewriteRule . /framework/index.html [L]
