@@ -1,5 +1,5 @@
 <template>
-    <div class="layout__lnb-header-actions">
+    <!-- <div class="layout__lnb-header-actions">
         <AppButton
             class="app__lnb-toggle control__lnb"
             appearance="border"
@@ -11,7 +11,7 @@
                 <iconArrowBottom />
             </template>
         </AppButton>
-    </div>
+    </div> -->
     <div class="layout__lnb-container stat-visible">
         <div class="layout__lnb-header">
             <div class="layout__lnb-header-inner">

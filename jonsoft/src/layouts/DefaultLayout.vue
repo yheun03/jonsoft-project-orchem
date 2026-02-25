@@ -60,9 +60,9 @@ const props = defineProps({
 })
 
 const lnbActive = ref(true)
-const lnbWidth = ref(150)
-const minLnbWidth = 120
-const maxLnbWidth = 360
+const lnbWidth = ref(160)
+const minLnbWidth = 160
+const maxLnbWidth = 420
 
 const handleLnbControl = (event) => {
     const target = event.target

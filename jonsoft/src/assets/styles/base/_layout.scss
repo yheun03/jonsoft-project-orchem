@@ -4,7 +4,7 @@
     position: relative;
     display: grid;
     height: 100dvh;
-    --lnb-open-width: 150px;
+    --lnb-open-width: 160px;
     --lnb-width: var(--lnb-open-width);
     grid-template-columns: var(--lnb-width) 1fr;
     grid-template-rows: auto auto 1fr;
@@ -42,13 +42,15 @@
         overflow: auto;
     }
 
-    &__lnb-closed {
-        --lnb-width: 60px;
+    &__lnb{
+        &-closed {
+            --lnb-width: 60px;
+        }
+        &-active {
+            --lnb-width: var(--lnb-open-width);
+        }
     }
 
-    &__lnb-active {
-        --lnb-width: var(--lnb-open-width);
-    }
 }
 
 // 확장 스케폴딩: 필요 시 아래 스타일 블록 복구

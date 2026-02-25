@@ -15,31 +15,31 @@
                 </div>
 
                 <!-- ✅ 폰트 사이즈 컨트롤 -->
-        <AppButton
-          layout="icon"
-          appearance="border"
-          color="primary-800"
-          ariaLabel="글자 크기 줄이기"
-          @click="decreaseFont"
-        >
-          <template #icon>
-            <span aria-hidden="true" style="display:inline-block; width:24px; text-align:center;">−</span>
-          </template>
-        </AppButton>
+                <!-- <AppButton
+                  layout="icon"
+                  appearance="border"
+                  color="primary-800"
+                  ariaLabel="글자 크기 줄이기"
+                  @click="decreaseFont"
+                >
+                  <template #icon>
+                    <span aria-hidden="true" style="display:inline-block; width:24px; text-align:center;">−</span>
+                  </template>
+                </AppButton>
 
-        <AppButton
-          layout="icon"
-          appearance="border"
-          color="primary-800"
-          ariaLabel="글자 크기 키우기"
-          @click="increaseFont"
-        >
-          <template #icon>
-            <span aria-hidden="true" style="display:inline-block; width:24px; text-align:center;">+</span>
-          </template>
-        </AppButton>
+                <AppButton
+                  layout="icon"
+                  appearance="border"
+                  color="primary-800"
+                  ariaLabel="글자 크기 키우기"
+                  @click="increaseFont"
+                >
+                  <template #icon>
+                    <span aria-hidden="true" style="display:inline-block; width:24px; text-align:center;">+</span>
+                  </template>
+                </AppButton> -->
 
-                <RouterLink to="/settings" aria-label="settings">
+                <!-- <RouterLink to="/settings" aria-label="settings">
                     <AppButton layout="icon" appearance="border" color="primary-800" :ariaLabel="t('settings.title')">
                         <template #icon>
                             <IconSetting />
@@ -50,7 +50,7 @@
                     <template #icon>
                         <IconLogout />
                     </template>
-                </AppButton>
+                </AppButton> -->
             </div>
         </div>
     </div>
