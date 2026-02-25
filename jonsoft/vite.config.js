@@ -5,8 +5,7 @@ import svgLoader from 'vite-svg-loader'
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: '/framework',
-    // base: './',
+    base: '/jonsoft-project-orchem/',
     plugins: [vue(), svgLoader()],
     server: {
         fs: {
